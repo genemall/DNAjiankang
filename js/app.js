@@ -2,11 +2,9 @@
  * 创建总的入口模块：xmStoreApp，它依赖其它所有模块
  */
 
-var xmStoreApp = angular.module('xmStoreApp',
+var dnaStore = angular.module('dnaStore',
     [
         'home',
-        'login',
-        'register',
         'cart',
         'buyNow',
         'search',
@@ -24,7 +22,7 @@ var xmStoreApp = angular.module('xmStoreApp',
         'breadcrumbsMd'
     ]
 );
-xmStoreApp
+dnaStore
     .config(['$stateProvider', '$urlRouterProvider',
         function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider
@@ -64,33 +62,6 @@ xmStoreApp
             $rootScope.filterContents = data.filterContents;
         });
 
-        //根据分类表的数据构造一个合设的分类数组
-        httpService.get('json/fenlei.json').then(function (data) {
-            var arr = [];
-            var arr2 = [];
-            for (var i = 0; i < data.fenleiheshe.length; i++) {
-                var ulListTmp = [];
-                angular.forEach(data.fenlei, function (obj, index) {
-                    if (data.fenleiheshe[i].text.indexOf(obj.text) != -1) {
-                        ulListTmp.push(obj);
-                    }
-                })
-                arr.push(ulListTmp);
-            }
-            angular.forEach(arr, function (item, index) {
-                var objTmp = {id: '', text: ''};
-                var idArr = [];
-                var textArr = [];
-                angular.forEach(item, function (obj, index) {
-                    idArr.push(obj.id);
-                    textArr.push(obj.text);
-                })
-                objTmp.id = '$' + idArr.join('$') + '$';
-                objTmp.text = textArr.join(" ");
-                arr2.push(objTmp);
-            })
-            $rootScope.ulItemsHeShe = arr2;
-        });
 
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {

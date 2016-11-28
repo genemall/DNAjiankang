@@ -1,17 +1,4 @@
 
-/*首页content*/
-/*leftArea:左边导航栏信息样式*/
-.home_content{
-    margin-top: 1px;
-    width: 100%;
-}
-.content_left{
-    width: 234px;
-    background: rgba(0,0,0,0.6);
-    font-size: 14px;
-    position: relative;
-}
-
 /*rightArea:右边焦点图样式*/
 .rightFocusImg {
     height: 460px;
@@ -58,51 +45,3 @@
 }
 
 /* 用户个人信息*/
-.user{
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    margin-left: -100px;
-}
-.user-info{
-    position: absolute;
-    left: 0;
-    top: 40px;
-    background-color: #fff;
-    color: #000;
-    z-index: 100;
-    width: 120px;
-    margin: 0;
-    padding: 7px 0;
-    list-style-type: none;
-    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    overflow: hidden;
-}
-.user-info li{
-    line-height: 30px;
-    margin-left: -10px;
-}
-.user-info li:hover{
-    background-color: rgba(119, 108, 247, 0.13);
-    color: #ff6700;
-}
-.user:hover{
-    background-color: #fff;
-    color: #ff6700;
-    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
-.user:hover .user-icon{
-    border-top-color: #ff6700;
-}
-.user-icon{
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 5px;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #1a140e;
-}

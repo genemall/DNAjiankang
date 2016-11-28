@@ -21,16 +21,6 @@ angular.module("loginMd", ["swxLocalStorage"])
                 //返回登陆用户
                 return this.user;
             },
-            //注册
-            register: function (newUser) {
-                var userRegister = new User(newUser.name, newUser.pwd);
-                //校验新注册的用户是否已经存在
-                if ($localStorage.get(userRegister.name) != null) {
-                    return false;
-                }
-                $localStorage.put(userRegister.name, userRegister);
-                return true;
-            },
             //判断是否登录
             isLogin: function () {
                 var oldUser = $localStorage.get("curUser");

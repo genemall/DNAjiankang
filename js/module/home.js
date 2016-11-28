@@ -41,10 +41,6 @@ angular.module('home', ['ui.router'])
                             templateUrl: 'view/page/home.main.html',
                             controller:function(){}
                         },
-                        "loginUser":{
-                            templateUrl: 'view/page/home.userLogin.html',
-                            controller:function($scope,loginService,$rootScope){}
-                        }
                     },
                     ncyBreadcrumb:{
                         label:"首页"
@@ -57,7 +53,7 @@ angular.module('home', ['ui.router'])
                     templateUrl: 'view/page/home.product.html',
                     resolve: {
                         productObj:function (httpService, util,$state,$stateParams) {
-                            //state 获取不到参数??????????????
+                            //state 获取不到参数?
                             /*         console.log($state.$current.params.productId);
                              console.log($state.current.params.productId);
                              console.log($state.params.productId);
