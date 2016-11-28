@@ -38,7 +38,7 @@ angular.module('home', ['ui.router'])
                     url:'',
                     views: {
                         "":{
-                            templateUrl: 'view/page/home.main.html',
+                            templateUrl: 'view/home.html',
                             controller:function(){}
                         },
                     },

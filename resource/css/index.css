@@ -1,8 +1,7 @@
 
 /*rightArea:右边焦点图样式*/
 .rightFocusImg {
-    height: 460px;
-    width: 992px;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }

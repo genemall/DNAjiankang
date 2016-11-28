@@ -7,19 +7,13 @@ var dnaStore = angular.module('dnaStore',
         'home',
         'cart',
         'buyNow',
-        'search',
         'ui.router',
         'order.router',
         'focusImgMd',
-        'ulBoxMd',
         'httpMd',
-        'utilMd',
         'goodsFilterMd',
         'loginMd',
         'cartMd',
-        'checkboxMd',
-        'xmIncludeMd',
-        'breadcrumbsMd'
     ]
 );
 dnaStore
@@ -46,15 +40,6 @@ dnaStore
         //调用服务获取分类表的数据
         httpService.get('json/fenlei.json').then(function (data) {
             $rootScope.ulItems = data.fenlei;
-        });
-        //调用服务获取产品表的数据
-        httpService.get('json/products.json').then(function (data) {
-            $rootScope.ulItemsContent = data.products;
-        });
-        //调用服务获取主页明星单品,为您推荐需要的数据
-        httpService.get('json/tsconfig.json').then(function (data) {
-            $rootScope.mxdp = data.mxdp;
-            $rootScope.wntj = data.wntj;
         });
         //调用服务获取搜索页面过滤选择项
         httpService.get('json/tsconfig.json').then(function (data) {
