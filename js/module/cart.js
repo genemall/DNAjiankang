@@ -15,6 +15,7 @@ angular.module('cart', ['ui.router','cartMd'])
                             $scope.cart = cartService.myCart;
                         }
                     },
+                    //配置导航，回到父层
                     ncyBreadcrumb:{
                         label:"我的购物车",
                         parent:"home.main"

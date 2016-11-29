@@ -4,11 +4,18 @@
 
 var dnaStore = angular.module('dnaStore',
     [
+        'ui.router',
+
         'home',
         'cart',
-        'buyNow',
-        'ui.router',
-        'order.router',
+        'order',
+        'orderDetail',
+        'personal',
+        'product',
+        'productDetail',
+        'report',
+        'reportDetail',
+
         'focusImgMd',
         'httpMd',
         'goodsFilterMd',

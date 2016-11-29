@@ -10,10 +10,6 @@ angular.module("loginMd", ["swxLocalStorage"])
             login: function (userLogin) {
                 //获取存储在 $localStorage中注册的用户
                 var oldUser = $localStorage.get(userLogin.name);
-                if (oldUser == null || oldUser.pwd !== userLogin.pwd) {
-                    alert("帐号不存在或密码错误!");
-                    return;
-                }
                 $localStorage.put("curUser", oldUser);
                 this.user = oldUser;
                 //登陆后根据用户名创建我的购物车

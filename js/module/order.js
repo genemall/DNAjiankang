@@ -2,7 +2,7 @@
  * 我的订单模块页面
  */
 
-angular.module('order.router', ['ui.router'])
+angular.module('order', ['ui.router'])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
@@ -13,6 +13,7 @@ angular.module('order.router', ['ui.router'])
                         //调用服务获取我的购物车对象
                         $scope.cart = cartService.myCart;
                     },
+                    //配置导航
                     ncyBreadcrumb:{
                         label:"我的订单",
                         parent:"home.main"

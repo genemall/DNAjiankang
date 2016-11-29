@@ -20,15 +20,3 @@ angular.module("filterMd", [])
             return input.slice((6 * (page - 1)), (page * 6));
         }
     })
-/*
- .filter("myFilter",function($filter,$parse){
- return function(input,item,fields){
- if(fields.indexOf("")!=-1)
- {
- //var aa = $parse(fields);
- var tempArr = fields.split("");
- return $filter(tempArr[1].trim())(item[tempArr[0].trim()]);
- }
- return input;
- }
- })*/
