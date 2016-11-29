@@ -8,7 +8,6 @@ angular.module('home', ['ui.router'])
             $stateProvider
                 .state("home", {
                     url: '/home',
-                    abstract:true,
                     templateUrl: 'view/home.html',
                     resolve: {
                         productsResolve: function (httpService) {
@@ -20,26 +19,13 @@ angular.module('home', ['ui.router'])
                                     return util.queryItemById(data.products, 1);
                                 });
                         },
-                    }
-                })
-                .state("home.main",{
-                    url:'',
-                    views: {
-                        "":{
-                            templateUrl: 'view/home.html',
-                            controller:function(){}
-                        },
                     },
-                })
+                     controller: function ($scope, $stateParams,$rootScope) {
+                            $scope.thisIsExample = function (data) {
+                                    console.log($rootScope.user+'--'+data)
+                            }
+                      }
 
-                .state("home.search",{ //搜索产品信息
-                    url:'/search/:searchKey',
-                    templateUrl: 'view/page/home.search.html',
-                    controller:function($scope,$stateParams,productsResolve,util){
-                        //TODO:搜索功能没有实现，暂时返回所有的产品
-                        //$scope.searchResultList=util.queryArrByField(productsResolve.products,$stateParams.searchKey,"name");
-                        $scope.searchResultList = productsResolve.products;
-                    },
                 })
                 .state("error404",{
                     url:'/error404',

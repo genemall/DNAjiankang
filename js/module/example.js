@@ -37,7 +37,6 @@ angular.module('buyNow', ['ui.router','cartMd'])
 
                                 $scope.goToDivId = function (id) {
                                     $location.hash(id);
-                                    $anchorScroll();
                                 }
 
                             }

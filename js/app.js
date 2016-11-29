@@ -34,7 +34,8 @@ dnaStore
     //配置系统初始需要的数据
     .run(function ($rootScope, httpService, $state, loginService) {
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
-        $rootScope.user = loginService.isLogin();
+        //$rootScope.user = loginService.isLogin();
+        $rootScope.user = 'shileiding'
         $rootScope.outLogin = function () {
             loginService.outLogin();
             $rootScope.user = null;
