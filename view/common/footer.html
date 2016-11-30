@@ -1,13 +1,25 @@
 <footer class="footer">
-    <div class="container">
-        <div class="footer_service">
-            <ul class="">
-                <li><a ui-sref='home'>主页</a></li>
-                <li><a ui-sref='cart'>购物车</a></li>
-                <li><a ui-sref='personal'>个人中心</a></li>
-            </ul>
+<div  class="container">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="weui-tab__panel">
+
+            </div>
+            <div class="weui-tabbar">
+                <a ui-sref='home' class="weui-tabbar__item weui-bar__item_on">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label"  >主页</div>
+                </a>
+                <a ui-sref='cart' class="weui-tabbar__item" >
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label"  >购物车</div>
+                </a>
+                <a ui-sref='personal' class="weui-tabbar__item">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label">个人中心</div>
+                </a>
+            </div>
         </div>
-
     </div>
-
+</div>
 </footer>
