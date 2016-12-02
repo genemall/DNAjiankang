@@ -1,0 +1,60 @@
+*{  
+	background: #f2f2f2;
+	font-family: "微软雅黑","Arial";
+	
+}
+.weui-flex{
+	margin:0;
+	padding:0;
+	
+	
+}
+.placeholder{
+	margin:0;
+	padding:0;
+}
+.product_state{
+margin:0px;
+	width: 1200px;
+	height: 35px;
+	line-height: 35px;
+	background: #ffffff;
+	font-size: 15px;
+    border-bottom:solid #f2f2f2 1px ;
+	
+}
+
+.product_state_icon{
+	background: orange;
+}
+
+.product_state_font1{
+	background-color: red;
+}
+.product_state_font2{
+	background-color: red;	
+	margin-left: 190px;
+}
+/*开头状态css样式*/
+
+.product_detail{
+	font-size:12px;
+	margin:0px;
+	background: #ffffff;
+
+}
+.product_state_font4{
+	background-color: red;	
+	margin-left:170px;
+	
+}
+.product_state_font5{
+	background-color: red;	
+	margin-left:180px;
+	
+}
+/*订单状态css样式*/
+.mtbox{
+	height:20px;
+	background: red;
+}
