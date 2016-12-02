@@ -26,18 +26,43 @@
    	时间：2016-11-29 zhanghan huangshuo chenzhangsheng duanhuan
    	描述：主要类容界面，ui-view 加载子视图，统一加载footer菜单
    -->
+<<<<<<< HEAD
 <div  ui-view></div>
 <!--order-->
 <div ng-include="'view/common/order.html'"></div>
 <!--footer-->
 <div ng-include="'view/common/footer.html'"></div>
+=======
+<div  class="container" >
+	<div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+        	<div class="weui-tab__panel">
+				<div  ui-view></div>
+            </div>
+            <div class="weui-tabbar">
+                <a ui-sref='home' class="weui-tabbar__item weui-bar__item_on">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label"  >主页</div>
+                </a>
+                <a ui-sref='cart' class="weui-tabbar__item" >
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label"  >购物车</div>
+                </a>
+                <a ui-sref='personal' class="weui-tabbar__item">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <div class="weui-tabbar__label">个人中心</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> dda867754c59aae37bd7690b4140d82a0ddfd0be
 </body>
 
 <!-- jquery.js angular.js-->
 <script src="resource/lib/jquery.min.js"></script>
 <script src="resource/lib/bootstrap.min.js"></script>
 <script src="resource/lib/weui.min.js"></script>
-<script src="js/module/example.js"></script>
 <script src="resource/lib/angular.js"></script>
 <!-- ui-router local-storage -->
 <script src="resource/lib/angular-ui-router.min.js"></script>
@@ -45,6 +70,7 @@
 <!-- app.js -->
 <script src="js/app.js"></script>
 <script src="js/module/home.js"></script>
+<script src="js/module/example.js"></script>
 <script src="js/module/cart.js"></script>
 <script src="js/module/order.js"></script>
 <script src="js/module/orderDetail.js"></script>
