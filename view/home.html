@@ -1,22 +1,46 @@
 <!--头部工具栏-->
 
-<div class="container">
-    <div class="home_content clearfix">
-        <div class="rightFocusImg fl">
-            <focus-img img-items="imgItems"></focus-img>
+<div class="home_content clearfix">
+    <div class="rightFocusImg fl">
+        <focus-img img-items="imgItems"></focus-img>
+    </div>
+</div>
+
+<div class="home_search">
+   <!--
+   	搜索框
+   -->
+   <div class="weui-search-bar" id="searchBar">
+    <form class="weui-search-bar__form">
+        <div class="weui-search-bar__box">
+            <i class="weui-icon-search"></i>
+            <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+        </div>
+        <label class="weui-search-bar__label" id="searchText">
+            <i class="weui-icon-search"></i>
+            <span>搜索</span>
+        </label>
+    </form>
+    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+</div>
+
+<div class="home_classify">
+    <div class="weui-flex">
+        <div class="weui-flex__item" style="text-align:center;">
+             <img src="./resource/img/icon/qr.png" alt="" class="weui_grid">
+        </div>
+        <div class="weui-flex__item" style="text-align:center;">
+             <img src="./resource/img/icon/qr.png" alt="" class="weui_grid">
         </div>
     </div>
-
-    <div class="home_search">
-       <!--
-       	搜索框
-       -->
-       <button ng-click="thisIsExample('test')"  class="weui-btn weui-btn_primary">Click here!</button>
-    </div>
-
-    <div class="home_classify">
-        <!--
-       	分类图片
-       -->
+     <div class="weui-flex">
+        <div class="weui-flex__item" style="text-align:center;">
+             <img src="./resource/img/icon/qr.png" alt="" class="weui_grid">
+        </div>
+        <div class="weui-flex__item" style="text-align:center;">
+             <img src="./resource/img/icon/qr.png" alt="" class="weui_grid">
+        </div>
     </div>
 </div>
