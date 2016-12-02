@@ -20,11 +20,11 @@ angular.module('home', ['ui.router'])
                                 });
                         },
                     },
-                     controller: function ($scope, $stateParams,$rootScope) {
-                            $scope.thisIsExample = function (data) {
-                                    console.log($rootScope.user+'--'+data)
-                            }
-                      }
+                     controller: function ($scope,$stateParams,$rootScope,productObj) {
+                         $scope.thisIsExample=function(data){
+                                console.log(productObj)
+                         }
+                     }
 
                 })
                 .state("error404",{
