@@ -13,5 +13,6 @@ pdModule.config(['$stateProvider',
 			                     {img: "./resource/img/3.jpg",link:'#'}];
                 },
             })
+          
     }
 ])
