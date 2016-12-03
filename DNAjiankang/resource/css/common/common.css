@@ -1,0 +1,21 @@
+
+/***** footer 页面底部 start*/
+/*footer  footer_service*/
+.footer_service{
+    padding: 30px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
+}
+.footer_service ul{
+    margin-right: -2px;
+}
+.footer_service ul li{
+    float: left;
+    width: 33%;
+    height: 25px;
+    font-size: 16px;
+    line-height: 25px;
+    border-right: 1px solid #e0e0e0;
+    text-align: center;
+}
+

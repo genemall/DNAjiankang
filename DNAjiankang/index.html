@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html ng-app="dnaStore">
-<head lang="en">
+<head lang="en"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>DNA基因商城</title>
     <meta name="description" content="基因商城-主要提供基因检测服务，同时提供客户咨询及售后支持。">
     <meta name="keywords" content="DNA，基因，儿童，基因商城">
     <!--bootstrap-->
     <link rel="stylesheet" href="resource/css/lib/bootstrap.min.css"/>
     <link rel="stylesheet" href="resource/css/lib/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="resource/css/lib/weui.css"/>
-    <link rel="stylesheet" href="resource/css/common/common.css"/>
+    <link rel="stylesheet" href="resource/css/lib/weui.min.css"/>
+    <link rel="stylesheet" href="resource/css/lib/example.css" />
     <!--css-->
     <link rel="stylesheet" href="resource/css/index.css"/>
     <link rel="stylesheet" href="resource/css/cart.css"/>
     <link rel="stylesheet" href="resource/css/home.css"/>
     <link rel="stylesheet" href="resource/css/order.css"/>
-    <link rel="stylesheet" href="resource/css/lib/example.css" />
-    <link rel="stylesheet" href="resource/css/orderDetail.css"/>
-    <link rel="stylesheet" href="resource/css/personal.css" />
-
-    <link rel="stylesheet" type="text/css" href="resource/css/productDetail.css">
+    <link rel="stylesheet" href="resource/css/common/common.css"/>
+    <link rel="stylesheet" href="js/directives/css/focusImg.css"/>
 </head>
+ 
 <body>
    <!--
    	作者：五人小队
    	时间：2016-11-29 zhanghan huangshuo chenzhangsheng duanhuan
    	描述：主要类容界面，ui-view 加载子视图，统一加载footer菜单
    -->
-<div  class="container" style="padding-right: 0px;padding-left: 0px;">
+<<<<<<< HEAD
+<div  ui-view></div>
+<!--order-->
+<div ng-include="'view/common/order.html'"></div>
+<!--footer-->
+<div ng-include="'view/common/footer.html'"></div>
+=======
+<div  class="container" >
 	<div class="page__bd" style="height: 100%;">
-        <div class="weui-tab" >
-        	<div class="weui-tab__panel" >
+        <div class="weui-tab">
+        	<div class="weui-tab__panel">
 				<div  ui-view></div>
             </div>
-            <div class="weui-tabbar" >
+            <div class="weui-tabbar">
                 <a ui-sref='home' class="weui-tabbar__item weui-bar__item_on">
-                    <img src="./resource/img/icon/icon_home.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <div class="weui-tabbar__label"  >主页</div>
                 </a>
                 <a ui-sref='cart' class="weui-tabbar__item" >
-                    <img src="./resource/img/icon/icon_cart.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <div class="weui-tabbar__label"  >购物车</div>
                 </a>
                 <a ui-sref='personal' class="weui-tabbar__item">
-                    <img src="./resource/img/icon/icon_personal.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <div class="weui-tabbar__label">个人中心</div>
                 </a>
             </div>
         </div>
     </div>
 </div>
+>>>>>>> dda867754c59aae37bd7690b4140d82a0ddfd0be
 </body>
 
 <!-- jquery.js angular.js-->
 <script src="resource/lib/jquery.min.js"></script>
 <script src="resource/lib/bootstrap.min.js"></script>
-<!--
 <script src="resource/lib/weui.min.js"></script>
--->
 <script src="resource/lib/angular.js"></script>
 <!-- ui-router local-storage -->
 <script src="resource/lib/angular-ui-router.min.js"></script>
 <script src="resource/lib/swx-local-storage.js"></script>
-<script src='js/directives/focusImage.js'></script>
 <!-- app.js -->
 <script src="js/app.js"></script>
 <script src="js/module/home.js"></script>
@@ -78,6 +80,8 @@
 <script src="js/module/report.js"></script>
 <script src="js/module/reportDetail.js"></script>
 
+<script src="js/directives/searchDic.js"></script>
+<script src="js/directives/focusImgDic.js"></script>
 <script src="js/directives/goodsFilterDic.js"></script>
 <script src="js/service/httpService.js"></script>
 <script src="js/service/util.service.js"></script>
@@ -86,14 +90,13 @@
 <script src="js/filters/myFilter.js"></script>
 </html>
 
+ 
 
-
-
-
-
-
-
-
-
+	
+	  
+	  
+	  
+	  
+	  
 
 
