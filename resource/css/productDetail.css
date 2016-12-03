@@ -1,0 +1,47 @@
+.font_size12{
+	font-size: 12px!important;
+}
+.bottom_line{
+	border-bottom:1px solid #e5e5e5;
+}
+
+.goods_buy_box {
+    width: 100%;
+    max-width: 640px;
+    height: 49px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9998;
+    background: transparent;
+    margin: 0 auto;
+}
+.goods_buy_box ul {
+    width: 100%;
+    display: box;
+    display: -ms-box;
+    display: -webkit-box;
+    display: flex;
+    display: -ms-flexbox;
+}
+.goods_buy_box ul li{
+    width: 50%;
+   
+}
+.goods_buy_box ul li a.buy_cart, .goods_buy_box ul li a.buy_friend {
+    background: rgba(0, 0, 0, .85);
+}
+
+.goods_buy_box ul li a {
+    display: block;
+    height: 49px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    line-height: 49px;
+}
+.goods_buy_box ul li a.buy_own {
+    background: #ec711f;
+}
+ul{
+	margin-bottom: 50px;
+}

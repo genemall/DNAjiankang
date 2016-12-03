@@ -1,0 +1,10 @@
+.home_classify{
+	text-align:center;
+	margin-bottom: 5px;
+}
+.home_classify .weui-flex{
+	margin-top: 5px;
+}
+.home_classify .weui-flex .weui-flex__item{
+	position: relative;
+}

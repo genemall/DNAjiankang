@@ -13,6 +13,7 @@ angular.module('order', ['ui.router'])
                         //调用服务获取我的购物车对象
                         $scope.cart = cartService.myCart;
                     },
+                    
                     //配置导航
                     ncyBreadcrumb:{
                         label:"我的订单",
