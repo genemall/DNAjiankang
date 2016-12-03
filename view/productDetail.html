@@ -1,12 +1,20 @@
-<div style="">
-    <div class="container">
-		  <div class="weui-tab">
+
+<!-- header -->
+<!--<div ng-include="'view/common/header.html'"></div>-->
+<!-- content -->
+
+<div class="pro_detail">
+		   <div class="weui-tab">
 			<div class="weui-tab__panel">
 			<div class="weui-panel weui-panel_access">
 		    <!--   轮播图-->
-			<div>
-			<img style="" src="./resource/img/3.jpg" alt="获取产品详细图">
-		    </div>
+			 <div class="sliderBox" >
+			    <slider timer="2" data="data" btn-left="#btnleft" btn-right=".btnright" animate-type="ease" animate-time="1.0">
+			    </slider>
+			    <div class="btn left" id="btnleft"></div>
+			    <div class="btn right btnright"></div>
+			  </div>
+		    
 		    <div class="weui-panel__bd top_line bottom_line">
 		        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
 		           
@@ -70,7 +78,7 @@
 		    </div>
 	      </div> 
 	      
-    </div>
+
     
 
 </div>

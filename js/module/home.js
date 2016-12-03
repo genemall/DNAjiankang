@@ -4,7 +4,7 @@
 
 //angular.module('home', ['ui.router'])
 var homeModule = angular.module('home', ['ui.router']);
-sliderTest(homeModule);
+sliderTest(homeModule,'slider');
 homeModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider

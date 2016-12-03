@@ -1,5 +1,5 @@
-function sliderTest(ngModule) {
-    ngModule.directive('slider', ['$interval', function ($interval) {
+function sliderTest(ngModule,slider) {
+    ngModule.directive(slider, ['$interval', function ($interval) {
         return {
             restrict: 'E',
             template: '<ul style="{{Sliders.boxCss}} margin-left:{{move}}px;">' +
