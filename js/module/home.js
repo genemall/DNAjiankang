@@ -10,6 +10,14 @@ angular.module('home', ['ui.router'])
                     url: '/home',
                     templateUrl: 'view/home.html',
                     resolve: {
+                    	classifyResolve: function (httpService) {
+                            return httpService.get('json/fenlei.json')
+                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                    return data.classifies;
+                                });;
+                        },
+                        
+                        /*
                         productsResolve: function (httpService) {
                             return httpService.get('json/products.json');
                         },
@@ -19,11 +27,12 @@ angular.module('home', ['ui.router'])
                                     return util.queryItemById(data.products, 1);
                                 });
                         },
+                        */
                     },
-                     controller: function ($scope,$stateParams,$rootScope,productObj) {
-                         $scope.thisIsExample=function(data){
-                                console.log(productObj)
-                         }
+                     controller: function ($scope,$stateParams,$rootScope,classifyResolve) {
+                        $scope.classifies=classifyResolve
+                        console.log($scope.classifies)
+                        $scope.search='搜索'
                      }
 
                 })
