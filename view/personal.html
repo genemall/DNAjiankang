@@ -5,22 +5,24 @@
 	    </div>
 	    <p class="userInfo_headname ">H</p>
 	</div>
-	
-	<div class="menber_nav clearfix menber_icon">
-      <a class="my_order wsh_cell" href="../order/list">
+</div>
+<!--订单头部-->
+<div class="menber_nav clearfix menber_icon">
+       <a class="my_order wsh_cell" href="../order/list">
         <div class="wsh_cell_primary">
           <h4>全部订单</h4>
         </div>
         <div class="wsh_cell_ft">
           <span class="right-text">查看全部订单</span>
+          <span class="right-img"></span> 
         </div>
       </a>
-
-      <div class="wsh_cell order-ul">
+   
+    <div class="wsh_cell order-ul">
         <a class="wsh_cell_primary order-li" href="../order/list?_status=1"><span><i class="home-icon icon-coins"></i>待付款</span><em class="notice ng-binding" ng-show="order.unPay > 0" ng-bind="order.unPay">3</em></a>
         <a class="wsh_cell_primary order-li" href="../order/list?_status=2"><span><i class="home-icon icon-delivery"></i>待发货</span><em class="notice ng-binding ng-hide" ng-show="order.unDeliver > 0" ng-bind="order.unDeliver">0</em></a>
         <a class="wsh_cell_primary order-li" href="../order/list?_status=3"><span><i class="home-icon icon-waitDelivery"></i>待收货</span><em class="notice ng-binding ng-hide" ng-show="order.unTake > 0" ng-bind="order.unTake">0</em></a>
         <a class="wsh_cell_primary order-li" href="../order/list?_status=4"><span><i class="home-icon icon-Toevaluate"></i>已完成</span></a>
-      </div>
     </div>
 </div>
+<!--订单头部>
