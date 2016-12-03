@@ -1,38 +1,121 @@
+<style type="text/css">
+	*{
+		font-family: "微软雅黑","Arial";	
+	}
+	a:hover {text-decoration:none;}
+	
+	
+</style>
 
-<div class="weui-flex">
-    <div class="weui-flex__item"><div class="placeholder">
-    	<p class="product_state">
-    		<span class="product_state_icon">icon</span>
-    		<span class="product_state_font1">订单状态</span>
-    		<span class="product_state_font2">已关闭</span>
+<div class="weui-form-preview__bd" style="background: #FFFFFF;height:40px">
+    	<p>
+    		
+    		<label class="weui-form-preview__label">
+    			<span class="myprodetail" style="color: orange;">icon</span>
+    			<span style="color: #989797;font-family: '微软雅黑';font-size: 15px;" >订单状态</span>
+    		</label>
+    		<span class="weui-form-preview__value" style="color: #989797;font-family: '微软雅黑';font-size: 15px;">已关闭</span>
     	</p>   
-    </div></div>
 </div>
 <!--开头状态-->
 
-<div class="weui-flex">
-    <div class="weui-flex__item"><div class="placeholder">
-    	<p class="product_detail">
-    		<span class="product_state_font3">订单编号</span>
-    		<span class="product_state_font4">2766673308352273</span>
+<div class="weui-form-preview__bd" style="background: #FFFFFF;height:70px">
+        <p>
+            <label class="weui-form-preview__label"style="color: #989797;font-family: '微软雅黑';font-size: 12px;" >订单编号</label>
+            <span class="weui-form-preview__value">2766673308352273</span>
+        </p>
+        <p>
+            <label class="weui-form-preview__label"style="color: #989797;font-family: '微软雅黑';font-size: 12px;" >下单时间</label>
+            <span class="weui-form-preview__value">2016-12-01 19:20</span>
+        </p>
+</div>
+	<!--订单详情-->
+
+
+
+
+<div class="weui-cells" style="">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell_board">
+           <span class="glyphicon glyphicon-map-marker" style="background: orange;"></span>  
+        </div>
+        <div class="weui-cell_board">
+          <div class="mydiv_1" style="font-size:15px">
+          	<span class="user_name">Judy</span>
+          	<span class="user_phone" style="margin-left: 160px;">18365204965</span>	
+          </div>
+          <div class="mydiv_1"style="font-size:13px">
+          	<span>安徽省</span>
+          	<span>合肥市</span>
+          	<span>蜀山区</span>
+          	<span>蓝天小区</span>
+          	<span>110号202室</span>
+          </div>
+          
+        </div>
+        <div class="weui-cell__ft" style="margin-left: 15px;"></div>
+    </a>
+</div>
+
+<!--地址信息-->
+
+<div class="weui-panel weui-panel_access">
+   
+    <div class="weui-panel__bd">
+        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd">
+                  <img class="weui-media-box__thumb" src="resource/img/order/pro_order1.png" alt="product">
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">记忆天赋基因</h4>
+                <p class="weui-media-box__desc" style="color: orange;font-size:14px;">
+                	<span >¥</span><span>2400.00</span>
+                </p>
+                <p class="weui-media-box__desc" style="font-size:10px;text-decoration: line-through;">
+                	<span>原价</span>
+                	<span>¥</span>
+                	<span>3400.00</span></p>
+            </div>
+            <span>×1</span>
+        </a>
+        
+    </div>   
+</div>
+
+<!--商品详情-->
+
+
+
+<div class="weui-form-preview__bd" style="background: #FFFFFF;">
+    	<p>
+    		
+    		<label class="weui-form-preview__label" style="color: #989797;font-family: '微软雅黑';font-size: 14px;" >商品金额</label>
+    		<span class="weui-form-preview__value">
+    			<span style="color: orange;">¥</span>
+    			2400.00
+    		</span>
     	</p>  
-    	<p class="product_detail">
-    		<span class="product_state_font3">下单时间</span>
-    		<span class="product_state_font5">2016-12-01 19:20</span>
+    	<p>
+    		
+    		<label class="weui-form-preview__label"style="color: #989797;font-family: '微软雅黑';font-size: 14px;" >运费</label>
+    		<span class="weui-form-preview__value">
+    			<span style="color: orange;">¥</span>
+    			0.00
+    		</span>
     	</p>   
-    </div></div>
-</div>
-	<!--订单状态-->
-
-<div class="weui-flex">
-    <div class="weui-flex__item"><div class="placeholder">
-    	<p class="product_location">
-    		<span class="product_state_icon">icon</span>
-    		<span class="product_state_font1">订单状态</span>
-    		<span class="product_state_font2">已关闭</span>
-    	</p>   
-    </div></div>
 </div>
 
-,
-<div class="mtbox"></div>
+<!--商品金额,运费-->
+	
+	
+<div class="weui-form-preview__bd"style="background: #FFFFFF;">
+    	<p>
+    		<label class="weui-form-preview__label"style="color: #989797;font-family: '微软雅黑';font-size: 14px;">共<span>1</span>件商品</label>
+    		<span class="weui-form-preview__value">
+    			合计：<span style="color: orange;">¥</span>2400.00
+    		</span>
+    	</p>   
+</div>
+
+
+<a href="javascript:;" class="weui-btn weui-btn_primary"style="width: 80%;">确认支付</a>
