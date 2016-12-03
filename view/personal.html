@@ -7,7 +7,7 @@
 	</div>
 </div>
 <!--订单头部-->
-<div class="menber_nav clearfix menber_icon">
+<div class="menber_nav clearfix menber_icon" >
        <a class="my_order wsh_cell" href="../order/list">
         <div class="wsh_cell_primary">
           <h4>全部订单</h4>
@@ -19,10 +19,79 @@
       </a>
    
     <div class="wsh_cell order-ul">
-        <a class="wsh_cell_primary order-li" href="../order/list?_status=1"><span><i class="home-icon icon-coins"></i>待付款</span><em class="notice ng-binding" ng-show="order.unPay > 0" ng-bind="order.unPay">3</em></a>
-        <a class="wsh_cell_primary order-li" href="../order/list?_status=2"><span><i class="home-icon icon-delivery"></i>待发货</span><em class="notice ng-binding ng-hide" ng-show="order.unDeliver > 0" ng-bind="order.unDeliver">0</em></a>
-        <a class="wsh_cell_primary order-li" href="../order/list?_status=3"><span><i class="home-icon icon-waitDelivery"></i>待收货</span><em class="notice ng-binding ng-hide" ng-show="order.unTake > 0" ng-bind="order.unTake">0</em></a>
-        <a class="wsh_cell_primary order-li" href="../order/list?_status=4"><span><i class="home-icon icon-Toevaluate"></i>已完成</span></a>
+        <a class="wsh_cell_primary order-li" href="..">
+        	<span>
+        	<img class="home-icon" src="resource/img/personal/icon-coins.png"><br />待付款
+        	</span>
+        	<em class="notice ng-binding" ng-show="order.unPay > 0" ng-bind="order.unPay">3</em>
+        </a>
+        <a class="wsh_cell_primary order-li" href="..">
+        	<span>
+        	<img class="home-icon" src="resource/img/personal/waiting_delivering.png"><br /></i>待发货
+        	</span>
+        	<em class="notice ng-binding ng-hide" ng-show="order.unDeliver > 0" ng-bind="order.unDeliver">0</em>
+        </a>
+        <a class="wsh_cell_primary order-li" href="..">
+        	<span>
+        		<img class="home-icon" src="resource/img/personal/delivering.png"><br /></i>待收货
+        	</span>
+        	<em class="notice ng-binding ng-hide" ng-show="order.unTake > 0" ng-bind="order.unTake">0</em>
+        </a>
+        <a class="wsh_cell_primary order-li" href="..">
+        	<span>
+        		<img class="home-icon" src="resource/img/personal/already.png"><br /></i>已完成
+        	</span>
+        </a>
     </div>
 </div>
-<!--订单头部>
+
+<div class="menber_icos menber_icon">
+      <div class="wsh_grids clearfix">
+        <a class="width25 wsh_grid" href="../together-buy/my-queue">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/ID_info.png" alt="我的信息">
+          </div>
+          <div class="wsh_grid_label">我的信息</div>
+        </a>
+        <a class="width25 wsh_grid" href="../user/activity">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/report.png" alt="我的报告">
+          </div>
+          <div class="wsh_grid_label">我的报告</div>
+          <!--
+          	作者：h1001hs@163.com
+          	时间：2016-12-03
+          	描述：获取数量
+          -->
+          <em class="notice ng-binding" ng-show="personal.myreport > 0" ng-bind="personal.myreport" >3</em>  
+        </a>
+        <a class="width25 wsh_grid" href="../user/address-list">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/telephone.png" alt="服务电话">
+          </div>
+          <div class="wsh_grid_label">服务电话</div>
+        </a>
+         <a class="width25 wsh_grid" href="../together-buy/my-queue">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/Q&A.png" alt="常见问题">
+          </div>
+          <div class="wsh_grid_label">常见问题</div>
+        </a>
+         <a class="width25 wsh_grid" href="../together-buy/my-queue">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/sevice_flow.png" alt="服务流程">
+          </div>
+          <div class="wsh_grid_label">服务流程</div>
+        </a>
+         <a class="width25 wsh_grid" href="../together-buy/my-queue">
+          <div class="wsh_grid_icon">
+            <img class="member_icon" src="resource/img/personal/about_us.png" alt="关于我们">
+          </div>
+          <div class="wsh_grid_label">关于我们</div>
+        </a>
+        
+    </div>
+</div>
+
+
+
