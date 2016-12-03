@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>DNA基因商城</title>
     <meta name="description" content="基因商城-主要提供基因检测服务，同时提供客户咨询及售后支持。">
     <meta name="keywords" content="DNA，基因，儿童，基因商城">
@@ -11,28 +12,29 @@
     <link rel="stylesheet" href="resource/css/lib/bootstrap-responsive.min.css"/>
     <link rel="stylesheet" href="resource/css/lib/weui.min.css"/>
     <link rel="stylesheet" href="resource/css/lib/example.css" />
+    <link rel="stylesheet" href="resource/css/orderDetail.css"/>
     <!--css-->
     <link rel="stylesheet" href="resource/css/index.css"/>
     <link rel="stylesheet" href="resource/css/cart.css"/>
     <link rel="stylesheet" href="resource/css/home.css"/>
     <link rel="stylesheet" href="resource/css/order.css"/>
     <link rel="stylesheet" href="resource/css/common/common.css"/>
+
     <link rel="stylesheet" href="js/directives/css/focusImg.css"/>
 </head>
-
 <body>
    <!--
    	作者：五人小队
-   	时间：2016-11-29 zhanghan huangshuo chenzhangsheng
+   	时间：2016-11-29 zhanghan huangshuo chenzhangsheng duanhuan
    	描述：主要类容界面，ui-view 加载子视图，统一加载footer菜单
    -->
-<div  class="container" >
+<div  class="container" style="padding-right: 0px;padding-left: 0px;">
 	<div class="page__bd" style="height: 100%;">
-        <div class="weui-tab">
-        	<div class="weui-tab__panel">
+        <div class="weui-tab" >
+        	<div class="weui-tab__panel" >
 				<div  ui-view></div>
             </div>
-            <div class="weui-tabbar">
+            <div class="weui-tabbar" >
                 <a ui-sref='home' class="weui-tabbar__item weui-bar__item_on">
                     <img src="./resource/img/icon/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                     <div class="weui-tabbar__label"  >主页</div>
@@ -81,3 +83,14 @@
 <script src="js/service/cartService.js"></script>
 <script src="js/filters/myFilter.js"></script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
