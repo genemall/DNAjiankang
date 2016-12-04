@@ -19,17 +19,16 @@
 				</div>
 		    </div>
 			<div class="weui-tab__panel">
-			
-				
-				<div class="weui-panel weui-panel_access">
-		    <div class="weui-panel__hd">订单号：（获取订单号）</div>
+					
+				<div class="weui-panel weui-panel_access" ng-repeat="x in orderlist" >
+						  <div class="weui-panel__hd">订单号:{{x.productId}}</div>
 		    <div class="weui-panel__bd top_line bottom_line">
 		        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
 		            <div class="weui-media-box__hd">
 		                <img class="weui-media-box__thumb" src="./resource/img/order/pro_order1.png" alt="获取产品图">
 		            </div>
 		            <div class="weui-media-box__bd">
-		                <h4 class="weui-media-box__title">记忆天赋基因检测（获取产品名称）</h4>
+		                <h4 class="weui-media-box__title">{{x.name}}</h4>
 		               
 		                <span class="weui-media-box__desc">
 		                
@@ -39,7 +38,7 @@
 			                            <!--<span class="font_size12">折扣价</span>-->
 			                            <span>
 			                            	<span class="font_size12">￥</span>
-			                            	<span id="newPrice">1200（获取价格）</span>
+			                            	<span id="newPrice">{{x.price}}</span>
 			                            </span>
 			                    </div>
 			                    <div class="farmer_price">
@@ -88,224 +87,12 @@
 		            <div class="weui-cell__bd pull-right">查看物流</div>
 		            <span class="weui-cell__ft"></span>
 		        </a>    -->
-		    </div>
-		</div>
+		    </div>		 
+				</div>
 				
 				
-				<div class="weui-panel weui-panel_access">
-		    <div class="weui-panel__hd">订单号：（获取订单号）</div>
-		    <div class="weui-panel__bd top_line bottom_line">
-		        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-		            <div class="weui-media-box__hd">
-		                <img class="weui-media-box__thumb" src="./resource/img/order/pro_order1.png" alt="获取产品图">
-		            </div>
-		            <div class="weui-media-box__bd">
-		                <h4 class="weui-media-box__title">记忆天赋基因检测（获取产品名称）</h4>
-		               
-		                <span class="weui-media-box__desc">
-		                
-		                <div class="detail_info_item clear item_bg padding_block">
-			                 <div class="detail_price_info pull_left">
-			                    <div class="now_price">
-			                            <!--<span class="font_size12">折扣价</span>-->
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span id="newPrice">1200（获取价格）</span>
-			                            </span>
-			                    </div>
-			                    <div class="farmer_price">
-			                    	 <span class="font_size12">原价</span>
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span style="text-decoration:line-through">1500</span>
-			                            </span>
-			                    </div>
-			                 </div>
-			                 <div class="sale_info pull_right">
-		                      <span class="glyphicon glyphicon-search">商品个数</span>
-		                      
-		                 </div>
-		                </div>
-			           <hr /> 
-			            <div>
-			            	<span class="pull-right">
-			            		<span>共<span id="">1（商品个数）</span>件</span>
-			            		<span>
-			            			&nbsp;&nbsp;
-			            		            合计:<span><span class="font_size12">￥</span><span id="newPrice">1200(获取价格)</span></span>
-			            		</span>
-	
-			            	</span>
-			            </div>
-		             
-		            </div>
-		        </a>
-		   
-		    </div>
-		    
-		    <div class="weui-panel__ft pull-right">
-				<div class="button-sp-area">
-				<!--待支付状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>-->
-			    <!--待发货状态-->
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>
-			    <!--待收货状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看物流</a>-->
-			    <!--已完成状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看报告</a>-->
-			    </div>  
-		        <!--<!--<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
-		            <div class="weui-cell__bd pull-right">查看物流</div>
-		            <span class="weui-cell__ft"></span>
-		        </a>    -->
-		    </div>
-		</div>
-		        
-		        
-		        <div class="weui-panel weui-panel_access">
-		    <div class="weui-panel__hd">订单号：（获取订单号）</div>
-		    <div class="weui-panel__bd top_line bottom_line">
-		        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-		            <div class="weui-media-box__hd">
-		                <img class="weui-media-box__thumb" src="./resource/img/order/pro_order1.png" alt="获取产品图">
-		            </div>
-		            <div class="weui-media-box__bd">
-		                <h4 class="weui-media-box__title">记忆天赋基因检测（获取产品名称）</h4>
-		               
-		                <span class="weui-media-box__desc">
-		                
-		                <div class="detail_info_item clear item_bg padding_block">
-			                 <div class="detail_price_info pull_left">
-			                    <div class="now_price">
-			                            <!--<span class="font_size12">折扣价</span>-->
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span id="newPrice">1200（获取价格）</span>
-			                            </span>
-			                    </div>
-			                    <div class="farmer_price">
-			                    	 <span class="font_size12">原价</span>
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span style="text-decoration:line-through">1500</span>
-			                            </span>
-			                    </div>
-			                 </div>
-			                 <div class="sale_info pull_right">
-		                      <span class="glyphicon glyphicon-search">商品个数</span>
-		                      
-		                 </div>
-		                </div>
-			           <hr /> 
-			            <div>
-			            	<span class="pull-right">
-			            		<span>共<span id="">1（商品个数）</span>件</span>
-			            		<span>
-			            			&nbsp;&nbsp;
-			            		            合计:<span><span class="font_size12">￥</span><span id="newPrice">1200(获取价格)</span></span>
-			            		</span>
-	
-			            	</span>
-			            </div>
-		             
-		            </div>
-		        </a>
-		   
-		    </div>
-		    
-		    <div class="weui-panel__ft pull-right">
-				<div class="button-sp-area">
-				<!--待支付状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>-->
-			    <!--待发货状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>-->
-			    <!--待收货状态-->
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看物流</a>
-			    <!--已完成状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看报告</a>-->
-			    </div>  
-		        <!--<!--<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
-		            <div class="weui-cell__bd pull-right">查看物流</div>
-		            <span class="weui-cell__ft"></span>
-		        </a>    -->
-		    </div>
-		</div>
-		
-		
-		
-		        <div class="weui-panel weui-panel_access">
-		    <div class="weui-panel__hd">订单号：（获取订单号）</div>
-		    <div class="weui-panel__bd top_line bottom_line">
-		        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-		            <div class="weui-media-box__hd">
-		                <img class="weui-media-box__thumb" src="./resource/img/order/pro_order1.png" alt="获取产品图">
-		            </div>
-		            <div class="weui-media-box__bd">
-		                <h4 class="weui-media-box__title">记忆天赋基因检测（获取产品名称）</h4>
-		               
-		                <span class="weui-media-box__desc">
-		                
-		                <div class="detail_info_item clear item_bg padding_block">
-			                 <div class="detail_price_info pull_left">
-			                    <div class="now_price">
-			                            <!--<span class="font_size12">折扣价</span>-->
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span id="newPrice">1200（获取价格）</span>
-			                            </span>
-			                    </div>
-			                    <div class="farmer_price">
-			                    	 <span class="font_size12">原价</span>
-			                            <span>
-			                            	<span class="font_size12">￥</span>
-			                            	<span style="text-decoration:line-through">1500</span>
-			                            </span>
-			                    </div>
-			                 </div>
-			                 <div class="sale_info pull_right">
-		                      <span class="glyphicon glyphicon-search">商品个数</span>
-		                      
-		                 </div>
-		                </div>
-			           <hr /> 
-			            <div>
-			            	<span class="pull-right">
-			            		<span>共<span id="">1（商品个数）</span>件</span>
-			            		<span>
-			            			&nbsp;&nbsp;
-			            		            合计:<span><span class="font_size12">￥</span><span id="newPrice">1200(获取价格)</span></span>
-			            		</span>
-	
-			            	</span>
-			            </div>
-		             
-		            </div>
-		        </a>
-		   
-		    </div>
-		    
-		    <div class="weui-panel__ft pull-right">
-				<div class="button-sp-area">
-				<!--待支付状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>-->
-			    <!--待发货状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>-->
-			    <!--待收货状态-->
-			    <!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看物流</a>-->
-			    <!--已完成状态-->
-			    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看报告</a>
-			    </div>  
-		        <!--<!--<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
-		            <div class="weui-cell__bd pull-right">查看物流</div>
-		            <span class="weui-cell__ft"></span>
-		        </a>    -->
-		    </div>
-		</div>
-		
-		        
+				
+		       
 	       
 		    </div>
 	</div> 
