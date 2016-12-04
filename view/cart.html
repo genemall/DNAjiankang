@@ -1,0 +1,50 @@
+<div id="actionSheet_wrap">
+    <div class="weui-mask_transparent actionsheet__mask" id="mask" ></div>
+    <div class="weui-actionsheet" id="weui-actionsheet" >
+        <div class="weui-actionsheet__menu">
+            <div class="weui-actionsheet__cell">示例菜单</div>
+            <div class="weui-actionsheet__cell">示例菜单</div>
+            <div class="weui-actionsheet__cell">示例菜单</div>
+            <div class="weui-actionsheet__cell">示例菜单</div>
+        </div>
+        <div class="weui-actionsheet__action">
+            <div class="weui-actionsheet__cell" id="actionsheet_cancel">取消</div>
+        </div>
+    </div>
+</div>
+
+<!--三个弹框页面详列-->
+        <!--点击加入购物车，弹框显示“确定”，加入购物车成功，购物车加类目-->
+        <!--点击...弹框显示“确定”，加入购物车成功，购物车加类目-->
+  			<div class="goods_buy_detail tline">
+              <!-- 购买按钮 -->
+              <!-- ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
+              <ul ng-if="modelObj.reserves != 0 &amp;&amp; modelObj.reserves != undefined" class="ng-scope">
+                <!-- ngIf: confirm == 1 -->
+                <li ng-if="confirm == 1" class="ng-scope">
+                	<a class="buy_own center" ng-click="joinShop()"><span>确定</span> </a>
+                </li>                	
+                <!-- end ngIf: confirm == 1 -->
+                <!-- ngIf: confirm == 2 -->
+                <!-- ngIf: confirm == 0 -->
+              </ul><!-- end ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
+              <!-- ngIf: modelObj.reserves == 0 -->
+              <!-- 购买按钮 -->
+            </div>
+  
+  
+        <!-- 点击立即购买，弹框显示“确认支付”，跳转到订单结算页面-->
+  			<div class="goods_buy_detail tline">
+              <!-- 购买按钮 -->
+              <!-- ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
+              <ul ng-if="modelObj.reserves != 0 &amp;&amp; modelObj.reserves != undefined" class="ng-scope">
+                <!-- ngIf: confirm == 1 -->
+                <!-- ngIf: confirm == 2 -->
+                <!-- ngIf: confirm == 0 -->
+                <li ng-if="confirm == 0" class="ng-scope">
+                	<a class="buy_own" ng-click="buy()"><span>确认支付</span> </a>
+                </li><!-- end ngIf: confirm == 0 -->
+              </ul><!-- end ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
+              <!-- ngIf: modelObj.reserves == 0 -->
+              <!-- 购买按钮 -->
+            </div>

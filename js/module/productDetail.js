@@ -11,6 +11,16 @@ pdModule.config(['$stateProvider',
                 	 $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
 			                     {img: "./resource/img/2.jpg",link:'#'},
 			                     {img: "./resource/img/3.jpg",link:'#'}];
+			                     
+			             $scope.mask=false;        	    
+			    $scope.showModal = function () {
+			      $scope.mask = true;
+	
+			    };   
+			     $scope.close = function () {
+			      $scope.mask = false;
+	
+			    };   
                 },
             })
           
