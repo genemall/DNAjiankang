@@ -17,7 +17,6 @@
 			<i class="icon icon-cart"></i>
 		</a>
 	</div>
-	
 </div>
 <!--商品明细-->
 <div class="pro_bd">
@@ -106,15 +105,10 @@
     <li><a class="buy_cart" ng-click="getCart()"> <span>加入购物车</span> </a></li>
     <li><a class="buy_own" ng-click="showModal()"> <span>立即购买</span> </a></li>
   </ul>
-
 </div>
 
-	
-	
-	
 <!--弹层	-->
 <!--加入购物车，点击购买，...弹层-->
-
 <div class="poplayer_box layer_type3" id="mask" ng-show="mask">
     <div class="poplayer_bg" ng-click="mask = false"></div>
     <div class="poplayer_content">
@@ -123,83 +117,85 @@
           <!-- 样式风格 -->
           <div class="layercont">
             
+            <!--关闭按钮-->
             <div class="close_btn">
-            	<!--照片引入得改-->
-            	<i class="icon icon_close" ng-click="close()"></i></div>
+            	<i class="icon icon_close" ng-click="close()"></i>
+            </div>
+            
             <div class="detail_select_rule">
 
               <div class="goods_p_info line-bottom ">
                 <div class="goods_p_img thumb-img11 fl">
                   <!--获取该商品详情的商品小图-->
-                  <img class="img11" alt="" ng-src="http://imgcache.vikduo.com/static/f2c1504712bf0cdd302409b0988fa2bd.jpg" src="http://imgcache.vikduo.com/static/f2c1504712bf0cdd302409b0988fa2bd.jpg">
+                  <img class="img11" alt="" src="./resource/img/order/pro_order1.png">
                 </div>
                 <div class="goods_p_text fl">
-                  <div class="title"><span>总价:<em class="price_color">￥<span ng-bind="modelObj.retail_price*skunum | number: 2" class="ng-binding">1200.00</span></em></span></div>
-                  <div class="price"><span>库存:<span ng-bind="modelObj.reserves" class="ng-binding">1101</span>件</span></div>
+                  <div class="title">
+                  	<span>总价:<em class="price_color">￥
+                  		<span>1200.00（获取折扣价）</span>
+                  	</em></span>
+                  </div>
+                  <div class="price">
+                  	<span>库存
+                  		<span>1101（获取库存数）</span>
+                  		件</span>
+                  </div>
                 </div>
                 <div class="clearfix"></div>
               </div>
               <div class="clearfix"></div>
             </div>
             <!--弹框第二行-->
-            <div class="detail_select_box ">
-              <div class="ui_sku">
+            <div class="jiyinum">
+                 <div class="title">
+                  	<span>基因个数：</span>
+                  </div>
+                 <!--根据每个产品获取一分中基因个数-->
+                 <div class="items width_w_98">
+                   <label class="kline btn_opt">4（获取个数）&nbsp;<span>个</span></label>
+                 </div> 
+               <!--份数增加减少处-->   
+	            <div id="sku_quantity" class="quantity detail_d_quantity  clearfix">
+	                <input name="sid" value="6758" type="hidden">
+	                <h2>份数：</h2>
+	                <!-- 加减计数处-->
+	                <div class="items clearfix">
+	                  <span class="ui_number">
+	                    <button type="button" class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1" disabled="disabled">-</button>
+	                    <input class="num ng-pristine ng-untouched ng-valid" name="quantity" autocomplete="off" min="1" max="95" type="text" ng-model="skunum" ng-blur="blurFun(skunum, modelObj.reserves)" ng-focus="focusFun(skunum)">
+	                    <button type="button" class="increase" ng-click="addNum(skunum, modelObj.reserves)">+</button>
+	                  </span>
+	                </div>
+	
+	            </div>
+	            
 
-                <!--基因个数文字定死，基因个数数字动态获取具体商品一份的基因个数ng-->
-                <div class="detail_d_sku ui_sku_prop clearfix ng-scope" ng-repeat="list in kindGroup">
-                  <h2>基因个数</h2>
-                <div class="items width_w_98">
-                <label class="kline btn_opt">
-				   <h2 style="color:white;">基因个数(获取不同产品类目一份的基因个数)</h2>
-                </label>
-                </div>
-                </div>
-
-              </div>
-              <!--数量增加减少购物处-->
-              <div id="sku_quantity" class="quantity detail_d_quantity  clearfix">
-                <input name="sid" value="6758" type="hidden">
-
-                <h2>数量</h2>
-              <!-- 加减计数处-->
-                <div class="items clearfix">
-                  <span class="ui_number">
-                    <button type="button" class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1" disabled="disabled">-</button>
-                    <input class="num ng-pristine ng-untouched ng-valid" name="quantity" autocomplete="off" min="1" max="95" type="text" ng-model="skunum" ng-blur="blurFun(skunum, modelObj.reserves)" ng-focus="focusFun(skunum)">
-                    <button type="button" class="increase" ng-click="addNum(skunum, modelObj.reserves)">+</button>
-                  </span>
-                </div>
-
-              </div>
-             
+            </div>
+    
+    
+             <!--此时按钮有三个：1加入购物车，2...，3立即购买；1,2弹框弹出“确定”，3弹出“确认支付”-->
+	         <!--1,2-确定-->
+	         <!--<div class="buy_own_confirm">
+	         	<a><span style="color: white;">确定</span></a>
+	         </div>-->
+	         <!--3-确认支付-->
+	         <div class="buy_own_confirm">
+	         	<a><span style="color: white;">确定支付</span></a>
+	         </div>
+	         
             
-            </div>
+             
+          </div>
+              
+            
+        </div>
 
-            <!--购买 -->
-            <!--此时按钮有三个：1加入购物车，2...，3立即购买；1,2弹框弹出“确定”，3弹出“确认支付”-->
-            <div class="goods_buy_detail tline">
-              <!-- 购买按钮 -->
-              <!-- ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
-              <ul ng-if="modelObj.reserves != 0 &amp;&amp; modelObj.reserves != undefined" class="ng-scope">
-                <!-- ngIf: confirm == 1 -->
-                <li ng-if="confirm == 1" class="ng-scope">
-                	<a class="buy_own center" ng-click="joinShop()"><span>确定</span> </a>
-                </li>                	
-                <!-- end ngIf: confirm == 1 -->
-                <!-- ngIf: confirm == 2 -->
-                <!-- ngIf: confirm == 0 -->
-              </ul><!-- end ngIf: modelObj.reserves != 0 && modelObj.reserves != undefined -->
-              <!-- ngIf: modelObj.reserves == 0 -->
-              <!-- 购买按钮 -->
-            </div>
-            <!-- 购买 -->
+         
 
-            <!-- 样式风格 -->
           </div>
         </div>
       </div>
-    </div>
-  </div>
+ 
   
   
   

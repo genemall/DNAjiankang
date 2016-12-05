@@ -42,13 +42,39 @@
 .goods_buy_box ul li a.buy_own {
     background: #ec711f;
 }
+.buy_own_confirm{
+	background: #ec711f;
+    display: block;
+    height: 49px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    line-height: 49px;
+}
+
 .goods_buy_box{
     margin-top: 0;
     margin-bottom: 50px;
 }
 
+.top_btn i.icon {
+    vertical-align: middle;
+    background: url(../img/icon/wx_sprites.png) no-repeat;
+    display: block;
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-size: 200px;
+    margin: 0 auto;
+    text-indent: -9999px;
+}
+.top_btn i.icon-back {
+    background-position: -34px 4px;
+}
 
-
+.top_btn i.icon-cart {
+    background-position: -34px -30px;
+}
 .top_btn {
     position: fixed;
     top: 0;
@@ -57,7 +83,6 @@
     max-width: 640px;
     margin: 0 auto;
 }
-
 .detail_tool {
     width: 100%;
 }
@@ -80,21 +105,15 @@
     display: block;
     padding: 7px;
 }
-
 a {
     color: #555;
     text-decoration: none;
 }
-.top_btn i.icon-back {
-    background: url(../img/icon/icon.png) no-repeat;
-}
-
 .top_btn .cart_btn {
     top: 10px;
     right: 19px;
     overflow: visible !important;
 }
-
 .top_btn .icon_btn {
     position: absolute;
     width: 39px;
@@ -104,11 +123,6 @@ a {
     color: #fff;
     background: rgba(0, 0, 0, .7);
 }
-.top_btn i.icon-cart {
-	background: url(../img/icon/buy.png) no-repeat;
-   
-}
-
 .top_btn i.icon {
     vertical-align: middle;
     display: block;
@@ -197,18 +211,26 @@ a {
     width: 30px;
     height: 30px;
 }
-
 .poplayer_box i.icon {
     width: 38px;
     height: 25px;
     color: #333333;
     display: inline-block;
-    //图片路径要重新获取
-    background: url(../img/icon/back.png) no-repeat;
     background-size: 100px;
     vertical-align: middle;
     text-indent: -9999px;
 }
+i.icon {
+    width: 25px;
+    height: 25px;
+    color: #333333;
+    display: inline-block;
+    background: url(../img/icon/layer_icon.png) no-repeat;
+    background-size: 200px;
+    vertical-align: middle;
+    text-indent: -9999px;
+}
+
 .detail_select_rule {
     width: 100%;
     position: relative;
@@ -346,10 +368,29 @@ i, em {
     width: 98% !important;
     display: block !important;
 }
-.detail_d_sku .items label.btn_opt {
+.detail_d_sku .items{
     color: #fff;
     background: #f0721f;
 }
+.jiyinum{
+	margin-bottom:20px;
+	text-align: left;
+}
+.btn_opt{
+	color: #fff;
+    background: #f0721f;
+    padding: 2% 10px;
+    margin-top: 10px;
+    margin-right: 8px;
+    border-radius: 20px;
+    height: 25px;
+    text-align: center;
+    line-height: 10px;
+}
+.title{
+	margin-top: 10px;
+}
+
 .detail_d_sku .items label {
     padding: 2% 10px;
     margin-right: 8px;
@@ -453,5 +494,327 @@ input, textarea, keygen, select, button, meter, progress {
     border: 0px none;
     padding: 10px 0px;
     text-align: left;
+}
+.quantity .items span {
+    min-height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.ui_number {
+    background: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #e3e3e3;
+    letter-spacing: 0;
+    height: 22px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.ui_number .increase, .ui_number .decrease, .ui_number .num {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    height: 20px;
+    line-height: 18px;
+}
+.ui_number button {
+    font-style: normal;
+    font-size: 18px;
+    border: 0;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 20px;
+    color: #000;
+    background: none;
+    cursor: pointer;
+    font-weight: 100;
+}
+.ui_number .increase, .ui_number .num {
+    margin-left: -4px;
+}
+.ui_number .increase, .ui_number .decrease, .ui_number .num {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    height: 20px;
+    line-height: 18px;
+}
+input, textarea {
+    outline: 0;
+    resize: none;
+}
+.ui_number button {
+    font-style: normal;
+    font-size: 18px;
+    border: 0;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 20px;
+    color: #000;
+    background: none;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+
+:hov
+
+.cls
+
+element.style {
+}
+.goods_buy_detail {
+    width: 100%;
+    max-width: 640px;
+    z-index: 9998;
+    background: rgba(255, 255, 255, .9);
+    margin: 0 auto;
+    position: relative;
+}
+.bline, .tline, .lline, .rline {
+    position: relative;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from div.layercont
+.poplayer_box .layercont {
+    font-size: 14px;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.layer_type.layer_style
+.poplayer_section .layer_type {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    opacity: 1;
+    padding: 20px;
+    pointer-events: auto;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.poplayer_section
+.poplayer_content .poplayer_section {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.poplayer_content
+.poplayer_content {
+    display: table;
+    pointer-events: none;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div#mask.poplayer_box.layer_type3
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.ng-scope
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div#container
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from body.navbar-fixed
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    line-height: 1;
+    background: #f0f0f0;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+}
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from html.ng-scope
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    text-indent: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+html {
+    height: 100%;
+    font-size: 10px;
+}
+* {
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
