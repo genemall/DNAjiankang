@@ -8,24 +8,24 @@
 </div>
 
 <div class="home_search">
-   <div class="weui-search-bar">
-        <form class="weui-search-bar__form">
+   <div ng-class="['weui-search-bar',focusing]">
+        <form class="weui-search-bar__form" >
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>
                 <input type="search" class="weui-search-bar__input" placeholder="搜索" id="searchInput" ng-model="searchInput" ng-keyup="searchKeyupEvent()" ng-focus="searchFocusEvent()" ng-blur="searchBlurEvent()" />
                 <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
             </div>
-            <label for="search_input" class="weui-search-bar__label" set-focus ng-if="searchText" ng-click="searchClickEvent()">
+            <label for="search_input" class="weui-search-bar__label" set-focus ng-if="searchText" ng-click="searchClickEvent()"  id="searchText">
                 <i class="weui-icon-search"></i>
                 <span>搜索</span>
             </label>
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" ng-click="searchCancel()">取消</a>
     </div>
-    <div class="weui-cells searchbar-result page__desc"  ng-if="isSearchShow">
+    <div class="weui-cells searchbar-result page__desc" style="postion:absolute;left:0px;top:0px;" ng-if="isSearchShow">
         <div class="weui-cell weui-cell_access">
             <div class="weui-cell__bd weui-cell_primary">
-                <p>实时搜索文本</p>
+                <div> <a ui-sref='cart' >实时搜索文本</a></div>
             </div>
         </div>
          <div class="weui-cell weui-cell_access">
