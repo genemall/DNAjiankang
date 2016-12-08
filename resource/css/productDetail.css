@@ -105,10 +105,6 @@
     display: block;
     padding: 7px;
 }
-a {
-    color: #555;
-    text-decoration: none;
-}
 .top_btn .cart_btn {
     top: 10px;
     right: 19px;
@@ -288,8 +284,7 @@ i.icon {
     -ms-transform: translate(0,-50%);
     transform: translate(0,-50%);
 }
-
-img {
+.img11 {
     border: 0;
     vertical-align: middle;
     max-width: 100%;
@@ -303,14 +298,12 @@ img {
     line-height: 18px;
     margin-top: -4px;
 }
-
 .fl {
     float: left;
 }
 .price_color {
     color: #ec711f;
 }
-
 i, em {
     font-style: normal;
 }
@@ -391,7 +384,7 @@ i, em {
 	margin-top: 10px;
 }
 
-.detail_d_sku .items label {
+.detail_d_sku .items {
     padding: 2% 10px;
     margin-right: 8px;
     border-radius: 30px;
@@ -400,7 +393,7 @@ i, em {
     background: #E76540;
     color: #FFF;
 }
-.ui_sku label {
+.ui_sku {
     display: inline-block;
     background-color: #fff;
     padding: 0 2%;
@@ -413,17 +406,12 @@ i, em {
     margin-bottom: 2%;
     position: relative;
 }
-label, .lbl {
+.kline {
     vertical-align: middle;
-}
-label {
     display: inline-block;
     margin-bottom: 5px;
     font-weight: normal;
     font-size: 14px;
-}
-
-label {
     cursor: pointer;
 }
 .kline:after {
@@ -448,26 +436,6 @@ label {
 .clearfix, .clear {
     clear: both;
     zoom: 1;
-}
-input, textarea {
-    outline: 0;
-    resize: none;
-}
-input, textarea, keygen, select, button {
-    text-rendering: auto;
-    color: initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    margin: 0em 0em 0em 0em;
-    font: 13.3333px Arial;
-}
-input, textarea, keygen, select, button, meter, progress {
-    -webkit-writing-mode: horizontal-tb;
 }
 .detail_d_quantity h2 {
     width: 20%;
@@ -541,10 +509,6 @@ input, textarea, keygen, select, button, meter, progress {
     height: 20px;
     line-height: 18px;
 }
-input, textarea {
-    outline: 0;
-    resize: none;
-}
 .ui_number button {
     font-style: normal;
     font-size: 18px;
@@ -558,12 +522,6 @@ input, textarea {
     cursor: pointer;
     font-weight: 100;
 }
-
-
-:hov
-
-.cls
-
 element.style {
 }
 .goods_buy_detail {
@@ -577,51 +535,9 @@ element.style {
 .bline, .tline, .lline, .rline {
     position: relative;
 }
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
-}
 Inherited from div.layercont
 .poplayer_box .layercont {
     font-size: 14px;
-}
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
 }
 Inherited from div.layer_type.layer_style
 .poplayer_section .layer_type {
@@ -636,185 +552,3 @@ Inherited from div.layer_type.layer_style
     padding: 20px;
     pointer-events: auto;
 }
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from div.poplayer_section
-.poplayer_content .poplayer_section {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from div.poplayer_content
-.poplayer_content {
-    display: table;
-    pointer-events: none;
-}
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from div#mask.poplayer_box.layer_type3
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from div.ng-scope
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from div#container
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from body.navbar-fixed
-body {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    line-height: 1;
-    background: #f0f0f0;
-    -webkit-text-size-adjust: 100%;
-    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
-}
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-Inherited from html.ng-scope
-html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, th, td, dl, dt, dd, form, fieldset, legend, input, textarea, select, div {
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: normal;
-    text-indent: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-html {
-    height: 100%;
-    font-size: 10px;
-}
-* {
-    tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -ms-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
