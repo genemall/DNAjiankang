@@ -1,5 +1,5 @@
 
-angular.module('reportDetail', ['ui.router'])
+angular.module('reportDetail', ['ui.router','pdf-viewer'])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
@@ -7,6 +7,7 @@ angular.module('reportDetail', ['ui.router'])
                     url: '/reportDetail',
                     templateUrl: 'view/reportDetail.html',
                     controller: function($scope){
+                        $scope.report_url='./resource/report.pdf'
                     },
                 })
         }

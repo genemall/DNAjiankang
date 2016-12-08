@@ -17,7 +17,6 @@ var dnaStore = angular.module('dnaStore',
         'reportDetail',
 
         'httpMd',
-        'goodsFilterMd',
         'loginMd',
         'cartMd',
     ]
