@@ -62,7 +62,6 @@ homeModule.config(['$stateProvider',
                         $scope.searchText = true;
                         $scope.focusing = '';
                         $scope.isSearchShow = false;
-                        document.getElementById('searchInput').focus();
                     }
                     $scope.searchKeyupEvent = function() {
                         if ($scope.searchInput) {
