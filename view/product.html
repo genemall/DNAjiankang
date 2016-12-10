@@ -7,15 +7,13 @@
 
 <div class="weui-tab">
     <div class="weui-navbar" style="">
-        <div class="weui-navbar__item " style="padding:0;" ng-repeat='row in products'>
+        <div class="weui-navbar__item " style="padding:0;" ng-repeat='row in products'> <!--循环遍历出导航按钮-->
             <div style="line-height: 36px;" ng-click="getProductsData(row.id)">{{row.claName}}</div>
         </div>
     </div>
-  <!--头部导航栏  -->
-    
     
   <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;" >
-        <div class="weui-panel__bd" style="" ng-repeat='row in products_show'>
+        <div class="weui-panel__bd" style="" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
            <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding: 0;">
                <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
                    <img class="weui-media-box__thumb" ng-src="{{row.proImage}}" alt="">
