@@ -52,10 +52,11 @@
 
 <div class="home_classify" >
     <div class="weui-flex"  ng-repeat="classify in classifies" >
-        <div class="weui-flex__item"   ng-repeat="col in classify.row">
-        	<span style="visibility:hidden">{{col.id}}</span>
-            <img ng-src="{{col.img_url}}" style="width:90%;" class="weui_grid">
-            <span style="position: absolute; bottom: 2px; right: 2px; background: #CFCFCF;opacity:0.6;"><font size="4">{{col.name}}</font></span>
+        <div class="weui-flex__item"   ng-repeat="col in classify.row" >
+        	<a href="#/product/{{col.id}}">
+	            <img ng-src="{{col.claContent}}" style="width:90%;" >
+	            <span style="position: absolute; bottom: 2px; right: 2px; background: #CFCFCF;opacity:0.6;"><font size="4">{{col.claName}}</font></span>
+            </a>
         </div>
     </div>
 </div>

@@ -3,6 +3,9 @@
  */
 
 angular.module("httpMd",[])
+	.config(['$httpProvider', function($httpProvider) {
+	  $httpProvider.defaults.withCredentials=false;
+	}])
     .factory("httpService",function($http,$q){
         return{
             get:function(_urlPath){

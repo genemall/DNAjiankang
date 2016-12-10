@@ -12,17 +12,13 @@ homeModule.config(['$stateProvider',
                 url: '/home',
                 templateUrl: 'view/home.html',
                 resolve: {
-                	classifyResolve: function (httpService) {
-                        return httpService.get('json/fenlei.json')
+                	classifyResolve: function (httpService,$rootScope) {
+                        return httpService.get($rootScope.baseURL+'classify/phoneclsall.do')
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 return data.classifies;
                             });;
                     },
-
                     /*
-                    productsResolve: function (httpService) {
-                        return httpService.get('json/products.json');
-                    },
                     productObj: function (httpService, util,$state) {
                         return httpService.get('json/products.json')
                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -33,11 +29,9 @@ homeModule.config(['$stateProvider',
                 },
                  controller: function ($scope,$stateParams,$rootScope,classifyResolve) {
                     $scope.classifies=classifyResolve
-                    console.log($scope.classifies)
                     $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
 			                     {img: "./resource/img/2.jpg",link:'#'},
 			                     {img: "./resource/img/3.jpg",link:'#'}];
-
 			        $scope.focusing = ''; //获得焦点时增加样式weui_search_focusing
                     $scope.isSearchShow = false; //是否显示搜索框的下拉列表
                     $scope.searchInput = ''; //搜索内容清空

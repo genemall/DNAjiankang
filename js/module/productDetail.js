@@ -5,7 +5,7 @@ pdModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
             .state("productDetail", {
-                url: '/productDetail',
+                url: '/productDetail/:id',
                 templateUrl: 'view/productDetail.html',
                 controller: function($scope){
                 	 $scope.data = [{img: "./resource/img/5.jpg",link:'#'},

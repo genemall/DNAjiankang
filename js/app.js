@@ -34,11 +34,11 @@ dnaStore
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
+		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
         $rootScope.outLogin = function () {
             loginService.outLogin();
             $rootScope.user = null;
         }
-
         //调用服务获取主页需要显示的焦点图
         httpService.get('json/tsconfig.json').then(function (data) {
             $rootScope.imgItems = data.focusImg;
