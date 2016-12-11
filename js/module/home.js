@@ -1,7 +1,6 @@
 /**
  * home page
  */
-
 //angular.module('home', ['ui.router'])
 var homeModule = angular.module('home', ['ui.router']);
 sliderTest(homeModule,'slider');

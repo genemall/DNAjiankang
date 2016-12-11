@@ -1,5 +1,5 @@
-<div class="users_header clearfix">
-	<div class="menber_warp">
+<div class="users_header clearfix" >
+	<div class="menber_warp" >
 	    <div class="userInfo_headimg">
 	      <img ng-src="http://wx.qlogo.cn/mmopen/gK4cEpMD2mTvpNn9mojn5R5v6xng9ukSg8Riaz35koGPAE9x3JTy6xCrOtbJVABo9d5ibqvr5Ud1nboqicGbrpkUKFRTQfgVGNg/0" src="http://wx.qlogo.cn/mmopen/gK4cEpMD2mTvpNn9mojn5R5v6xng9ukSg8Riaz35koGPAE9x3JTy6xCrOtbJVABo9d5ibqvr5Ud1nboqicGbrpkUKFRTQfgVGNg/0">
 	    </div>
@@ -8,7 +8,7 @@
 </div>
 <!--订单头部-->
 <div class="menber_nav clearfix menber_icon" >
-       <a class="my_order wsh_cell" href="../order/list">
+       <a class="my_order wsh_cell" href="#order" >
         <div class="wsh_cell_primary">
           <h4>全部订单</h4>
         </div>
@@ -54,7 +54,7 @@
           </div>
           <div class="wsh_grid_label">我的信息</div>
         </a>
-        <a class="width25 wsh_grid" href="../user/activity">
+        <a class="width25 wsh_grid" href="#report/{{id}}">
           <div class="wsh_grid_icon">
             <img class="member_icon" src="resource/img/personal/report.png" alt="我的报告">
           </div>
@@ -64,7 +64,7 @@
           	时间：2016-12-03
           	描述：获取数量
           -->
-          <em class="notice ng-binding" ng-show="personal.myreport > 0" ng-bind="personal.myreport" >3</em>  
+          <em class="notice ng-binding" ng-show="personal.myreport > 0" ng-bind="personal.myreport" >{{}}</em>  
         </a>
         <a class="width25 wsh_grid" href="../user/address-list">
           <div class="wsh_grid_icon">

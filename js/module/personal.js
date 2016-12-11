@@ -7,6 +7,8 @@ angular.module('personal', ['ui.router'])
                     url: '/personal',
                     templateUrl: 'view/personal.html',
                     controller: function($scope){
+                    	$scope.user_id = 1
+                    	
                     }
                 })
         }

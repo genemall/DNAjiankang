@@ -27,3 +27,4 @@ angular.module('product', ['ui.router'])
                 })
         }
     ])
+    
