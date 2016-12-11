@@ -15,7 +15,7 @@ angular.module('product', ['ui.router'])
 	                    },
 	                },
                     controller: function($scope,httpService,product_list,$rootScope){
-                    	$scope.products=product_list //导航页的三个标签，对应的展示
+                    	$scope.products=product_list //导航页的三个标签，对应的展示	
                     	$scope.products_show=product_list[0].listProduct//每个标签对应的商品信息，默认是第一个标签
                     	$scope.getProductsData=function(id){ //点击其他标签，重新获取数据，并在最后的返回中给予赋值
                     		httpService.get($rootScope.baseURL+'product/phoneproall.do?clsId='+id)
