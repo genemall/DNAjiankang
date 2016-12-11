@@ -53,9 +53,10 @@
 
 
 <div class="weui-cells weui-cells_checkbox">
-    <label class="weui-cell weui-check__label" for="s11">
+	
+    <label class="weui-cell weui-check__label" for="{{row.proId}}" ng-repeat="row in cart_datas">
         <div class="weui-cell__hd">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="s11" checked="checked">
+            <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked">
             <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
@@ -67,21 +68,21 @@
             
                 <div class="weui-media-box__bd" style="margin: 0;padding: 0;">
                    	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin:0px ;padding: 0;">
-                   		记忆天赋基因检测
+                   		{{row.product.proName}}
                    	   </span>
                    
                        
                        <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin-top: 25px;">
-                   	      <span>¥</span><span>2400.00</span><span style="margin-left: 15px;">库存：1057件</span><br />
+                   	      <span>¥</span><span>{{row.product.proRateprice}}</span><span style="margin-left: 15px;">库存：{{row.product.proCount}}件</span><br />
                    	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
                    	   	      <span>¥</span>
-                   	   	      <span>3400</span>
+                   	   	      <span>{{row.product.proPrice}}</span>
                    	      </span>
                        </p>
                        <div class="cart_item_num "> 
 	                       <div class="item_quantity_editer clearfix" style="width:82px;border:1px solid #f2f2f2;margin: 0;padding: 0;"> 
 		                     <span class="decrease_one">-</span> 
-		                     <input class="item_quantity" type="text" value="1" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
+		                     <input class="item_quantity" type="text" value="{{row.proCount}}" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
 		                     <span class="increase_one">+</span>
 	                       </div> 	
                        </div>
@@ -91,47 +92,6 @@
         </div>
     </label>
     
-    
-    
-    <label class="weui-cell weui-check__label" for="s12">
-        <div class="weui-cell__hd">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="s12" checked="checked">
-            <i class="weui-icon-checked"></i>
-        </div>
-        <div class="weui-cell__bd">
-           <div class="weui-panel__bd" style="">
-           <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="margin-top:0px;padding: 0;">
-                <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
-                       <img class="weui-media-box__thumb" src="resource/img/order/pro_order1.png" alt="">
-                   </div>
-            
-                <div class="weui-media-box__bd" style="margin: 0;padding: 0;">
-                   	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin:0px ;padding: 0;">
-                   		记忆天赋基因检测
-                   	   </span>
-                   
-                       
-                       <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin-top: 25px;">
-                   	      <span>¥</span><span>2400.00</span><span style="margin-left: 15px;">库存：1057件</span><br />
-                   	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
-                   	   	      <span>¥</span>
-                   	   	      <span>3400</span>
-                   	      </span>
-                       </p>
-                       <div class="cart_item_num "> 
-	                       <div class="item_quantity_editer clearfix" style="width:82px;border:1px solid #f2f2f2;margin: 0;padding: 0;"> 
-		                     <span class="decrease_one">-</span> 
-		                     <input class="item_quantity" type="text" value="1" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
-		                     <span class="increase_one">+</span>
-	                       </div> 	
-                       </div>
-                   </div>
-                </a>
-            </div>
-        </div>
-    </label>
-    
-
        
 </div>
 

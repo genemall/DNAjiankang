@@ -1,9 +1,11 @@
 
 *{  
 	font-family: "微软雅黑","Arial";
-	
 }
-
+a:link{text-decoration:none;}
+a:visited{text-decoration:none; }
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
 /***** footer 页面底部 start*/
 /*footer  footer_service*/
 .footer_service{

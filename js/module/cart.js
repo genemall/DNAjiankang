@@ -7,13 +7,19 @@ angular.module('cart', ['ui.router','cartMd'])
         function ($stateProvider) {
             $stateProvider
                 .state("cart", {
-                    url: '/cart',
+                    url: '/cart/:id',
                     templateUrl: 'view/cart.html',
-                    controller:function($scope,cartService,$rootScope){
-                        //调用服务获取我的购物车对象
-                        if($rootScope.user!=null){
-                            $scope.cart = cartService.myCart;
-                        }
+                    resolve: {
+	                	cart_list: function (httpService,$rootScope,$stateParams) {
+	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+$stateParams.id)
+	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+	                                return data;
+	                            });
+	                    },
+	                },
+                    controller:function($scope,cart_list,$rootScope){
+                    	console.log(cart_list)
+                    	$scope.cart_datas=cart_list.listOrderProduct
                     },
                     //配置导航，回到父层
                     ncyBreadcrumb:{
