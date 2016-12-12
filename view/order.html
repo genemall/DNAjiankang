@@ -5,16 +5,16 @@
 
 <div class="weui-tab">
 	<div class="weui-navbar" style="position: fixed;">
-		<a class="weui-navbar__item weui-bar__item_on">
+		<a class="weui-navbar__item " ng-class="{'weui-bar__item_on':is_select_id==1}" ng-click="getOrdersData(1)">
 			待付款
 		</a>
-		<a class="weui-navbar__item">
+		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==2}" ng-click="getOrdersData(2)">
 			待发货
 		</a>
-		<a class="weui-navbar__item ">
+		<a class="weui-navbar__item " ng-class="{'weui-bar__item_on':is_select_id==3}" ng-click="getOrdersData(3)">
 			待收货
 		</a>
-		<a class="weui-navbar__item">
+		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==4}" ng-click="getOrdersData(4)">
 			已完成
 		</a>
 </div>
@@ -67,10 +67,12 @@
            </div>
     		<div class="button-sp-area" ng-show="{{ord_state}}==1">
     			<!--待支付状态-->
+    			<span style="margin-right: 10px;">
     			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
-    			&nbsp;&nbsp;<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>
+    			</span>
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>
     		</div>
-    		<div class="button-sp-area" ng-show="{{ord_state}}==2">
+    		<div class="button-sp-area" ng-show="{{ord_state}}==2" >
     			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>
             </div>
             <div class="button-sp-area" ng-show="{{ord_state}}==3">
