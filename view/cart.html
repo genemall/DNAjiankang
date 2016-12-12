@@ -50,13 +50,11 @@
 }
 </style>
 
-
-
-<div class="weui-cells weui-cells_checkbox">
+<div class="weui-cells weui-cells_checkbox" style="margin-bottom: 80px;">
 	
     <label class="weui-cell weui-check__label" for="{{row.proId}}" ng-repeat="row in cart_datas">
         <div class="weui-cell__hd">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked">
+            <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked" ng-checked="all">
             <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
@@ -81,9 +79,9 @@
                        </p>
                        <div class="cart_item_num "> 
 	                       <div class="item_quantity_editer clearfix" style="width:82px;border:1px solid #f2f2f2;margin: 0;padding: 0;"> 
-		                     <span class="decrease_one">-</span> 
-		                     <input class="item_quantity" type="text" value="{{row.proCount}}" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
-		                     <span class="increase_one">+</span>
+		                     <span style="z-index: 999;" class="decrease_one" ng-click="reduce()">-</span> 
+		                     <input type="number" name="points" min="1"  value="{{count}}" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
+		                     <span class="increase_one" ng-click="count=count+1">+</span>
 	                       </div> 	
                        </div>
                    </div>
@@ -103,18 +101,18 @@
  	</span>
  	
  	
- </div>
+ </div>-->
 
 <div class="weui-cells weui-cells_checkbox checkbox_bottom" style="height: 55px;margin: 0;padding: 0;">
 
     <label class="weui-cell weui-check__label" for="s14" style="width:258px;margin:0;padding: 0;float: left;" >
         <div class="weui-cell__hd" style="line-height: 55px;">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="s14" checked="checked">
+            <input type="checkbox" class="weui-check" name="checkbox1" id="s14" checked="checked" ng-model="all">
             <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
             <span style="font-size: 17px;">全选</span>
-            <span style="font-size: 15px;color: orange;margin-left: 15px;">合计：<span>¥</span><span>5400.00</span></span>   
+            <span style="font-size: 15px;color: orange;margin-left: 15px;">合计：<span>¥</span><span>{{count*proRateprice}}</span></span>   
         </div>   
     </label>
     

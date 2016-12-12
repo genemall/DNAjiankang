@@ -19,7 +19,17 @@ angular.module('cart', ['ui.router','cartMd'])
 	                },
                     controller:function($scope,cart_list,$rootScope){
                     	console.log(cart_list)
-                    	$scope.cart_datas=cart_list.listOrderProduct
+                    	$scope.cart_datas=cart_list.listOrderProduct;
+                    	$scope.count=9;
+                    	
+                     $scope.reduce = function(co) {
+		                if ($scope.count> 1) {
+		                    $scope.count--;
+		                } else {
+		                    $scope.count=1;
+		                }
+		            }	
+                    	
                     },
                     //配置导航，回到父层
                     ncyBreadcrumb:{
