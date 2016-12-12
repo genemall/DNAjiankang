@@ -67,6 +67,17 @@ angular.module("utilMd", [])
                     }
                 }
                 return -1;
-            }
+            },
+            get_sum_price:function(order_show){
+                for(var i=0;i<order_show.length;i++){
+                    var price_sum = 0
+                    product_list = order_show[i].mapOrderProductList
+                    for(var j=0;j<product_list.length;j++){
+                        price_sum += parseInt(product_list[j].proPrice)*parseInt(product_list[j].proCount)
+                    }
+                    order_show[i]['price_sum']=price_sum //添加订单的总价进原始json
+                }
+                return order_show
+            },
         }
     })

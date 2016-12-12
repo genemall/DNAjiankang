@@ -12,7 +12,7 @@ pdModule.config(['$stateProvider',
 			                     {img: "./resource/img/2.jpg",link:'#'},
 			                     {img: "./resource/img/3.jpg",link:'#'}];
 			                     
-			             $scope.mask=false;        	    
+			    $scope.mask=false;        	    
 			    $scope.showModal = function () {
 			      $scope.mask = true;
 	
@@ -20,7 +20,24 @@ pdModule.config(['$stateProvider',
 			     $scope.close = function () {
 			      $scope.mask = false;
 	
-			    };   
+			    };
+			    $scope.confirm_yes = false;
+			     $scope.confirm_pay = false;
+			     $scope.button_state=true;
+			     $scope.button_state_change = function (){
+			      $scope.button_state=false,
+			      $scope.confirm_yes = true
+			     };
+			      $scope.button_state_change1 = function (){
+			      $scope.button_state=false,
+			      $scope.confirm_pay = true
+			     };
+			     $scope.button_state_changere = function (){
+			      $scope.button_state=true,
+			      $scope.confirm_yes = false,
+			      $scope.confirm_pay = false
+			     };
+			     
                 },
             })
           

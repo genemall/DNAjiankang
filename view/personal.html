@@ -1,5 +1,5 @@
-<div class="users_header clearfix">
-	<div class="menber_warp">
+<div class="users_header clearfix" >
+	<div class="menber_warp" >
 	    <div class="userInfo_headimg">
 	      <img ng-src="http://wx.qlogo.cn/mmopen/gK4cEpMD2mTvpNn9mojn5R5v6xng9ukSg8Riaz35koGPAE9x3JTy6xCrOtbJVABo9d5ibqvr5Ud1nboqicGbrpkUKFRTQfgVGNg/0" src="http://wx.qlogo.cn/mmopen/gK4cEpMD2mTvpNn9mojn5R5v6xng9ukSg8Riaz35koGPAE9x3JTy6xCrOtbJVABo9d5ibqvr5Ud1nboqicGbrpkUKFRTQfgVGNg/0">
 	    </div>
@@ -8,35 +8,35 @@
 </div>
 <!--订单头部-->
 <div class="menber_nav clearfix menber_icon" >
-       <a class="my_order wsh_cell" href="../order/list">
+       <a class="my_order wsh_cell" href="#order" >
         <div class="wsh_cell_primary">
           <h4>全部订单</h4>
         </div>
         <div class="wsh_cell_ft">
           <span class="right-text">查看全部订单</span>
-          <span class="right-img"></span> 
+          <span class="right-img"></span>
         </div>
-          <span class="line"></span> 
+          <span class="line"></span>
       </a>
-   
+
     <div class="wsh_cell order-ul">
-        <a class="wsh_cell_primary order-li" href="..">
+        <a class="wsh_cell_primary order-li" href="...">
         	<span>
-        	<img class="home-icon" src="resource/img/personal/icon-coins.png"><br />待付款
+        	<img class="home-icon" src="resource/img/personal/icon-coins.png"><br/>待付款
         	</span>
-        	<em class="notice ng-binding" ng-show="order.unPay > 0" ng-bind="order.unPay">3</em>
+        	<em class="notice ng-binding" ng-show="order_count.unPay > 0" ng-bind="order_count.unPay"></em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>
         	<img class="home-icon" src="resource/img/personal/waiting_delivering.png"><br /></i>待发货
         	</span>
-        	<em class="notice ng-binding ng-hide" ng-show="order.unDeliver > 0" ng-bind="order.unDeliver">0</em>
+        	<em class="notice ng-binding ng-hide" ng-show="order_count.unDeliver > 0" ng-bind="order_count.unDeliver"></em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>
         		<img class="home-icon" src="resource/img/personal/delivering.png"><br /></i>待收货
         	</span>
-        	<em class="notice ng-binding ng-hide" ng-show="order.unTake > 0" ng-bind="order.unTake">0</em>
+        	<em class="notice ng-binding ng-hide" ng-show="order_count.unTake > 0" ng-bind="order_count.unTake"></em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>
@@ -54,7 +54,7 @@
           </div>
           <div class="wsh_grid_label">我的信息</div>
         </a>
-        <a class="width25 wsh_grid" href="../user/activity">
+        <a class="width25 wsh_grid" href="#report/{{user_id}}">
           <div class="wsh_grid_icon">
             <img class="member_icon" src="resource/img/personal/report.png" alt="我的报告">
           </div>
@@ -64,7 +64,7 @@
           	时间：2016-12-03
           	描述：获取数量
           -->
-          <em class="notice ng-binding" ng-show="personal.myreport > 0" ng-bind="personal.myreport" >3</em>  
+          <em class="notice ng-binding" ng-show="personal.myreport > 0" ng-bind="personal.myreport" >{{}}</em>
         </a>
         <a class="width25 wsh_grid" href="../user/address-list">
           <div class="wsh_grid_icon">
@@ -90,7 +90,7 @@
           </div>
           <div class="wsh_grid_label">关于我们</div>
         </a>
-        
+
     </div>
 </div>
 

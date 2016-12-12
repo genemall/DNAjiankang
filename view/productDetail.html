@@ -42,14 +42,14 @@
 			                    <div class="now_price">
 			                            <!--<span class="font_size12">折扣价</span>-->
 							<span>
-			                            	<span class="font_size12" style="color: #f0721f;">￥</span>
+			                <span class="font_size12" style="color: #f0721f;">￥</span>
 							<span id="newPrice" style="color: #f0721f;">1200（获取价格）</span>
 							</span>
 						</div>
 						<div class="farmer_price">
 							<span class="font_size12">原价</span>
 							<span>
-			                            	<span class="font_size12">￥</span>
+			                <span class="font_size12">￥</span>
 							<span style="text-decoration:line-through">1500</span>
 							</span>
 						</div>
@@ -64,7 +64,7 @@
 
 				<!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
 				<span class="pull-right">
-			            		<span>. . .</span>
+			            		<span ng-click="showModal();button_state_change()">. . .</span>
 				</span>
 			</div>
 
@@ -92,21 +92,21 @@
 
 </div>
 <!--加入购物车，点击购买-->
-<div class="goods_buy_box">
+<div class="goods_buy_box" ng-show="button_state">
 	<!-- 购买按钮 -->
 	<ul>
 		<li>
-			<a class="buy_cart" ng-click="getCart()"> <span>加入购物车</span> </a>
+			<a class="buy_cart" ng-click="showModal();button_state_change()"> <span>加入购物车</span> </a>
 		</li>
 		<li>
-			<a class="buy_own" ng-click="showModal()"> <span>立即购买</span> </a>
+			<a class="buy_own" ng-click="showModal();button_state_change1()"> <span>立即购买</span> </a>
 		</li>
 	</ul>
 </div>
 
 <!--弹层	-->
 <!--加入购物车，点击购买，...弹层-->
-<div class="poplayer_box layer_type3" id="mask" ng-show="mask">
+<div style="z-index: 999999;"  class="poplayer_box layer_type3" id="mask" ng-show="mask">
 	<div class="poplayer_bg" ng-click="mask = false"></div>
 	<div class="poplayer_content">
 		<div class="poplayer_section">
@@ -115,7 +115,7 @@
 				<div class="layercont">
 
 					<!--关闭按钮-->
-					<div class="close_btn">
+					<div class="close_btn" ng-click="button_state_changere()">
 						<i class="icon icon_close" ng-click="close()"></i>
 					</div>
 
@@ -176,7 +176,8 @@
 	         </div>-->
 					<!--3-确认支付-->
 					<div class="buy_own_confirm">
-						<a><span style="color: white;">确定支付</span></a>
+						<a><span style="color: white;" ng-show="confirm_yes">确定</span></a>
+						<a><span style="color: white;" ng-show="confirm_pay">确定支付</span></a>
 					</div>
 
 				</div>

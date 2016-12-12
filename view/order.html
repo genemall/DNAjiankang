@@ -3,96 +3,88 @@
 <!-- content -->
 <div class="order-bd">
 
-	<div class="weui-tab">
-		<div class="weui-navbar" style="position: fixed;">
-			<a class="weui-navbar__item weui-bar__item_on">
-				待付款
-			</a>
-			<a class="weui-navbar__item">
-				待发货
-			</a>
-			<a class="weui-navbar__item weui-bar__item_on">
-				待收货
-			</a>
-			<a class="weui-navbar__item">
-				已完成
-			</a>
-		</div>
-		<div class="weui-tab__panel">
-
-			<div class="weui-panel weui-panel_access" ng-repeat="x in orderlist">
-				<div class="weui-panel__hd">订单号:&nbsp;&nbsp;{{x.productId}}</div>
-				<div class="weui-panel__bd top_line bottom_line">
-					<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="padding: 5px;">
-						<div class="weui-media-box__hd" style="width: 110px;height: 110px;margin-bottom: 36px;">
-							<img class="weui-media-box__thumb" src="./resource/img/order/pro_order1.png" alt="获取产品图">
-						</div>
-						<div class="weui-media-box__bd">
-							<h4 class="weui-media-box__title">{{x.name}}</h4>
-
-							<span class="weui-media-box__desc">
-		                
-		                <div class="detail_info_item clear item_bg padding_block">
-			                 <div class="detail_price_info pull_left">
-			                    <div class="now_price">
-			                            <!--<span class="font_size12">折扣价</span>-->
-							<span>
-			                            	<span class="font_size12">￥</span>
-							<span id="newPrice">{{x.price}}</span>
-							</span>
-						</div>
-						<div class="farmer_price">
-							<span class="font_size12">原价</span>
-							<span>
-			                            	<span class="font_size12">￥</span>
-							<span style="text-decoration:line-through">1500</span>
-							</span>
-						</div>
-				</div>
-				<div class="sale_info pull_right">
-					<span>
-		                      	<span class="font_size12">×</span>
-					<span>2</span>
-					</span>
-
-				</div>
-			</div>
-			<hr style="margin: 12px auto;" />
-			<div>
-				<span class="pull-right">
-			            		<span>共<span id="">2?</span>件</span>
-				<span>
-			            			&nbsp;&nbsp;
-			            		            合计:<span><span class="font_size12">￥</span><span id="newPrice">2400?</span></span>
-				</span>
-
-				</span>
-			</div>
-
-		</div>
+<div class="weui-tab">
+	<div class="weui-navbar" style="position: fixed;">
+		<a class="weui-navbar__item " ng-class="{'weui-bar__item_on':is_select_id==1}" ng-click="getOrdersData(1)">
+			待付款
 		</a>
-
-	</div>
-
-	<div class="weui-panel__ft pull-right">
-		<div class="button-sp-area">
-			<!--待支付状态-->
-			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
-			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>
-			<!--待发货状态-->
-			<!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>-->
-			<!--待收货状态-->
-			<!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看物流</a>-->
-			<!--已完成状态-->
-			<!--<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看报告</a>-->
-		</div>
-		<!--<!--<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
-		            <div class="weui-cell__bd pull-right">查看物流</div>
-		            <span class="weui-cell__ft"></span>
-		        </a>    -->
-	</div>
+		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==2}" ng-click="getOrdersData(2)">
+			待发货
+		</a>
+		<a class="weui-navbar__item " ng-class="{'weui-bar__item_on':is_select_id==3}" ng-click="getOrdersData(3)">
+			待收货
+		</a>
+		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==4}" ng-click="getOrdersData(4)">
+			已完成
+		</a>
 </div>
+<div class="weui-tab__panel">
 
+	<div class="weui-panel weui-panel_access" ng-repeat="order in order_show">
+		<div class="weui-panel__hd">订单号:&nbsp;&nbsp;{{order.ordNum}}</div>
+		<div class="weui-panel__bd top_line bottom_line">
+			<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg"  ng-repeat="ord_pro in order.mapOrderProductList">
+				<div class="weui-media-box__hd" style="width: 110px;height: 110px;">
+					<img class="weui-media-box__thumb" ng-src="{{ord_pro.product.proImage}}" alt="获取产品图">
+				</div>
+				<div class="weui-media-box__bd">
+					<h4 class="weui-media-box__title">{{ord_pro.product.proName}}</h4>
+			        <span class="weui-media-box__desc">
+	                <div class="detail_info_item clear item_bg padding_block">
+                        <div class="detail_price_info pull_left">
+                            <div class="now_price">
+                                <!--<span class="font_size12">折扣价</span>-->
+                                <span>
+                                    <span class="font_size12">￥</span>
+                                    <span id="newPrice">{{ord_pro.proPrice}}</span>
+                                </span>
+                            </div>
+    						<div class="farmer_price">
+    							<span class="font_size12">原价</span>
+    							<span>
+    			                     <span class="font_size12">￥</span>
+    							     <span style="text-decoration:line-through">{{ord_pro.product.productPrice}}</span>
+    							</span>
+    						</div>
+            				<div class="sale_info pull_right">
+            					<span>
+            		                   <span class="font_size12">×</span>
+            					       <span>{{ord_pro.proCount}}</span>
+            					</span>
+            				</div>
+
+        				</div>
+        			</div>
+                </div>
+             </a>
+            <div>
+            </div>
+       </div>
+
+    	<div class="weui-panel__ft pull-right">
+    	    <div>
+           合计:<span><span class="font_size16">￥{{order.price_sum}}</span>(含运费￥0.00)</span>
+           </div>
+    		<div class="button-sp-area" ng-show="{{ord_state}}==1">
+    			<!--待支付状态-->
+    			<span style="margin-right: 10px;">
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">取消订单</a>
+    			</span>
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">立即支付</a>
+    		</div>
+    		<div class="button-sp-area" ng-show="{{ord_state}}==2" >
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">支付完成</a>
+            </div>
+            <div class="button-sp-area" ng-show="{{ord_state}}==3">
+    			<!--待收货状态-->
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看物流</a>
+            </div>
+            <div class="button-sp-area" ng-show="{{ord_state}}==4">
+    			<!--已完成状态-->
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看报告</a>
+            </div>
+    	</div>
+    </div>
 </div>
 </div>
 
