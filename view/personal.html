@@ -24,19 +24,19 @@
         	<span>
         	<img class="home-icon" src="resource/img/personal/icon-coins.png"><br/>待付款
         	</span>
-        	<em class="notice ng-binding" ng-show="order.unPay > 0" ng-bind="order.unPay">3</em>
+        	<em class="notice ng-binding" ng-show="order_count.unPay > 0" ng-bind="order_count.unPay"></em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>
         	<img class="home-icon" src="resource/img/personal/waiting_delivering.png"><br /></i>待发货
         	</span>
-        	<em class="notice ng-binding ng-hide" ng-show="order.unDeliver > 0" ng-bind="order.unDeliver">0</em>
+        	<em class="notice ng-binding ng-hide" ng-show="order_count.unDeliver > 0" ng-bind="order_count.unDeliver"></em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>
         		<img class="home-icon" src="resource/img/personal/delivering.png"><br /></i>待收货
         	</span>
-        	<em class="notice ng-binding ng-hide" ng-show="order.unTake > 0" ng-bind="order.unTake">0</em>
+        	<em class="notice ng-binding ng-hide" ng-show="order_count.unTake > 0" ng-bind="order_count.unTake">0</em>
         </a>
         <a class="wsh_cell_primary order-li" href="..">
         	<span>

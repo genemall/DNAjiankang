@@ -18,13 +18,13 @@
 .users_header .menber_warp .userInfo_headname{
 	overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#fff;background-color: #7fa9ee;
 	margin:0 auto;font-size:19px;text-align:center;
-	
+
 }
 .menber_nav {
     background-color: #fff;
     box-sizing: border-box;
     margin-top: 15px;
-  
+
 }
 .menber_nav .my_order {
     padding: 11px 15px;
@@ -153,7 +153,7 @@ a  {
 }
 .wsh_grids .width25 {
     width: 33.3333%;
-   
+
 }
 .wsh_grid {
     position: relative;
@@ -163,14 +163,14 @@ a  {
     height: 100px;
 }
 .wsh_grid_icon {
-	
+
     width: 30px;
     height: 30px;
     margin: 0 auto;
     margin-top: 14px;
 }
 .wsh_grid_label {
-	
+
     display: block;
     text-align: center;
     color: #666;
@@ -230,4 +230,20 @@ a  {
     -webkit-transform: scaleY(0.5);
     -ms-transform: scaleY(0.5);
     transform: scaleY(0.5);
+}
+.menber_nav .order-li .notice {
+    display: block;
+    position: absolute;
+    background-color: #fc4246;
+    top: 0px;
+    left: 50%;
+    padding: 2px 5px;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 10px;
+    line-height: 1;
+    box-shadow: 0 0 0 2px #fff;
+    vertical-align: top;
+    text-align: center;
+    color: #fff;
 }

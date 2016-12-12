@@ -7,24 +7,23 @@ angular.module('order', ['ui.router'])
         function ($stateProvider) {
             $stateProvider
                 .state("order", {
-                    url: '/order',
+                    url: '/order/:id/:ord_state',
                     templateUrl: 'view/order.html',
-                     resolve: {
-                	classifyResolve: function (httpService) {
-                        return httpService.get('json/order.json')
+                    resolve: {
+                	order_show: function (httpService,$rootScope,$stateParams) {
+                        return httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+$stateParams.ord_state)
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                                return data.products;
+                                return data;
                             });;
                    		},
                		 },
-                 
-                    
-                    controller: function($scope,cartService,classifyResolve){
-                        //调用服务获取我的购物车对象
-                        $scope.cart = cartService.myCart;
-                        $scope.orderlist=classifyResolve;
+
+
+                    controller: function($scope,httpService,$stateParams,order_show){
+                        $scope.order_show=order_show;
+                        $scope.ord_state=$stateParams.ord_state
                     },
-                    
+
                     //配置导航
                     ncyBreadcrumb:{
                         label:"我的订单",

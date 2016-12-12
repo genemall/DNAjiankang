@@ -8,8 +8,9 @@
 	margin-top: .375rem;
 	color: #999;
 }
-.font_size12{
-	font-size: 12px!important;
+.font_size16{
+	font-size: 16px !important;
+	font-weight:bold;
 }
 .sale_info{
 	text-alin:right;
