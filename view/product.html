@@ -1,23 +1,23 @@
 
 <div class="weui-tab">
     <div class="weui-navbar" style="">
-        <div class="weui-navbar__item " style="padding:0;" ng-repeat='row in products'> <!--循环遍历出导航按钮-->
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==row.id}" style="padding:0;" ng-repeat='row in products'> <!--循环遍历出导航按钮-->
             <div style="line-height: 36px;" ng-click="getProductsData(row.id)">{{row.claName}}</div>
         </div>
     </div>
-    
+
   <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;" >
         <div class="weui-panel__bd" style="" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
            <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding: 0;">
                <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
                    <img class="weui-media-box__thumb" ng-src="{{row.proImage}}" alt="">
                </div>
-        
+
                <div class="weui-media-box__bd">
                	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin-top:15px ;">
                		{{row.proName}}
                	   </span>
-               
+
                    <p class="weui-media-box__desc" style="color: #080808;font-size: 10px;margin-top: 5px;">{{row.proArea}}</p>
                    <p class="weui-media-box__desc" style="color: #080808;font-size: 10px;margin: 0;padding: 0;">包邮</p>
                    <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin: 0;padding-top:5px ;">
