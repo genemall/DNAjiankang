@@ -124,8 +124,8 @@
 							<!-- 加减计数处 -->
 							<div class="items clearfix">
                               <span class="ui_number">
-			                    <button  class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1">-</button>
-			                    <input  name="quantity" type="text" ng-model="skunum" style="text-align: center;">
+			                    <button type="button" class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1">-</button>		                   
+			                    <input  name="quantity" type="text" autofocus="autofocus" ng-model="skunum" style="text-align: center;width: 50px;">
 			                    <button type="button" class="increase" ng-click="pro_add()">+</button>
 			                  </span> 
 							</div>
