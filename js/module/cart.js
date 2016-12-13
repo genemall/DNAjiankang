@@ -18,6 +18,7 @@ angular.module('cart', ['ui.router','cartMd'])
 	                    },
 	                },
                     controller:function($scope,cart_list,$rootScope){
+                    	//http://blog.csdn.net/liaodehong/article/details/52493779
                     	$scope.cart_datas=cart_list.listOrderProduct;
                     	$scope.$watch("cart_datas", function() {//监控数据变化
                             $scope.cart_total = 0;
