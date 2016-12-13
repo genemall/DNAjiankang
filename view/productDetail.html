@@ -4,16 +4,11 @@
 
 <!--返回，购物车返回-->
 <div class="detail_tool top_btn">
-
 	<div class="back_btn icon_btn">
-		<a href="#/home">
-			<i class="icon icon-back"></i>
-		</a>
+		<a href="#/home"><i class="icon icon-back"></i></a>
 	</div>
 	<div class="cart_btn icon_btn">
-		<a href="#/cart">
-			<i class="icon icon-cart"></i>
-		</a>
+		<a href="#/cart"><i class="icon icon-cart"></i></a>
 	</div>
 </div>
 <!--商品明细-->
@@ -28,82 +23,61 @@
 					<div class="btn left" id="btnleft"></div>
 					<div class="btn right btnright"></div>
 				</div>
-
 				<div class="weui-panel__bd top_line bottom_line">
 					<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-
-						<div class="weui-media-box__bd">
+            			<div class="weui-media-box__bd">
 							<h4 class="weui-media-box__title">记忆天赋基因检测（获取产品名称）</h4>
-
 							<span class="weui-media-box__desc">
-		                
 		                <div class="detail_info_item clear item_bg padding_block .bottom_line">
 			                 <div class="detail_price_info pull_left">
 			                    <div class="now_price">
 			                            <!--<span class="font_size12">折扣价</span>-->
-							<span>
-			                <span class="font_size12" style="color: #f0721f;">￥</span>
-							<span id="newPrice" style="color: #f0721f;">1200（获取价格）</span>
+							       <span> <span style="color: #f0721f;font-size: 14px;">￥</span><span id="newPrice" style="color: #f0721f;">1200（获取价格）</span></span>
+						        </div>
+						        <div class="farmer_price">
+							       <span class="font_size12">原价</span>
+							       <span><span class="font_size12">￥</span><span style="text-decoration:line-through">1500</span></span>
+						        </div>
+				            </div>
+			            </div>
+			            <hr style="margin-top: 10px;margin-bottom: 10px;" />
+			            <div>
+				            <span class="pull-left">
+			                <span>已选&nbsp;&nbsp;&nbsp;<span style="color: #000000;">1（商品个数）</span>件</span>
+				            </span>
+                        <!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
+				            <span class="pull-right">
+			                <span ng-click="showModal();button_state_change()">. . .</span>
+				            </span>
+			            </div>		
+						<hr style="margin-top: 10px;margin-bottom: 10px;" />
+						<div>
+							<span class="pull-left">
+						        <span>详细介绍</span>
 							</span>
 						</div>
-						<div class="farmer_price">
-							<span class="font_size12">原价</span>
-							<span>
-			                <span class="font_size12">￥</span>
-							<span style="text-decoration:line-through">1500</span>
-							</span>
+						<hr style="margin-top: 10px;margin-bottom: 10px;" />
+                    <!--商品的详细介绍获取-->
+                        <div>
+                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细
+                        </div>
+
 						</div>
+					</a>
+
 				</div>
-
 			</div>
-			<hr style="margin-top: 10px;margin-bottom: 10px;" />
-			<div>
-				<span class="pull-left">
-			            		<span>已选&nbsp;&nbsp;&nbsp;<span style="color: #000000;">1（商品个数）</span>件</span>
-				</span>
-
-				<!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
-				<span class="pull-right">
-			            		<span ng-click="showModal();button_state_change()">. . .</span>
-				</span>
-			</div>
-
-			<hr style="margin-top: 10px;margin-bottom: 10px;" />
-			<div>
-				<span class="pull-left">
-			            		<span>详细介绍</span>
-				</span>
-			</div>
-			<hr style="margin-top: 10px;margin-bottom: 10px;" />
-
-			<!--商品的详细介绍获取-->
-
-			<div>这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品详细</div>
-
 		</div>
-
-		</a>
-
 	</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <!--加入购物车，点击购买-->
 <div class="goods_buy_box" ng-show="button_state">
 	<!-- 购买按钮 -->
 	<ul>
-		<li>
-			<a class="buy_cart" ng-click="showModal();button_state_change()"> <span>加入购物车</span> </a>
-		</li>
-		<li>
-			<a class="buy_own" ng-click="showModal();button_state_change1()"> <span>立即购买</span> </a>
-		</li>
+		<li><a class="buy_cart" ng-click="showModal();button_state_change()"> <span>加入购物车</span> </a></li>
+		<li><a class="buy_own" ng-click="showModal();button_state_change1()"> <span>立即购买</span> </a></li>
 	</ul>
 </div>
-
 <!--弹层	-->
 <!--加入购物车，点击购买，...弹层-->
 <div style="z-index: 999999;"  class="poplayer_box layer_type3" id="mask" ng-show="mask">
@@ -113,14 +87,11 @@
 			<div class="layer_type layer_style">
 				<!-- 样式风格 -->
 				<div class="layercont">
-
 					<!--关闭按钮-->
 					<div class="close_btn" ng-click="button_state_changere()">
 						<i class="icon icon_close" ng-click="close()"></i>
 					</div>
-
 					<div class="detail_select_rule">
-
 						<div class="goods_p_info line-bottom ">
 							<div class="goods_p_img thumb-img11 fl">
 								<!--获取该商品详情的商品小图-->
@@ -128,22 +99,17 @@
 							</div>
 							<div class="goods_p_text fl">
 								<div class="title">
-									<span>总价:<em class="price_color">￥
-                  		<span>1200.00（获取折扣价）</span>
-									</em>
-									</span>
+									<span>总价:<em class="price_color">￥<span>1200.00（获取折扣价）</span></em></span>
 								</div>
 								<div class="price">
-									<span>库存
-                  		<span>1101（获取库存数）</span> 件
-									</span>
+									<span>库存：<span>1101（获取库存数）</span> 件</span>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<!--弹框第二行-->
+		     	<!--弹框第二行-->
 					<div class="jiyinum">
 						<div class="title">
 							<span>基因个数：</span>
@@ -154,36 +120,24 @@
 						</div>
 						<!--份数增加减少处-->
 						<div id="sku_quantity" class="quantity detail_d_quantity  clearfix">
-							<input name="sid" value="6758" type="hidden">
 							<h2>份数：</h2>
-							<!-- 加减计数处-->
+							<!-- 加减计数处 -->
 							<div class="items clearfix">
-								<span class="ui_number">
-	                    <button type="button" class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1" disabled="disabled">-</button>
-	                    <input class="num ng-pristine ng-untouched ng-valid" name="quantity" autocomplete="off" min="1" max="95" type="text" ng-model="skunum" ng-blur="blurFun(skunum, modelObj.reserves)" ng-focus="focusFun(skunum)">
-	                    <button type="button" class="increase" ng-click="addNum(skunum, modelObj.reserves)">+</button>
-	                  </span>
+                              <span class="ui_number">
+			                    <button  class="decrease" ng-disabled="skunum == 1" ng-click="skunum = skunum - 1">-</button>
+			                    <input  name="quantity" type="text" ng-model="skunum" style="text-align: center;">
+			                    <button type="button" class="increase" ng-click="pro_add()">+</button>
+			                  </span> 
 							</div>
-
 						</div>
-
 					</div>
-
-					<!--此时按钮有三个：1加入购物车，2...，3立即购买；1,2弹框弹出“确定”，3弹出“确认支付”-->
-					<!--1,2-确定-->
-					<!--<div class="buy_own_confirm">
-	         	<a><span style="color: white;">确定</span></a>
-	         </div>-->
-					<!--3-确认支付-->
+				<!--此时按钮有三个：1加入购物车，2...，3立即购买；1,2弹框弹出“确定”，3弹出“确认支付”-->
 					<div class="buy_own_confirm">
 						<a><span style="color: white;" ng-show="confirm_yes">确定</span></a>
 						<a><span style="color: white;" ng-show="confirm_pay">确定支付</span></a>
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
 	</div>
 </div>

@@ -10,20 +10,17 @@ pdModule.config(['$stateProvider',
                 controller: function($scope){
                 	 $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
 			                     {img: "./resource/img/2.jpg",link:'#'},
-			                     {img: "./resource/img/3.jpg",link:'#'}];
-			                     
+			                     {img: "./resource/img/3.jpg",link:'#'}];			                     
 			    $scope.mask=false;        	    
 			    $scope.showModal = function () {
-			      $scope.mask = true;
-	
+			      $scope.mask = true;	
 			    };   
 			     $scope.close = function () {
 			      $scope.mask = false;
-	
 			    };
 			    $scope.confirm_yes = false;
-			     $scope.confirm_pay = false;
-			     $scope.button_state=true;
+			      $scope.confirm_pay = false;
+			      $scope.button_state=true;
 			     $scope.button_state_change = function (){
 			      $scope.button_state=false,
 			      $scope.confirm_yes = true
@@ -37,7 +34,14 @@ pdModule.config(['$stateProvider',
 			      $scope.confirm_yes = false,
 			      $scope.confirm_pay = false
 			     };
-			     
+			     $scope.skunum = 1;
+			     $scope.pro_add = function () {
+			     	if($scope.skunum < 1101){
+			     		$scope.skunum ++
+			     	}else{
+			     		$scope.skunum = 1101
+			     	}		     	  
+			     }             
                 },
             })
           
