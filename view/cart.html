@@ -1,6 +1,6 @@
 <style type="text/css">
-	
-	
+
+
 	.checkbox_bottom {
     width: 100%;
     height: 49px;
@@ -20,87 +20,87 @@
 	bottom:105px;
     background: #FFFFFF;
     opacity: 0.9;
-	
-	
+
+
 }
 
 .cart_total{
-	
+
 	z-index: 999;
 	width: 100%;
 	position: fixed;
 	right:0;
-	bottom:52px;	
+	bottom:52px;
 }
 
 .cart_delete_icon{
 	z-index: 999;
 	position: fixed;
 	right:45px;
-	bottom:112px;	
-	
+	bottom:112px;
+
 }
 .cart_delete_text{
 	z-index: 999;
 	position: fixed;
 	right:10px;
-	bottom:115px;	
-	
-	
+	bottom:115px;
+
+
 }
 </style>
 
 <div class="weui-cells weui-cells_checkbox" style="margin-bottom: 80px;">
-	
-    <label class="weui-cell weui-check__label" for="{{row.proId}}" ng-repeat="row in cart_datas">
-        <div class="weui-cell__hd">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked" ng-checked="all">
-            <i class="weui-icon-checked"></i>
-        </div>
-        <div class="weui-cell__bd">
-           <div class="weui-panel__bd" style="">
-           <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="margin-top:0px;padding: 0;">
-                <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
-                       <img class="weui-media-box__thumb" src="resource/img/order/pro_order1.png" alt="">
-                   </div>
-            
-                <div class="weui-media-box__bd" style="margin: 0;padding: 0;">
-                   	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin:0px ;padding: 0;">
-                   		{{row.product.proName}}
-                   	   </span>
-                   
-                       
-                       <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin-top: 25px;">
-                   	      <span>¥</span><span>{{row.product.proRateprice}}</span><span style="margin-left: 15px;">库存：{{row.product.proCount}}件</span><br />
-                   	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
-                   	   	      <span>¥</span>
-                   	   	      <span>{{row.product.proPrice}}</span>
-                   	      </span>
-                       </p>
-                       <div class="cart_item_num "> 
-	                       <div class="item_quantity_editer clearfix" style="width:82px;border:1px solid #f2f2f2;margin: 0;padding: 0;"> 
-		                     <span style="z-index: 999;" class="decrease_one" ng-click="reduce()">-</span> 
-		                     <input type="number" name="points" min="1"  value="{{count}}" style="margin-left:5px;padding:0;width: 40px;height:20px;text-align: center;border:1px solid #f2f2f2;font-family: tahoma;line-height: 20px;"> 
-		                     <span class="increase_one" ng-click="count=count+1">+</span>
-	                       </div> 	
+
+<label class="weui-cell weui-check__label" for="{{row.proId}}" ng-repeat="row in cart_datas">
+    <div class="weui-cell__hd">
+        <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked" ng-checked="all">
+        <i class="weui-icon-checked"></i>
+    </div>
+    <div class="weui-cell__bd">
+       <div class="weui-panel__bd" style="">
+       <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="margin-top:0px;padding: 0;">
+            <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
+                   <img class="weui-media-box__thumb" src="resource/img/order/pro_order1.png" alt="">
+               </div>
+
+            <div class="weui-media-box__bd" style="margin: 0;padding: 0;">
+               	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin:0px ;padding: 0;">
+               		{{row.product.proName}}
+               	   </span>
+
+
+                   <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin-top: 25px;">
+               	      <span>¥</span><span>{{row.product.proRateprice}}</span><span style="margin-left: 15px;">库存：{{row.product.proSum}}件</span><br />
+               	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
+               	   	      <span>¥</span>
+               	   	      <span>{{row.product.productPrice}}</span>
+               	      </span>
+                   </p>
+                   <div class="cart_item_num ">
+                       <div class="item_quantity_editer clearfix" style="width:90px;border:1px solid #f2f2f2;margin: 0;padding: 0;">
+	                     <span  class="decrease_one" ng-click="update_cart_pro_count(row.proId,-1)" ng-class="{cursors:true}">&nbsp;-</span>
+	                     <input class="cart_pro_count_input" type="number" name="points" min="1"  value="{{row.proCount}}" >
+	                     <span class="increase_one" ng-click="update_cart_pro_count(row.proId,1)" ng-class="{cursors:true}">+</span>
                        </div>
                    </div>
-                </a>
-            </div>
+               </div>
+            </a>
         </div>
-    </label>
-    
-       
+    </div>
+</label>
+
+
 </div>
 
 
  <div class="cart_delete">
  	<span>
  		<img  class="cart_delete_icon"src="resource/img/icon/icon_delete.png" style="width:30px;height:28px;" />
- 		<span class="cart_delete_text">删除</span>	
+ 		<span class="cart_delete_text">删除</span>
  	</span>
- 	
- 	
+
+
  </div>-->
 
 <div class="weui-cells weui-cells_checkbox checkbox_bottom" style="height: 55px;margin: 0;padding: 0;">
@@ -112,10 +112,10 @@
         </div>
         <div class="weui-cell__bd">
             <span style="font-size: 17px;">全选</span>
-            <span style="font-size: 15px;color: orange;margin-left: 15px;">合计：<span>¥</span><span>{{count*proRateprice}}</span></span>   
-        </div>   
+            <span style="font-size: 15px;color: orange;margin-left: 15px;">合计：<span>¥{{cart_total}}</span></span>
+        </div>
     </label>
-    
+
     	<span class="cart_total" style="display:inline-block;width:115px;margin: 0;padding: 0;
         	background: #e36e2d;
         	height: 52px;
@@ -123,12 +123,12 @@
         	text-align: center;
         	font-size: 15px;
         	color: #FFFFFF;
-        	
+
         	">
         	<a href="#" style="color: #FFFFFF;word-spacing:3px;">去结算</a>
-       
+
     </span>
-   
+
 
 </div>
 

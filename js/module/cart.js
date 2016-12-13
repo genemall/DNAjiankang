@@ -18,18 +18,24 @@ angular.module('cart', ['ui.router','cartMd'])
 	                    },
 	                },
                     controller:function($scope,cart_list,$rootScope){
-                    	console.log(cart_list)
                     	$scope.cart_datas=cart_list.listOrderProduct;
-                    	$scope.count=9;
-                    	
-                     $scope.reduce = function(co) {
-		                if ($scope.count> 1) {
-		                    $scope.count--;
-		                } else {
-		                    $scope.count=1;
-		                }
-		            }	
-                    	
+                        var getCartTotal = function () { //获取购物车价格
+                    	    $scope.cart_total = 0;
+                            for (var i = 0; i < $scope.cart_datas.length; i++) {
+                                var item = $scope.cart_datas[i];
+                                $scope.cart_total += item.proCount * item.product.proRateprice;
+                            }
+                        }
+                    	getCartTotal()
+                        $scope.update_cart_pro_count = function(proId,count) {
+    		               for (var i = 0; i < $scope.cart_datas.length; i++) {
+                                if ($scope.cart_datas[i].proId == proId) {
+                                    $scope.cart_datas[i].proCount = $scope.cart_datas[i].proCount + count;//这里可以增加上下限制
+                                }
+                            }
+    		               getCartTotal()
+    		            }
+
                     },
                     //配置导航，回到父层
                     ncyBreadcrumb:{

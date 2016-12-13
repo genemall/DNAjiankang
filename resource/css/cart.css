@@ -157,7 +157,15 @@
     position: absolute;
     right: 0;
 }
-
+.cart_pro_count_input{
+    margin-left:5px;
+    padding:0;
+    width: 40px;
+    height:20px;
+    text-align: center;
+    border:1px solid #f2f2f2;
+    line-height: 20px;
+}
 /* 去结算按钮不可用的样式*/
 .order-btn-disabled{
     background-color: #d5d5d5;
