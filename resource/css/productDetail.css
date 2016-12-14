@@ -415,7 +415,7 @@ i, em {
     font-size: 14px;
     cursor: pointer;
 }
-.kline:after {
+/*.kline:after {
     position: absolute;
     z-index: 99999;
     content: "";
@@ -427,7 +427,7 @@ i, em {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+}*/
 .detail_d_quantity {
     border: 0px none;
     padding: 10px 0px;

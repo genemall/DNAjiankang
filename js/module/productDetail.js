@@ -13,7 +13,7 @@ pdModule.config(['$stateProvider',
 			                     {img: "./resource/img/3.jpg",link:'#'}];			                     
 			    $scope.mask=false;        	    
 			    $scope.showModal = function () {
-			      $scope.mask = true;	
+			     $scope.mask = true;	
 			    };   
 			     $scope.close = function () {
 			      $scope.mask = false;
@@ -34,7 +34,7 @@ pdModule.config(['$stateProvider',
 			      $scope.confirm_yes = false,
 			      $scope.confirm_pay = false
 			     };
-			     $scope.skunum = 1;
+			     $scope.skunum = 4;
 			     $scope.pro_add = function () {
 			     	if($scope.skunum < 1101){
 			     		$scope.skunum ++
