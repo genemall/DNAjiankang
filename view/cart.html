@@ -52,9 +52,9 @@
 
 <div class="weui-cells weui-cells_checkbox" style="margin-bottom: 80px;">
 
-<label class="weui-cell weui-check__label" for="{{row.proId}}" ng-repeat="row in cart_datas">
+<label class="weui-cell weui-check__label" ng-repeat="row in cart_datas">
     <div class="weui-cell__hd">
-        <input type="checkbox" class="weui-check" name="checkbox1" id="{{row.proId}}" checked="checked" ng-checked="all">
+        <input type="checkbox" class="weui-check" ng-model="row.check">
         <i class="weui-icon-checked"></i>
     </div>
     <div class="weui-cell__bd">
@@ -94,20 +94,18 @@
 </div>
 
 
- <div class="cart_delete">
+ <div class="cart_delete" ng-click="deleteSelect()">
  	<span>
- 		<img  class="cart_delete_icon"src="resource/img/icon/icon_delete.png" style="width:30px;height:28px;" />
+ 		<img  class="cart_delete_icon" src="resource/img/icon/icon_delete.png" style="width:30px;height:28px;" />
  		<span class="cart_delete_text">删除</span>
  	</span>
-
-
  </div>
 
 <div class="weui-cells weui-cells_checkbox checkbox_bottom" style="height: 55px;margin: 0;padding: 0;">
 
-    <label class="weui-cell weui-check__label" for="s14" style="width:258px;margin:0;padding: 0;float: left;" >
+    <label class="weui-cell weui-check__label" style="width:258px;margin:0;padding: 0;float: left;" ng-click="checkAll()">
         <div class="weui-cell__hd" style="line-height: 55px;">
-            <input type="checkbox" class="weui-check" name="checkbox1" id="s14" checked="checked" ng-model="all">
+            <input type="checkbox" class="weui-check"  ng-model="all">
             <i class="weui-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
@@ -125,7 +123,7 @@
         	color: #FFFFFF;
 
         	">
-        	<a href="#" style="color: #FFFFFF;word-spacing:3px;">去结算</a>
+        	<a ng-click="createOrder()" style="color: #FFFFFF;word-spacing:3px;">去结算</a>
 
     </span>
 
