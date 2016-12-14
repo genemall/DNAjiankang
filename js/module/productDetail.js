@@ -34,12 +34,12 @@ pdModule.config(['$stateProvider',
 			      $scope.confirm_yes = false,
 			      $scope.confirm_pay = false
 			     };
-			     $scope.skunum = 4;
+			     $scope.skunum = 0;
 			     $scope.pro_add = function () {
 			     	if($scope.skunum < 1101){
 			     		$scope.skunum ++
 			     	}else{
-			     		$scope.skunum = 1101
+			     		$scope.skunum = 1101  //获取商品库存数
 			     	}		     	  
 			     }             
                 },

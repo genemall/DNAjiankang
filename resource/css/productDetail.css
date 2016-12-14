@@ -130,6 +130,18 @@
     margin: 0 auto;
     text-indent: -9999px;
 }
+.cart_tips {
+    width: auto;
+    background: #ec711f;
+    border-radius: 10px;
+    padding: 0 5px;
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+}
 
 
 //弹窗的样式
