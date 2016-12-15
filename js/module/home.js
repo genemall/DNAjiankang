@@ -17,18 +17,18 @@ homeModule.config(['$stateProvider',
                                 return data.classifies; //对返回的数据进行处理
                             });;
                     },
-                    /*
-                    productObj: function (httpService, util,$state) {
-                        return httpService.get('json/products.json')
+                    products: function (httpService, $rootScope) {
+                        return httpService.get($rootScope.baseURL+'product/phoneall.do')
                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                                return util.queryItemById(data.products, 1);
+                                return data;
                             });
                     },
-                    */
                 },
-                 controller: function ($scope,$stateParams,$rootScope,classifyResolve) {
+                 controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products) {
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
-                    
+                    $scope.$watch("searchInput", function() {//监控数据变化
+                        $scope.products=$filter("filter")(products,$scope.searchInput);
+                    }, true);
                     //以下是幻灯片展示部分，可以不看
                     $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
 			                     {img: "./resource/img/2.jpg",link:'#'},
