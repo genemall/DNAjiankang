@@ -29,7 +29,7 @@ angular.module('cart', ['ui.router','cartMd'])
                             $scope.cart_total = 0;
                             count=0
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
-                                if($scope.cart_datas[i].check){
+                                if($scope.cart_datas[i].check && $scope.cart_datas[i].totalPrice){//不能为NAN
                                     $scope.cart_total += $scope.cart_datas[i].totalPrice;
                                     count++;
                                 }
@@ -39,12 +39,22 @@ angular.module('cart', ['ui.router','cartMd'])
                         $scope.update_cart_pro_count = function(proId,count) {
     		               for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if ($scope.cart_datas[i].proId == proId) {
-                                    $scope.cart_datas[i].proCount = $scope.cart_datas[i].proCount + count;
-                                    $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
+                                    temp=$scope.cart_datas[i].proCount + count
+                                    if(temp>=0){
+                                        $scope.cart_datas[i].proCount = temp;
+                                        $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
+                                    }
                                 }
                             }
     		            }
-
+                        $scope.change = function (proId,proCount) {
+                            for (var i = 0; i < $scope.cart_datas.length; i++) {
+                                if ($scope.cart_datas[i].proId == proId) {
+                                    $scope.cart_datas[i].proCount = proCount;
+                                    $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
+                                }
+                            }
+                        }
                         $scope.checkAll=function(){
                             for(var i in $scope.cart_datas){
                                  $scope.cart_datas[i].check=$scope.all;
