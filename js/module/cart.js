@@ -52,9 +52,10 @@ angular.module('cart', ['ui.router','cartMd'])
                         }
                         $scope.deleteSelect=function(){
                             //发送httpServer 的post请求
-                            for(var i in $scope.cart_datas){
+                            for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if($scope.cart_datas[i].check){
                                     $scope.cart_datas.splice(i,1);
+                                    i--; //删除会破坏索引，-1是找下一位
                                 }
                             }
                         }

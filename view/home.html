@@ -7,7 +7,7 @@
     <div class="btn right btnright"></div>
 </div>
 
-<div class="home_search">
+<div class="home_search" >
    <div ng-class="['weui-search-bar',focusing]">
         <form class="weui-search-bar__form" >
             <div class="weui-search-bar__box">
@@ -21,7 +21,7 @@
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" ng-click="searchCancel()">取消</a>
     </div>
-    <div class="weui-cells searchbar-result page__desc" style="postion:absolute;left:0px;top:0px;" ng-if="isSearchShow">
+    <div  class="weui-cells searchbar-result page__desc" style="position: absolute;width: 100%;z-index: 99;" ng-if="isSearchShow">
         <a href='#/cart/1' class="weui-cell weui-cell_access" ng-repeat='pro in products'>
             <div class="weui-cell__bd weui-cell_primary">
                 <div>{{pro.proName}}</div>
