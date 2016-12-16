@@ -22,7 +22,7 @@ angular.module('cart', ['ui.router','cartMd'])
 	                        });
 	                    },
 	                },
-                    controller:function($scope,cart_list,$rootScope){
+                    controller:function($scope,cart_list,httpService,$rootScope){
                     	//http://blog.csdn.net/liaodehong/article/details/52493779
                     	$scope.cart_datas=cart_list;
                     	$scope.$watch("cart_datas", function() {//监控数据变化
@@ -54,6 +54,7 @@ angular.module('cart', ['ui.router','cartMd'])
                             //发送httpServer 的post请求
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if($scope.cart_datas[i].check){
+                                    httpService.get($rootScope.baseURL+'cart/phonecartdel.do?maproId='+$scope.cart_datas[i].proId)
                                     $scope.cart_datas.splice(i,1);
                                     i--; //删除会破坏索引，-1是找下一位
                                 }

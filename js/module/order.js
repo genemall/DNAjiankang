@@ -18,15 +18,13 @@ angular.module('order', ['ui.router','utilMd'])
                        		},
                		 },
                     controller: function($scope,httpService,$rootScope,$stateParams,order_show,util){
-                        $scope.ord_state=$stateParams.ord_state
-                        $scope.is_select_id=1
+                        $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=util.get_sum_price(order_show)
                         $scope.getOrdersData = function(ord_state){
                             httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+ord_state)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                     $scope.order_show=util.get_sum_price(data);
                                     $scope.is_select_id=ord_state
-                                    $scope.ord_state=ord_state
                             });
                         }
                     },
