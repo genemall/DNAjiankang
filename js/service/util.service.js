@@ -25,7 +25,7 @@ angular.module("utilMd", [])
                 }
                 return this;
             };
-
+		cache_dict={}
         return {
             //通过ID查询某个产品
             queryItemById: function (arr, id) {
@@ -78,6 +78,12 @@ angular.module("utilMd", [])
                     order_show[i]['price_sum']=price_sum //添加订单的总价进原始json
                 }
                 return order_show
+            },
+            set:function(key,value){
+            	cache_dict[key]=value
+            },
+            get:function(key){
+            	return　cache_dict[key]
             },
         }
     })

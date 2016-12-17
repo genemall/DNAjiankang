@@ -1,11 +1,11 @@
 
-angular.module('orderDetail', ['ui.router'])
+angular.module('orderPay', ['ui.router'])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
-                .state("orderDetail", {
-                    url: '/orderDetail/:id',
-                    templateUrl: 'view/orderDetail.html',
+                .state("orderPay", {
+                    url: '/orderPay/:id',
+                    templateUrl: 'view/orderPay.html',
                     resolve: {
                     	order_detail: function (httpService,$rootScope,$stateParams,util) {
                             return util.get($stateParams.id)

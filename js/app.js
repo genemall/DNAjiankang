@@ -13,6 +13,7 @@ var dnaStore = angular.module('dnaStore',
         'personal',
         'product',
         'productDetail',
+        'orderPay',
         'report',
         'reportDetail',
 

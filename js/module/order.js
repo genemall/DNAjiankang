@@ -17,7 +17,7 @@ angular.module('order', ['ui.router','utilMd'])
                                 });;
                        		},
                		 },
-                    controller: function($scope,httpService,$rootScope,$stateParams,order_show,util){
+                    controller: function($scope,httpService,$rootScope,$stateParams,$location,order_show,util){
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=util.get_sum_price(order_show)
                         $scope.getOrdersData = function(ord_state){
@@ -26,6 +26,14 @@ angular.module('order', ['ui.router','utilMd'])
                                     $scope.order_show=util.get_sum_price(data);
                                     $scope.is_select_id=ord_state
                             });
+                        }
+                        $scope.orderDetail = function(ordId){
+                        	for(var i=0;i<$scope.order_show.length;i++){
+                        		if($scope.order_show[i].id==ordId){
+                        			util.set(ordId,$scope.order_show[i])
+                        		}
+                        	}
+                        	$location.path('/orderDetail/'+ordId)
                         }
                     },
                     //配置导航
