@@ -34,16 +34,28 @@ pdModule.config(['$stateProvider',
 			      $scope.confirm_yes = false,
 			      $scope.confirm_pay = false
 			     };
-			     $scope.skunum = 0;
-			     $scope.pro_add = function () {
-			     	if($scope.skunum < 1101){
-			     		$scope.skunum ++
+			    $scope.skunum = 1; 
+//			    $scope.totalmon = 1200;
+//			    $scope.sum_mon = function (){
+//			    	if($scope.skunum<1){
+//			    		$scope.totalmon = 1200
+//			    	}else{
+//			    		$scope.totalmon = 1200*skunum
+//			    	}
+//			    };
+				$scope.pro_add = function () {
+			     	if($scope.skunum < 1){
+			     		$scope.skunum = 1
+			     	}else if($scope.skunum < 1101){
+			     		$scope.skunum ++  
 			     	}else{
 			     		$scope.skunum = 1101  //获取商品库存数
-			     	}		     	  
+			     	}
 			     }             
                 },
             })
           
     }
 ])
+
+

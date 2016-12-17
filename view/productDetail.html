@@ -1,14 +1,18 @@
 <!-- header -->
 <!--<div ng-include="'view/common/header.html'"></div>-->
 <!-- content -->
-
+<style type="text/css">
+	a img{
+		width: 100%;
+	}
+</style>
 <!--返回，购物车返回-->
 <div class="detail_tool top_btn">
 	<div class="back_btn icon_btn">
 		<a href="#/home"><i class="icon icon-back"></i></a>
 	</div>
 	<div class="cart_btn icon_btn">
-		<a href="#/cart"><i class="icon icon-cart"></i><em class="cart_tips" ng-bind="skunum">0</em></a>
+		<a href="#/cart"><i class="icon icon-cart"></i><em class="cart_tips">0</em></a>
 	</div>
 </div>
 <!--商品明细-->
@@ -43,7 +47,7 @@
 				            <hr style="margin-top: 10px;margin-bottom: 10px;" />
 				            <div>
 					            <span class="pull-left">
-				                <span>已选&nbsp;&nbsp;&nbsp;<span style="color: #000000;" ng-bind="skunum"></span>&nbsp&nbsp件</span>
+				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;"></span>&nbsp1101&nbsp件（获取库存）</span>
 					            </span>
 	                        <!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
 					            <span class="pull-right">
@@ -59,16 +63,17 @@
 							<hr style="margin-top: 10px;margin-bottom: 10px;" />
                     <!--商品的详细介绍获取-->
 	                        <div style="height: 100%;">
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<br />
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<br />
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<br />
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<br />
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<br />
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<br />    
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<br />
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<br />
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<br />  
-	                        	<img src="./resource/img/order/pro_order1.png" style="width: 100%;" />
+	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
+	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
+	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<div>
+	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品</div>
+	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<div>
+	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提</div>    
+	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
+	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div> 
+	                        	 
+	                        	<img src="http://myfirst1990.oss-cn-shanghai.aliyuncs.com/1481971497724portfolio-03.jpg"/>
+	                        	<img src="http://myfirst1990.oss-cn-shanghai.aliyuncs.com/1481971234844portfolio-01.png"/>
 	                        </div>
 						</div>
 
@@ -108,7 +113,7 @@
 							</div>
 							<div class="goods_p_text fl">
 								<div class="title">
-									<span>总价:<em class="price_color">￥<span ng-bind="1200*skunum">（获取折扣价*skunum）</span></em></span>
+									<span>总价:<em class="price_color">￥<span ng-bind="skunum*1200"></span></em></span>
 								</div>
 								<div class="price">
 									<span>库存：<span>1101（获取库存数）</span> 件</span>
@@ -133,7 +138,7 @@
 							<!-- 加减计数处 -->
 							<div class="items clearfix">
                               <span class="ui_number">
-			                    <button type="button" class="decrease" ng-disabled="skunum == 0" ng-click="skunum = skunum - 1">-</button>		                   
+			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>		                   
 			                    <input  name="quantity" type="text" autofocus="autofocus" ng-model="skunum" style="text-align: center;width: 50px;">
 			                    <button type="button" class="increase" ng-click="pro_add()">+</button>
 			                  </span> 
