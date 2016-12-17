@@ -40,7 +40,7 @@ angular.module('cart', ['ui.router','cartMd'])
     		               for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if ($scope.cart_datas[i].proId == proId) {
                                     temp=$scope.cart_datas[i].proCount + count
-                                    if(temp>=0){
+                                    if(temp>=0&&temp<=$scope.cart_datas[i].product.proSum){
                                         $scope.cart_datas[i].proCount = temp;
                                         $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
                                     }
@@ -48,8 +48,14 @@ angular.module('cart', ['ui.router','cartMd'])
                             }
     		            }
                         $scope.change = function (proId,proCount) {
+                        	if (!proCount){
+                                alert('商品个数异常') //用微信ui弹窗提醒
+                            }
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
-                                if ($scope.cart_datas[i].proId == proId) {
+	                        	if (proCount>$scope.cart_datas[i].product.proSum){
+	                        		alert('超过库存限制')
+	                        	}
+                                if ($scope.cart_datas[i].proId == proId ) {
                                     $scope.cart_datas[i].proCount = proCount;
                                     $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
                                 }
