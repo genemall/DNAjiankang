@@ -20,25 +20,25 @@
       </a>
 
     <div class="wsh_cell order-ul">
-        <a class="wsh_cell_primary order-li" href="#/order/1/1">
+        <a class="wsh_cell_primary order-li" href="#/order/{{user_id}}/1">
         	<span>
         	<img class="home-icon" src="resource/img/personal/icon-coins.png"><br/>待付款
         	</span>
         	<em class="notice ng-binding" ng-show="order_count.unPay > 0" ng-bind="order_count.unPay"></em>
         </a>
-        <a class="wsh_cell_primary order-li" href="#/order/1/2">
+        <a class="wsh_cell_primary order-li" href="#/order/{{user_id}}/2">
         	<span>
         	<img class="home-icon" src="resource/img/personal/waiting_delivering.png"><br/></i>待发货
         	</span>
         	<em class="notice ng-binding ng-hide" ng-show="order_count.unDeliver > 0" ng-bind="order_count.unDeliver"></em>
         </a>
-        <a class="wsh_cell_primary order-li" href="#/order/1/3">
+        <a class="wsh_cell_primary order-li" href="#/order/{{user_id}}/3">
         	<span>
         		<img class="home-icon" src="resource/img/personal/delivering.png"><br/></i>待收货
         	</span>
         	<em class="notice ng-binding ng-hide" ng-show="order_count.unTake > 0" ng-bind="order_count.unTake"></em>
         </a>
-        <a class="wsh_cell_primary order-li" href="#/order/1/4">
+        <a class="wsh_cell_primary order-li" href="#/order/{{user_id}}/4">
         	<span>
         		<img class="home-icon" src="resource/img/personal/already.png"><br/></i>已完成
         	</span>
