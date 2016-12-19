@@ -33,26 +33,44 @@ pdModule.config(['$stateProvider',
 			      $scope.button_state=true,
 			      $scope.confirm_yes = false,
 			      $scope.confirm_pay = false
-			     };
-			    $scope.skunum = 1; 
-//			    $scope.totalmon = 1200;
-//			    $scope.sum_mon = function (){
-//			    	if($scope.skunum<1){
-//			    		$scope.totalmon = 1200
-//			    	}else{
-//			    		$scope.totalmon = 1200*skunum
-//			    	}
-//			    };
-				$scope.pro_add = function () {
-			     	if($scope.skunum < 1){
-			     		$scope.skunum = 1
-			     	}else if($scope.skunum < 1101){
-			     		$scope.skunum ++  
-			     	}else{
-			     		$scope.skunum = 1101  //获取商品库存数
-			     	}
-			     }             
-                },
+			     }; 
+//              $scope.skunum = 1;
+//				$scope.pro_add = function () {
+//			     	if($scope.skunum < 1){
+//			     		$scope.skunum = 1
+//			     	}else if($scope.skunum < 1101){
+//			     		$scope.skunum ++  
+//			     	}else{
+//			     		$scope.skunum = 1101  //获取商品库存数
+//			     	}
+//			     };
+			      /**购买数量加/减/输入数量代码开始**/
+			      //添加数量
+			    $scope.skunum = 1;
+			    $scope.addNum = function (num, res) {
+			      if (num < res) {
+			        $scope.skunum = parseInt($scope.skunum) + 1
+			        if ($scope.skunum > 1101) {
+			          $scope.skunum = num;
+			        }
+			        return;
+			      }
+			    }
+			    //失去获取焦点
+			    $scope.focusFun = function (num) {
+			      $scope.skunumVal = num;
+			    }
+			    $scope.blurFun = function (num, res) {
+			      var reg = /^[1-9][0-9]{0,3}$/;
+			      if (!reg.test(num)) {
+			        $scope.skunum = $scope.skunumVal;
+			      }
+			      if (!(num <= res)) {
+			        $scope.skunum = $scope.skunumVal;
+			      }
+			    }
+			    /**购买数量加/减/输入数量代码开始**/
+			   },
             })
           
     }

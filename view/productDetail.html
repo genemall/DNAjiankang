@@ -72,8 +72,8 @@
 	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
 	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div> 
 	                        	 
-	                        	<img src="http://myfirst1990.oss-cn-shanghai.aliyuncs.com/1481971497724portfolio-03.jpg"/>
-	                        	<img src="http://myfirst1990.oss-cn-shanghai.aliyuncs.com/1481971234844portfolio-01.png"/>
+	                        	<img src="resource/img/personal/about_us.png">
+	                        	<img src="resource/img/personal/about_us.png"/>
 	                        </div>
 						</div>
 
@@ -138,10 +138,11 @@
 							<!-- 加减计数处 -->
 							<div class="items clearfix">
                               <span class="ui_number">
+                              	<!--1101为获取的库存量-->
 			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>		                   
-			                    <input  name="quantity" type="text" autofocus="autofocus" ng-model="skunum" style="text-align: center;width: 50px;">
-			                    <button type="button" class="increase" ng-click="pro_add()">+</button>
-			                  </span> 
+			                    <input  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum, 1101)" style="text-align: center;width: 50px;" ng-model="skunum">
+			                    <button type="button" class="increase" ng-click="addNum(skunum, 1101)">+</button>
+                              </span> 
 							</div>
 						</div>
 					</div>
@@ -156,4 +157,14 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="js_dialog" id="dialog11" ng-if="isShowDialog">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd">{{dialog_content_pro_detail}}</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="btnOk()">知道了</a>
+        </div>
+    </div>
 </div>
