@@ -130,4 +130,12 @@
 
 </div>
 
-
+<div class="js_dialog" id="dialog2" ng-if="isShowDialog">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd">{{dialog_content}}</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="btnOk()">知道了</a>
+        </div>
+    </div>
+</div>

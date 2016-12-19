@@ -13,6 +13,9 @@ angular.module('cart', ['ui.router','cartMd'])
 	                	cart_list: function (httpService,$rootScope,$stateParams) {
 	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+$stateParams.id)
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+	                             if(!data){
+	                                 return new Array();
+	                             }
 	                             var data_list=data.listOrderProduct;
 	                             for (var i = 0; i < data_list.length; i++) {
 	                                 data_list[i]['check'] = false
@@ -40,52 +43,35 @@ angular.module('cart', ['ui.router','cartMd'])
     		               for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if ($scope.cart_datas[i].proId == proId) {
                                     temp=$scope.cart_datas[i].proCount + count
-                                    if(temp>=0&&temp<=$scope.cart_datas[i].product.proSum){
+                                    if(temp>0&&temp<=$scope.cart_datas[i].product.proSum){
                                         $scope.cart_datas[i].proCount = temp;
                                         $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
                                     }
                                 }
                             }
     		            }
-                    /*$scope.change = function (proId,proCount) {
-                            if (!proCount){
-                                alert('商品个数异常') //用微信ui弹窗提醒
-                            }
-                            for (var i = 0; i < $scope.cart_datas.length; i++) {
-                                if($scope.cart_datas[i].proId == proId ){
-                                    if (proCount>$scope.cart_datas[i].product.proSum){
-                                        alert('超过库存限制')
-                                        $scope.cart_datas[i].proCount=1;
-                                    }else if(proCount<1){
-                                        alert('商品个数不能小于1')
-                                        $scope.cart_datas[i].proCount=1;
-                                    }else if(proCount>1){
-                                        $scope.cart_datas[i].proCount = proCount;
-                                    }else{
-                                        alert('商品个数异常')
-                                        $scope.cart_datas[i].proCount=1;
-                                    }
-                                    $scope.cart_datas[i].totalPrice=$scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
-                            }
-
-                           }
-                        }*/
                         $scope.change = function (proId,proCount) {
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if($scope.cart_datas[i].proId == proId ){
     	                        	$scope.cart_datas[i].proCount=1;
     	                        	if (proCount>$scope.cart_datas[i].product.proSum){
-    	                        		alert('超过库存限制')
+    	                        	    $scope.dialog_content='商品的库存没那么多'
+    	                        	    $scope.isShowDialog=true
     	                        	}else if (proCount<1){
-    	                        	    alert('商品个数不能小于1')
+    	                        	    $scope.dialog_content='商品个数不能小于1'
+                                        $scope.isShowDialog=true
     	                        	}else if (!proCount){
-    	                        	    alert('商品个数异常')
+    	                        	    $scope.dialog_content='商品个数输入异常'
+                                        $scope.isShowDialog=true
     	                        	}else{
                                         $scope.cart_datas[i].proCount = proCount;
     	                        	}
                                     $scope.cart_datas[i].totalPrice = $scope.cart_datas[i].product.proRateprice*$scope.cart_datas[i].proCount;
                                 }
                            }
+                        }
+                        $scope.btnOk=function(){
+                            $scope.isShowDialog=false
                         }
                         $scope.checkAll=function(){
                             for(var i in $scope.cart_datas){
