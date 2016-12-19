@@ -53,12 +53,3 @@
     top: 43px;
     pointer-events: none;
 }
-.search_logo {
-    display: block;
-    width: 44px;
-    height: 45px;
-    line-height: 45px;
-    text-align: center;
-    font-size: 14px;
-    color: #48a5f4;
-}
