@@ -15,31 +15,30 @@ angular.module('product', ['ui.router'])
 	                    },
 	                },
                     controller: function($scope,httpService,product_list,$rootScope){
-                    	$scope.products=product_list //导航页的三个标签，对应的展示
-                    	$scope.products=[{'id':1,'claName':'儿童基因'},{'id':2,'claName':'记忆基因'},
-                                        {'id':3,'claName':'营养基因'},{'id':4,'claName':'运动基因'},
-                                        {'id':5,'claName':'外貌基因'},{'id':6,'claName':'天赋基因'}]
-                    	
                     	$scope.products_show=product_list[0].listProduct//每个标签对应的商品信息，默认是第一个标签
-                    	$scope.is_select_id = product_list[0].id //默认选中第一个标签
-                    	$scope.getProductsData=function(id){ //点击其他标签，重新获取数据，并在最后的返回中给予赋值
-                    		httpService.get($rootScope.baseURL+'product/phoneproall.do?clsId='+id)
-	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-	                                $scope.products_show=data;
-	                                $scope.is_select_id = id
-	                       	});
-                    	}
-                    	//jquery 实现 滑动导航栏
+                    	//jquery 实现 滑动导航栏,有待改装成angularjs
+                    	var arr = new Array()
+                        for(var i=0;i<product_list.length;i++){
+                            arr.push("<li> <a href='javascript:void(0)' id='"+product_list[i].id+"'>"+product_list[i].claName+"</a></li>")
+                        }
+                        arr.push("<li class='sideline'></li>")
+                	    $(".find_nav_list ul").append(arr.join(''))
 					    $(".find_nav_list li").each(function(){
 					            $(".sideline").css({left:0});
 					            $(".find_nav_list li").eq(0).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
 					    });
-					    var nav_w=$(".find_nav_list li").first().width();
+					    var nav_w=$(".find_nav_list li").width();
 					    $(".sideline").width(nav_w);
-					    $(".find_nav_list li").on('click', function(){
+
+					    $(".find_nav_list li a").on('click', function(id){
+					        id=$(this).attr("id")
+					        httpService.get($rootScope.baseURL+'product/phoneproall.do?clsId='+id)
+                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                    $scope.products_show=data;
+                            });
 					        nav_w=$(this).width();
 					        $(".sideline").stop(true);
-					        $(".sideline").animate({left:$(this).position().left},300);
+					        $(".sideline").animate({left:$(this).position().left-20},300);
 					        $(".sideline").width(nav_w);
 					        $(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
 					        var fn_w = ($(".find_nav").width() - nav_w) / 2;
@@ -80,7 +79,6 @@ angular.module('product', ['ui.router'])
 					            e.preventDefault();
 					        }
 					    });
-
                     },
                 })
         }
