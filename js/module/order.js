@@ -28,11 +28,7 @@ angular.module('order', ['ui.router','utilMd'])
                             });
                         }
                         $scope.orderDetail = function(ordId){
-                        	for(var i=0;i<$scope.order_show.length;i++){
-                        		if($scope.order_show[i].id==ordId){
-                        			util.set(ordId,$scope.order_show[i])
-                        		}
-                        	}
+                            console.log(ordId)
                         	$location.path('/orderDetail/'+ordId)
                         }
                     },

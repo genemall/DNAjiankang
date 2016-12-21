@@ -7,7 +7,6 @@ angular.module('personal', ['ui.router'])
                     templateUrl: 'view/personal.html',
                     resolve: {
 	                	order_list: function (httpService,$rootScope,$stateParams) {
-	                	    console.log($stateParams.id)
 	                        return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByUserId.do?userId='+$stateParams.id)
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 return data;
@@ -42,4 +41,4 @@ angular.module('personal', ['ui.router'])
 
                 })
         }
-    ])	
+    ])

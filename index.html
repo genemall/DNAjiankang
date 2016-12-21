@@ -31,6 +31,7 @@
    	描述：主要类容界面，ui-view 加载子视图，统一加载footer菜单
    -->
 <div  class="container" style="padding-right: 0px;padding-left: 0px;">
+<div class="page tabbar js_show">
 	<div class="page__bd" style="height: 100%;">
         <div class="weui-tab" >
         	<div class="weui-tab__panel" >
@@ -38,20 +39,24 @@
             </div>
             <div class="weui-tabbar" >
                 <a ui-sref='home' class="weui-tabbar__item weui-bar__item_on">
-                    <img src="./resource/img/icon/icon_home.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_home.png" style="display:none;" class="weui-tabbar__icon unactive">
+                    <img src="./resource/img/icon/icon_home_1.png" alt="" class="weui-tabbar__icon active">
                     <div class="weui-tabbar__label"  >主页</div>
                 </a>
                 <a href='#/cart/1' class="weui-tabbar__item" >
-                    <img src="./resource/img/icon/icon_cart.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_cart.png" alt="" class="weui-tabbar__icon unactive">
+                    <img src="./resource/img/icon/icon_cart_1.png" style="display:none;" class="weui-tabbar__icon active">
                     <div class="weui-tabbar__label"  >购物车</div>
                 </a>
                 <a href='#/personal/1' class="weui-tabbar__item">
-                    <img src="./resource/img/icon/icon_personal.png" alt="" class="weui-tabbar__icon">
+                    <img src="./resource/img/icon/icon_personal.png" alt="" class="weui-tabbar__icon unactive">
+                    <img src="./resource/img/icon/icon_personal_1.png" style="display:none;" class="weui-tabbar__icon active">
                     <div class="weui-tabbar__label">个人中心</div>
                 </a>
             </div>
         </div>
     </div>
+  </div>
 </div>
 </body>
 
@@ -86,6 +91,18 @@
 <script src="js/service/util.service.js"></script>
 <script src="js/service/loginService.js"></script>
 <script src="js/service/cartService.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+            $(this).siblings('.weui-tabbar__item').find(".active").hide();
+            $(this).siblings('.weui-tabbar__item').find(".unactive").show();
+            $(this).find(".unactive").hide();
+            $(this).find(".active").show();
+        });
+    });
+</script>
 </html>
 
 

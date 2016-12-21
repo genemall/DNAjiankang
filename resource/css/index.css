@@ -1,17 +1,17 @@
 
 /*rightArea:右边焦点图样式*/
-.sliderBox{ width: 100%; height: 230px; margin: 0 auto;position: relative;}
-.sliderBox .btn{ 
+.sliderBox{ width: 100%; height: 200px; margin: 0 auto;position: relative;}
+.sliderBox .btn{
 	cursor: pointer; position: absolute; top:50%;
-	margin-top: -25px; height: 52px; width: 52px; 
+	margin-top: -25px; height: 52px; width: 52px;
 	background: url("../img/index/btn.png") top center;
 	 z-index: 5;
 }
 .sliderBox .btn.left{left:5%;}
 .sliderBox .btn.right{right:5%; background-position: 0 -54px;}
 .img_hight{
-	width: 100%; 
-	height: 230px;
+	width: 100%;
+	height: 200px;
 }
 /*404页面样式*/
 .error-404{
