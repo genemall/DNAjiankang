@@ -25,6 +25,7 @@ homeModule.config(['$stateProvider',
                     },
                 },
                  controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products) {
+                    $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
                         $scope.products=$filter("filter")(products,$scope.searchInput);
@@ -41,6 +42,7 @@ homeModule.config(['$stateProvider',
                     $scope.searchClickEvent = function() {
                         $scope.searchText = false;
                         document.getElementById('searchInput').focus();
+                        $scope.sliderShow=false
                     }
 
                     $scope.searchFocusEvent = function() {
@@ -57,6 +59,7 @@ homeModule.config(['$stateProvider',
                         $scope.searchText = true;
                         $scope.focusing = '';
                         $scope.isSearchShow = false;
+                        $scope.sliderShow=true
                     }
                     $scope.searchKeyupEvent = function() {
                         if ($scope.searchInput) {

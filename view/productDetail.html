@@ -22,7 +22,7 @@
 			<div class="weui-panel weui-panel_access">
 				<!--   轮播图-->
 				<div class="sliderBox">
-					<slider timer="2" data="data" btn-left="#btnleft" btn-right=".btnright" animate-type="ease" animate-time="1.0">
+					<slider timer="5" data="data" btn-left="#btnleft" btn-right=".btnright" animate-type="ease" animate-time="1.0">
 					</slider>
 					<div class="btn left" id="btnleft"></div>
 					<div class="btn right btnright"></div>
@@ -53,7 +53,7 @@
 					            <span class="pull-right">
 				                <span ng-click="showModal();button_state_change()">. . .</span>
 					            </span>
-				            </div>		
+				            </div>
 							<hr style="margin-top: 10px;margin-bottom: 10px;" />
 							<div>
 								<span class="pull-left">
@@ -68,10 +68,10 @@
 	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<div>
 	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品</div>
 	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<div>
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提</div>    
+	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提</div>
 	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div> 
-	                        	 
+	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
+
 	                        	<img src="resource/img/personal/about_us.png">
 	                        	<img src="resource/img/personal/about_us.png"/>
 	                        </div>
@@ -139,10 +139,10 @@
 							<div class="items clearfix">
                               <span class="ui_number">
                               	<!--1101为获取的库存量-->
-			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>		                   
+			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>
 			                    <input  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum, 1101)" style="text-align: center;width: 50px;" ng-model="skunum">
 			                    <button type="button" class="increase" ng-click="addNum(skunum, 1101)">+</button>
-                              </span> 
+                              </span>
 							</div>
 						</div>
 					</div>

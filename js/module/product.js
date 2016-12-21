@@ -38,7 +38,7 @@ angular.module('product', ['ui.router'])
                             });
 					        nav_w=$(this).width();
 					        $(".sideline").stop(true);
-					        $(".sideline").animate({left:$(this).position().left-20},300);
+					        $(".sideline").animate({left:$(this).position().left-27},300);
 					        $(".sideline").width(nav_w);
 					        $(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
 					        var fn_w = ($(".find_nav").width() - nav_w) / 2;
