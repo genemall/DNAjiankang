@@ -51,9 +51,6 @@ homeModule.config(['$stateProvider',
 
                     $scope.searchBlurEvent = function() {
                         $scope.searchText = true;
-                        //$scope.focusing = '';
-                        //$scope.isSearchShow = false;
-                        $scope.searchInput = '';
                     }
                     $scope.searchCancel = function(){
                         $scope.searchText = true;
