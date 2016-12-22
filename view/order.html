@@ -14,15 +14,14 @@
 		<a class="weui-navbar__item " ng-class="{'weui-bar__item_on':is_select_id==3}" ng-click="getOrdersData(3)">
 			待检测
 		</a>
-		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==4}" ng-click="getOrdersData(4)">
+		<a class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==4}" ng-click="getOrdersData(7)">
 			已完成
 		</a>
 </div>
 <div class="weui-tab__panel">
 
 	<div class="weui-panel weui-panel_access" ng-repeat="order in order_show">
-		<div class="weui-panel__hd" ng-show="is_select_id!=3">订单号:&nbsp;&nbsp;{{order.ordNum}}</div>
-		<div class="weui-panel__hd" ng-show="is_select_id==3">收货物流号:&nbsp;&nbsp;{{order.courierNum}}</div>
+		<div class="weui-panel__hd" >订单号:&nbsp;&nbsp;{{order.ordNum}}</div>
 		<div class="weui-panel__bd top_line bottom_line" ng-click='orderDetail(order.id)'>
 			<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg"  ng-repeat="ord_pro in order.mapOrderProductList">
 				<div class="weui-media-box__hd" style="width: 110px;height: 110px;">
@@ -64,8 +63,10 @@
 
     	<div class="weui-panel__ft pull-right">
     	    <div>
-           合计:<span><span class="font_size16">￥{{order.price_sum}}</span>(含运费￥0.00)</span>
+          合计:<span class="font_size16">￥{{order.price_sum}}</span>(含运费￥0.00)
            </div>
+        </div>
+        <div class="weui-panel__ft pull-right">
     		<div class="button-sp-area" ng-show="{{is_select_id}}==1">
     			<!--待支付状态-->
     			<span style="margin-right: 10px;">
@@ -76,8 +77,11 @@
     		<div class="button-sp-area" ng-show="{{is_select_id}}==2" >
             </div>
             <div class="button-sp-area" ng-show="{{is_select_id}}==3">
-    			<!--待收货状态-->
-    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">提交发货物流</a>
+            <!--待支付状态-->
+    			<span style="margin-right: 10px;">
+    			<a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">查看收货物流</a>
+    			</span>
+    			<a href="#/orderPay/{{order.id}}" class="weui-btn weui-btn_mini weui-btn_primary">提交发货物流</a>
             </div>
             <div class="button-sp-area" ng-show="{{is_select_id}}==4">
     			<!--已完成状态-->
