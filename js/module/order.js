@@ -28,8 +28,9 @@ angular.module('order', ['ui.router','utilMd'])
                             });
                         }
                         $scope.orderDetail = function(ordId){
-                            console.log(ordId)
                         	$location.path('/orderDetail/'+ordId)
+                        }
+                        $scope.isDetected = function(is_selected_id){
                         }
                     },
                     //配置导航
