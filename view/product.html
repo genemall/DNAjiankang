@@ -16,15 +16,16 @@
 
   <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;" >
         <div class="weui-panel__bd" style="" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
-       		<ul>
+       		<ul style="margin-bottom:15px ;">
        			<li class="find_nav_cur"><a href="javascript:void(0)">{{row.claName}}</a></li>
        		</ul>
            <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding: 0;">
-               <div class="weui-media-box__hd" style="width: 110px;height: 110px;">
-                   <img class="weui-media-box__thumb" ng-src="{{row.proImage}}" alt="">
+           	
+               <div class="weui-media-box__hd" style="width: 40%;height: 110px;margin-right:15px ;">
+                   <img class="weui-media-box__thumb" style="width: 100%;height: 110px;" ng-src="{{row.imagelist[0].url}}">
                </div>
 
-               <div class="weui-media-box__bd">
+               <div class="weui-media-box__bd" >
                	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin-top:15px ;">
                		{{row.proName}}
                	   </span>

@@ -16,7 +16,7 @@
             </div>
             <label for="search_input" class="weui-search-bar__label" set-focus ng-if="searchText" ng-click="searchClickEvent()"  id="searchText">
                 <i class="weui-icon-search"></i>
-                <span>搜索</span>
+                <span>{{state}},,,{{test}}</span>
             </label>
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" ng-click="searchCancel()">取消</a>
@@ -33,9 +33,11 @@
 <div class="home_classify" >
     <div class="weui-flex"  ng-repeat="classify in classifies" >  <!--第一次循环，遍历出 行-->
         <div class="weui-flex__item"   ng-repeat="col in classify.row" >  <!--第二次循环，找到具体的每一个子元素-->
-        	<a href="#/product/{{col.id}}"> <!-- 标签链接到商品列表界面，id是用来传参-->
-	            <img ng-src="{{col.claContent}}" style="width:90%;" >
-	            <span style="position: absolute; bottom: 2px; right: 2px; background: #CFCFCF;opacity:0.6;"><font size="4">{{col.claName}}</font></span>
+        	<a href="#/product/{{col.id}}" style="width:100%;height:100%;"> <!-- 标签链接到商品列表界面，id是用来传参-->
+	            <img ng-src="{{col.claContent}}" style="width:90%;height:143px;" >
+	            <span style="position: absolute; bottom: 2px; right: 2px; background: #CFCFCF;opacity:0.7;border-radius:5px;">
+	            	<font size="4">{{col.claName}}</font>
+	            </span>
             </a>
         </div>
     </div>

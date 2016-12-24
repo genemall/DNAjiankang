@@ -17,8 +17,8 @@ var dnaStore = angular.module('dnaStore',
         'report',
         'reportDetail',
 
-        'httpMd',
         'loginMd',
+        'httpMd',
         'cartMd',
     ]
 );
@@ -36,6 +36,13 @@ dnaStore
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
+		
+		$rootScope.login_info = loginService.login_info()
+		if($rootScope.login_info == null){
+			$rootScope.state=0
+			$rootScope.login_info=loginService.login($rootScope.baseURL+'weixin/oauth.do')
+		}
+		
         $rootScope.outLogin = function () {
             loginService.outLogin();
             $rootScope.user = null;
@@ -48,12 +55,6 @@ dnaStore
         httpService.get('json/fenlei.json').then(function (data) {
             $rootScope.ulItems = data.fenlei;
         });
-        //调用服务获取搜索页面过滤选择项
-        httpService.get('json/tsconfig.json').then(function (data) {
-            $rootScope.filterTypes = data.filterTypes;
-            $rootScope.filterContents = data.filterContents;
-        });
-
 
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {

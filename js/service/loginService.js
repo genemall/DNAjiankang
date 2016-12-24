@@ -2,36 +2,29 @@
  * 用户登录信息服务
  */
 
-angular.module("loginMd", ["swxLocalStorage"])
-    .factory("loginService", function ($localStorage,cartService) {
+angular.module("loginMd", ["ngCookies"])
+    .factory("loginService", function ($cookies,httpService) {
         return {
-            user: {},
             //登录
-            login: function (userLogin) {
-                //获取存储在 $localStorage中注册的用户
-                var oldUser = $localStorage.get(userLogin.name);
-                $localStorage.put("curUser", oldUser);
-                this.user = oldUser;
-                //登陆后根据用户名创建我的购物车
-                cartService.createMyCart(this.user.name);
-                //返回登陆用户
-                return this.user;
+            login: function (outh_url) {
+            	data = httpService.get(outh_url)
+            	var expireDate = new Date();
+            	expireDate.setMinutes(expireDate.getMinutes()+5);
+				//expireDate.setHours(expireDate.getHours()+2);
+               	$cookies.putObject("curUser",data,{'expires': expireDate});
+               	return data
             },
             //判断是否登录
-            isLogin: function () {
-                var oldUser = $localStorage.get("curUser");
-                if (oldUser !== null) {
-                    //登陆后根据用户名创建我的购物车
-                    this.user = oldUser;
-                    cartService.createMyCart(this.user);
-                    return this.user;
+            login_info: function () {
+                var curUser = $cookies.getObject("curUser");
+                if (curUser !== null) {
+                    return curUser;
                 }
                 return null;
             },
             //退出登录
             outLogin: function () {
                 this.user = null;
-                $localStorage.remove("curUser");
             }
         }
     })
