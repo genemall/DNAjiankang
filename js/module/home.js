@@ -13,7 +13,7 @@ homeModule.config(['$stateProvider',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
                 	isLogin:function(loginService,$stateParams){
                 		var userID=$stateParams.userID
-                		if(userID!==""){
+                		if(userID!==0){
                  			loginService.putCookie('curUser',{'userID':userID,'openID':$stateParams.openID})
                  		}
                 	},

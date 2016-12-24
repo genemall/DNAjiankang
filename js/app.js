@@ -25,7 +25,7 @@ var dnaStore = angular.module('dnaStore',
 dnaStore
     .config(
         function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/home/');
+            $urlRouterProvider.otherwise('/home/0/0');
         }
     )
     //配置系统初始需要的数据
@@ -37,7 +37,7 @@ dnaStore
 		
 		$rootScope.state=1
 		
-		if(loginService.login_info() == null){
+		if(loginService.getCookie('curUser') == null){
 			$rootScope.state=0
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}else{
