@@ -5,7 +5,8 @@
 var dnaStore = angular.module('dnaStore',
     [
         'ui.router',
-
+		"ngCookies",
+		
         'home',
         'cart',
         'order',
@@ -16,31 +17,30 @@ var dnaStore = angular.module('dnaStore',
         'orderPay',
         'report',
         'reportDetail',
-
+		
         'loginMd',
         'httpMd',
         'cartMd',
     ]
 );
 dnaStore
-    .config(['$stateProvider', '$urlRouterProvider',
+    .config(
         function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider
-            // 配置路由重定向,默认返回到主页
-            .otherwise('/home');
+            $urlRouterProvider.otherwise('/home/');
         }
-    ])
+    )
     //配置系统初始需要的数据
     .run(function ($rootScope, httpService, $state, loginService) {
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
+		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 		
-		$rootScope.login_info = loginService.login_info()
-		if($rootScope.login_info == null){
+		$rootScope.state=1
+		if(loginService.login_info() == null){
 			$rootScope.state=0
-			$rootScope.login_info=loginService.login($rootScope.baseURL+'weixin/oauth.do')
+			loginService.login($rootScope.baseURL+'weixin/oauth.do')
 		}
 		
         $rootScope.outLogin = function () {

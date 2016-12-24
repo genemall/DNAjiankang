@@ -8,9 +8,15 @@ homeModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
             .state("home", {
-                url: '/home',
+                url: '/home/:dataMap',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
+                	isLogin:function(loginService,$stateParams){
+                		var dataMap=$stateParams.dataMap
+                		if(dataMap!==""){
+                 			loginService.putCookie('curUser',dataMap)
+                 		}
+                	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
                         return httpService.get($rootScope.baseURL+'classify/phoneclsall.do') //通过Service获取接口对应的json数据
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -23,10 +29,11 @@ homeModule.config(['$stateProvider',
                                 return data;
                             });
                     },
+                
                 },
                  controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products) {
                  	$scope.state=$rootScope.state
-                 	$scope.test=$rootScope.login_info
+                 	$scope.test=$stateParams.dataMap
                  	
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
