@@ -30,7 +30,7 @@ dnaStore
         }
     )
     //配置系统初始需要的数据
-    .run(function ($rootScope, httpService, $state, loginService) {
+    .run(function ($rootScope, httpService, $state, $location,loginService) {
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
@@ -40,7 +40,7 @@ dnaStore
 		$rootScope.state=1
 		if(loginService.login_info() == null){
 			$rootScope.state=0
-			loginService.login($rootScope.baseURL+'weixin/oauth.do')
+			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
 		
         $rootScope.outLogin = function () {
