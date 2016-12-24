@@ -13,9 +13,8 @@ homeModule.config(['$stateProvider',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
                 	isLogin:function(loginService,$stateParams){
                 		var dataMap=$stateParams.dataMap
-                		console.log(dataMap)
                 		if(dataMap!==""){
-                 			loginService.putCookie('curUser',dataMap)
+                 			loginService.putCookie('curUser',{'openID':dataMap})
                  		}
                 	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
