@@ -25,7 +25,7 @@ var dnaStore = angular.module('dnaStore',
 dnaStore
     .config(
         function ($stateProvider, $urlRouterProvider) {
-            //$urlRouterProvider.otherwise('/home/');
+            $urlRouterProvider.otherwise('/home/');
         }
     )
     //配置系统初始需要的数据
@@ -34,7 +34,6 @@ dnaStore
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
-		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 		
 		$rootScope.state=1
 		
@@ -43,8 +42,7 @@ dnaStore
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}else{
 			var user = loginService.getCookie('curUser')
-			console.log(user.openID)
-			$location.path("/home/")
+			console.log(user.openID+"*****")
 		}
 		
         $rootScope.outLogin = function () {
