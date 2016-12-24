@@ -42,7 +42,7 @@ dnaStore
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}else{
 			var user = loginService.getCookie('curUser')
-			console.log(user.openID+"*****")
+			console.log(user.userID+"***"+user.openID)
 		}
 		
         $rootScope.outLogin = function () {
@@ -52,10 +52,6 @@ dnaStore
         //调用服务获取主页需要显示的焦点图
         httpService.get('json/tsconfig.json').then(function (data) {
             $rootScope.imgItems = data.focusImg;
-        });
-        //调用服务获取分类表的数据
-        httpService.get('json/fenlei.json').then(function (data) {
-            $rootScope.ulItems = data.fenlei;
         });
 
         //判定状态改变事件

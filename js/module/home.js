@@ -8,13 +8,13 @@ homeModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
             .state("home", {
-                url: '/home/:dataMap',
+                url: '/home/:userID/:openID',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
                 	isLogin:function(loginService,$stateParams){
-                		var dataMap=$stateParams.dataMap
-                		if(dataMap!==""){
-                 			loginService.putCookie('curUser',{'openID':dataMap})
+                		var userID=$stateParams.userID
+                		if(userID!==""){
+                 			loginService.putCookie('curUser',{'userID':userID,'openID':$stateParams.openID})
                  		}
                 	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
