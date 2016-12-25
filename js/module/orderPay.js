@@ -33,7 +33,14 @@ angular.module('orderPay', ['ui.router'])
 									  		 "signType" : "MD5", 
 									  		 "paySign" : "C318F3DB4B4D4173FB5EE8993BDD6A47"
 									   		}
-                			 WeixinJSBridge.invoke('getBrandWCPayRequest',$scope.pay_data,function(res){
+                    		console.log($scope.pay_data)
+                			 WeixinJSBridge.invoke('getBrandWCPayRequest',{
+									  		 "appId" : "wx2047d634692d65bf","timeStamp" : "1482659473", 
+									  		 "nonceStr" : "1751124161", 
+									  		 "package" : "prepay_id=wx201612251751136b86d659000442128921",
+									  		 "signType" : "MD5", 
+									  		 "paySign" : "C318F3DB4B4D4173FB5EE8993BDD6A47"
+									   		},function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
 						            if(res.err_msg == "get_brand_wcpay_request:ok"){  
