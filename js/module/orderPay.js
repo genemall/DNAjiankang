@@ -24,18 +24,10 @@ angular.module('orderPay', ['ui.router'])
                     	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 $scope.pay_data=data
-                                console.log(data)
                         });
                     	$scope.gotoPay=function(){
-                    		console.log($scope.pay_data)
-                			 WeixinJSBridge.invoke('getBrandWCPayRequest',{
-									  		 "appId" : "wx2047d634692d65bf",
-									  		 "timeStamp" : "1482660899",
-									  		 "nonceStr" : "1814583503", 
-									  		 "package" : "prepay_id=wx2016122518145914884e31420137411926",
-									  		 "signType" : "MD5", 
-									  		 "paySign" : "F5381215E7AF48153F29E9EBBB80D4AF"
-									   		},function(res){
+                            console.log($scope.pay_data)
+                			 WeixinJSBridge.invoke('getBrandWCPayRequest',$scope.pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
 						            if(res.err_msg == "get_brand_wcpay_request:ok"){  
