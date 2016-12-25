@@ -64,7 +64,7 @@ angular.module('orderPay', ['ui.router'])
 					              alert('用户取消拉出地址');
 					            },
 					            fail: function (res) {
-					              alert(JSON.stringify(res));
+					              alert(res);
 					            }
 					          });
                         }
