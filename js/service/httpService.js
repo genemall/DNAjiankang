@@ -5,10 +5,6 @@
 angular.module("httpMd",[])
 	.config(['$httpProvider', function($httpProvider) {
 	  $httpProvider.defaults.withCredentials=false;
-	  $httpProvider.defaults.transformRequest = function(data) {
-          //使用jQuery的param方法把JSON数据转换成字符串形式
-          return $.param(data);
-     };
 	}])
     .factory("httpService",function($http,$q){
         return{
@@ -34,7 +30,7 @@ angular.module("httpMd",[])
                     headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
 					 },
-                    data:_data //json格式 或 param格式
+                    data:$.param(_data), //json格式 或 param格式
                     })
                     .success(function(data,status,headers,config){
                         defer.resolve(data); //声明执行成功
