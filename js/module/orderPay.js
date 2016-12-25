@@ -19,8 +19,8 @@ angular.module('orderPay', ['ui.router'])
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
-                    	console.log($rootScope.openID)
 						var post_data={'openId':$rootScope.openID,'finalmoney':order_detail.ordPrice,'orderId':order_detail.id}
+						console.log(post_data)
                     	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 console.log(data)

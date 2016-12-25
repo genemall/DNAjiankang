@@ -34,12 +34,15 @@ dnaStore
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
+		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 		
+		if(loginService.getCookie('curUser') != null){
+			var user = loginService.getCookie('curUser')
+			$rootScope.userID = $stateParams.userID
+ 			$rootScope.openID = $stateParams.openID
+			//console.log(user.userID+"***"+user.openID)
+		}
 		
-        $rootScope.outLogin = function () {
-            loginService.outLogin();
-            $rootScope.user = null;
-        }
         //调用服务获取主页需要显示的焦点图
         httpService.get('json/tsconfig.json').then(function (data) {
             $rootScope.imgItems = data.focusImg;
