@@ -79,8 +79,8 @@ homeModule.config(['$stateProvider',
                 		}
 					}else{
 						var user = loginService.getCookie('curUser')
-						$rootScope.userID = $stateParams.userID
-             			$rootScope.openID = $stateParams.openID
+						$rootScope.userID = user.userID
+             			$rootScope.openID = user.openID
 						//console.log(user.userID+"***"+user.openID)
 					}
                  }

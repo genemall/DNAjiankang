@@ -8,25 +8,26 @@ angular.module('orderPay', ['ui.router'])
                     templateUrl: 'view/orderPay.html',
                     resolve: {
                     	order_detail: function (httpService,$rootScope,$stateParams,util) {
-                              return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId='+$stateParams.id)
+                              return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId='+2)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                     return data;
                                 });
                        		},
                		 },
-                    controller: function($scope,$rootScope,order_detail,httpService){
+                    controller: function($scope,$rootScope,loginService,order_detail,httpService){
                     	$scope.ordNum=order_detail.ordNum;
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
-						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,'orderId':order_detail.id}
+                    	var user = loginService.getCookie('curUser')
+						var post_data={'openId':user.openID,'finalmoney':order_detail.ordPrice,'orderId':order_detail.id}
 						$scope.pay_data={}
                     	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 $scope.pay_data=data
                         });
                         //获取 address 配置
-                        httpService.post($rootScope.baseURL+'weixin/addresstest.do',{})
+                        httpService.post($rootScope.baseURL+'weixin/address.do',{})
                              .then(function (msg) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 wx.config({
 						            debug: false,
@@ -46,11 +47,31 @@ angular.module('orderPay', ['ui.router'])
 						    	          'openAddress',
 						    	      ],
 						    	      success: function (res) {
-						    	      	console.log(res)
 						    	          alert(JSON.stringify(res));
 						    	      }
 						    	});   
                         });
+                         wx.config({
+						            debug: false,
+						            appId: msg.appid,
+						            timestamp: msg.timestamp,
+						            nonceStr: msg.noncestr,
+						            signature: msg.signature,
+						            jsApiList: [
+						              // 所有要调用的 API 都要加到这个列表中
+						                'checkJsApi',
+						                'openAddress',
+						                
+						              ]
+						          });
+						        wx.checkJsApi({
+						    	      jsApiList: [
+						    	          'openAddress',
+						    	      ],
+						    	      success: function (res) {
+						    	          alert(JSON.stringify(res));
+						    	      }
+						    	});   
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
                         	wx.openAddress({
