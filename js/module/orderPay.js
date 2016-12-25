@@ -46,7 +46,8 @@ angular.module('orderPay', ['ui.router'])
 						    	          'getUserAddress',
 						    	      ],
 						    	      success: function (res) {
-						    	          alert(res);
+						    	      	console.log(res)
+						    	          alert(JSON.stringify(res));
 						    	      }
 						    	});   
                         });
@@ -64,7 +65,7 @@ angular.module('orderPay', ['ui.router'])
 					              alert('用户取消拉出地址');
 					            },
 					            fail: function (res) {
-					              alert(res);
+					              alert(JSON.stringify(res));
 					            }
 					          });
                         }
