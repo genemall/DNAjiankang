@@ -50,28 +50,7 @@ angular.module('orderPay', ['ui.router'])
 						    	          alert(JSON.stringify(res));
 						    	      }
 						    	});   
-                        });
-                         wx.config({
-						            debug: false,
-						            appId: msg.appid,
-						            timestamp: msg.timestamp,
-						            nonceStr: msg.noncestr,
-						            signature: msg.signature,
-						            jsApiList: [
-						              // 所有要调用的 API 都要加到这个列表中
-						                'checkJsApi',
-						                'openAddress',
-						                
-						              ]
-						          });
-						        wx.checkJsApi({
-						    	      jsApiList: [
-						    	          'openAddress',
-						    	      ],
-						    	      success: function (res) {
-						    	          alert(JSON.stringify(res));
-						    	      }
-						    	});   
+                        }); 
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
                         	wx.openAddress({
