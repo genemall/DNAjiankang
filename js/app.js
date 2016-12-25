@@ -35,15 +35,6 @@ dnaStore
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
 		
-		$rootScope.state=1
-		
-		if(loginService.getCookie('curUser') == null){
-			$rootScope.state=0
-			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
-		}else{
-			var user = loginService.getCookie('curUser')
-			console.log(user.userID+"***"+user.openID)
-		}
 		
         $rootScope.outLogin = function () {
             loginService.outLogin();
