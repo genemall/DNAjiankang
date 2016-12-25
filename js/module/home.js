@@ -11,18 +11,6 @@ homeModule.config(['$stateProvider',
                 url: '/home/:userID/:openID',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
-                	islogin: function (loginService,$stateParams,$rootScope) { //定义预加载的函数
-	                    //放在最后，判断是否重定向
-	                    if($stateParams.userID!=0){
-	             			loginService.putCookie('curUser',{'userID':$stateParams.userID,'openID':$stateParams.openID})
-	             		}
-	                	if(loginService.getCookie('curUser') == null){
-							window.location.href=$rootScope.baseURL+'weixin/oauth.do'
-						}else{
-							var user = loginService.getCookie('curUser')
-							console.log(user.userID+"***"+user.openID)
-						}
-                    },
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
                         return httpService.get($rootScope.baseURL+'classify/phoneclsall.do') //通过Service获取接口对应的json数据
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -79,7 +67,16 @@ homeModule.config(['$stateProvider',
                             $scope.isSearchShow = false;
                         }
                     }
-                   
+                    //放在最后，判断是否重定向
+                    if($stateParams.userID!=0){
+             			loginService.putCookie('curUser',{'userID':$stateParams.userID,'openID':$stateParams.openID})
+             		}
+                	if(loginService.getCookie('curUser') == null){
+						window.location.href=$rootScope.baseURL+'weixin/oauth.do'
+					}else{
+						var user = loginService.getCookie('curUser')
+						console.log(user.userID+"***"+user.openID)
+					}
                  }
 
             })
