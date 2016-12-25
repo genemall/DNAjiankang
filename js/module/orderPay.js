@@ -25,6 +25,14 @@ angular.module('orderPay', ['ui.router'])
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 $scope.pay_data=data
                         });
+                        
+                        httpService.post($rootScope.baseURL+'weixin/addresstest.do',{})
+                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                console.log(data)
+                        });
+                        $scope.getUserAddress=function(){
+                        	
+                        }
                     	$scope.gotoPay=function(){
                             console.log($scope.pay_data)
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',$scope.pay_data,function(res){
@@ -32,11 +40,11 @@ angular.module('orderPay', ['ui.router'])
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
 						            if(res.err_msg == "get_brand_wcpay_request:ok"){  
 						            	console.log('ok')
-						                alert("微信支付成功!");  
+						                //alert("微信支付成功!");  
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
-						                alert("用户取消支付!");  
+						                //alert("用户取消支付!");  
 						            }else{  
-						            	alert(res.err_msg);
+						            	console.log(res.err_msg)
 						    
 						            }  
 							})
