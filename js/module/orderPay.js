@@ -37,13 +37,13 @@ angular.module('orderPay', ['ui.router'])
 						            jsApiList: [
 						              // 所有要调用的 API 都要加到这个列表中
 						                'checkJsApi',
-						                'getUserAddress',
+						                'openAddress',
 						                
 						              ]
 						          });
 						        wx.checkJsApi({
 						    	      jsApiList: [
-						    	          'getUserAddress',
+						    	          'openAddress',
 						    	      ],
 						    	      success: function (res) {
 						    	      	console.log(res)
