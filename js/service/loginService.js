@@ -24,8 +24,8 @@ angular.module("loginMd", ["ngCookies","httpMd"])
             },
             putCookie:function(key,value){
             	var expireDate = new Date();
-            	expireDate.setMinutes(expireDate.getMinutes()+5);
-				//expireDate.setHours(expireDate.getHours()+2);
+            	//expireDate.setMinutes(expireDate.getMinutes()+5);
+				expireDate.setHours(expireDate.getHours()+2);
                	$cookies.putObject(key,value,{'expires': expireDate});
             },
            	getCookie:function(key){
