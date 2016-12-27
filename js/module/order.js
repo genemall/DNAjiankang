@@ -11,10 +11,11 @@ angular.module('order', ['ui.router','utilMd'])
                     templateUrl: 'view/order.html',
                     resolve: {
                     	order_show: function (httpService,$rootScope,$stateParams) {
+                    		var temp = $stateParams.ord_state
                     		if($stateParams.ord_state==3){//3,4,5,6均归为待检测
-                    			$stateParams.ord_state="3,4,5,6"
+                    			temp="3,4,5,6"
                     		}
-                            return httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+$stateParams.ord_state)
+                            return httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+temp)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                     return data;
                                 });;
