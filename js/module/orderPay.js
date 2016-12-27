@@ -16,9 +16,16 @@ angular.module('orderPay', ['ui.router'])
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
+                    	
                     	//获取微信支付数据
-						var post_data={'openId':util.get("openId"),'finalmoney':order_detail.ordPrice,'orderId':order_detail.id}
+                    	var orderProducts=new Array()
+                    	for(var i=0;i<$scope.orderDetail_datas.length;i++){
+                    		orderProducts.push({'pro_id':$scope.orderDetail_datas[i].proId,"pro_count":$scope.orderDetail_datas[i].proCount})
+                    	}
+						var post_data={'openId':util.get("openId"),'finalmoney':order_detail.ordPrice,
+										'orderId':order_detail.id,"orderProducts":orderProducts}
 						$scope.pay_data={}
+						console.log(post_data)
                     	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 $scope.pay_data=data
@@ -32,6 +39,7 @@ angular.module('orderPay', ['ui.router'])
                             });  	
                         }
                         var msg = loginService.getCookie('address')
+                        console.log(msg)
                         wx.config(
                         {
 				            debug: false,
