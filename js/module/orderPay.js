@@ -31,7 +31,7 @@ angular.module('orderPay', ['ui.router'])
                         	//获取 address 配置
                         	httpService.post($rootScope.baseURL+'weixin/address.do',{})
                              	.then(function (msg) {
-                             	loginService.set("address",msg)
+                             	loginService.putCookie("address",msg)
                             });  	
                         }
                         var msg = loginService.getCookie('address')
