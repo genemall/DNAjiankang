@@ -8,7 +8,7 @@ homeModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
             .state("home", {
-                url: '/home/:userID/:openID',
+                url: '/home/:userId/:openId',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
@@ -25,8 +25,7 @@ homeModule.config(['$stateProvider',
                     },
                 
                 },
-                 controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products,loginService) {
-                 	$scope.test=$stateParams.openID
+                 controller: function ($scope,$stateParams,util,$filter,classifyResolve,products,loginService) {
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
@@ -68,10 +67,8 @@ homeModule.config(['$stateProvider',
                         }
                     }
                     //放在最后，判断是否重定向
-                    if($stateParams.userID!=0){
-             			loginService.putCookie('curUser',{'userID':$stateParams.userID,'openID':$stateParams.openID})
-             			$rootScope.userID = $stateParams.userID
-             			$rootScope.openID = $stateParams.openID
+                    if($stateParams.userId!=0){
+             			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
                 		if ($rootScope.userID == null){
@@ -79,9 +76,8 @@ homeModule.config(['$stateProvider',
                 		}
 					}else{
 						var user = loginService.getCookie('curUser')
-						$rootScope.userID = user.userID
-             			$rootScope.openID = user.openID
-						//console.log(user.userID+"***"+user.openID)
+						util.set('userId',$stateParams.userId) 
+             			util.set('openId',$stateParams.openId) 
 					}
                  }
 
