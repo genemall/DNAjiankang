@@ -32,9 +32,11 @@ angular.module('orderPay', ['ui.router'])
                         	httpService.post($rootScope.baseURL+'weixin/address.do',{})
                              	.then(function (msg) {
                              	loginService.putCookie("address",msg) 
+                             	console.log(msg)
                             });  	
                         }
                         var msg = loginService.getCookie('address')
+                       	console.log(msg)
                         wx.config({
 						            debug: false,
 						            appId: msg.appid,
