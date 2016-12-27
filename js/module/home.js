@@ -25,7 +25,7 @@ homeModule.config(['$stateProvider',
                     },
                 
                 },
-                 controller: function ($scope,$stateParams,util,$filter,classifyResolve,products,loginService) {
+                 controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products,loginService,util) {
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
@@ -71,7 +71,7 @@ homeModule.config(['$stateProvider',
              			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
-                		if ($rootScope.userID == null){
+                		if (util.get("userId") == null){
 							window.location.href=$rootScope.baseURL+'weixin/oauth.do'
                 		}
 					}else{
