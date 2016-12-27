@@ -9,6 +9,7 @@ angular.module('orderPay', ['ui.router'])
                     resolve: {
                     	order_detail: function (httpService,util) {
                     		  return util.get('orderPay')
+                   		}
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
                     	$scope.ordNum=order_detail.ordNum;
