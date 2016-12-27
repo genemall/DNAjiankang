@@ -7,12 +7,8 @@ angular.module('orderPay', ['ui.router'])
                     url: '/orderPay/:id',
                     templateUrl: 'view/orderPay.html',
                     resolve: {
-                    	order_detail: function (httpService,$rootScope,$stateParams,util) {
-                              return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId='+2)
-                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                                    return data;
-                                });
-                       		},
+                    	order_detail: function (httpService,util) {
+                    		  return util.get('orderPay')
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
                     	$scope.ordNum=order_detail.ordNum;
@@ -32,30 +28,29 @@ angular.module('orderPay', ['ui.router'])
                         	httpService.post($rootScope.baseURL+'weixin/address.do',{})
                              	.then(function (msg) {
                              	loginService.putCookie("address",msg) 
-                             	console.log(msg)
                             });  	
                         }
                         var msg = loginService.getCookie('address')
-                       	console.log(msg)
-                        wx.config({
-						            debug: false,
-						            appId: msg.appid,
-						            timestamp: msg.timestamp,
-						            nonceStr: msg.noncestr,
-						            signature: msg.signature,
-						            jsApiList: [
-						              // 所有要调用的 API 都要加到这个列表中
-						                'checkJsApi',
-						                'openAddress',
-						              ]
-						          });
-						        wx.checkJsApi({
-					    	      jsApiList: [
-					    	          'openAddress',
-					    	      ],
-					    	      success: function (res) {
-					    	          //alert(JSON.stringify(res));
-					    	      }
+                        wx.config(
+                        {
+				            debug: false,
+				            appId: msg.appid,
+				            timestamp: msg.timestamp,
+				            nonceStr: msg.noncestr,
+				            signature: msg.signature,
+				            jsApiList: [
+				              // 所有要调用的 API 都要加到这个列表中
+				                'checkJsApi',
+				                'openAddress',
+				              ]
+				          	});
+					        wx.checkJsApi({
+				    	      jsApiList: [
+				    	          'openAddress',
+				    	      ],
+				    	      success: function (res) {
+				    	          //alert(JSON.stringify(res));
+				    	      }
 						});   
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
