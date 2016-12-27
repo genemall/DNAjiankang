@@ -65,8 +65,8 @@
     	    <div>
           合计:<span class="font_size16">￥{{order.ordPrice}}</span>(含运费￥0.00)
            </div>
-        </div>
-        <div class="weui-panel__ft pull-right" style="margin-right: 5px;">
+        <!--</div>
+        <div class="weui-panel__ft " >-->
     		<div class="button-sp-area" ng-show="{{is_select_id}}==1">
     			<!--待支付状态-->
     			<span style="margin-right: 10px;">
@@ -79,9 +79,9 @@
             <div class="button-sp-area" ng-show="{{is_select_id}}==3">
             <!--待支付状态-->
     			<span style="margin-right: 10px;">
-    			<a href="javascript:;" ng-click="recieveDeliver(order.id)" class="weui-btn weui-btn_mini weui-btn_default">查看收货物流</a>
+    			<a href="javascript:;" ng-click="recieveDeliver(order.id)" class="weui-btn weui-btn_mini weui-btn_default">收货物流</a>
     			</span>
-    			<a href="javascript:;" ng-click="sendDeliver(order.id)" class="weui-btn weui-btn_mini weui-btn_primary">提交发货物流</a>
+    			<a href="javascript:;" ng-click="sendDeliver(order.id)" class="weui-btn weui-btn_mini weui-btn_primary">发货填写</a>
             </div>
             <div class="button-sp-area" ng-show="{{is_select_id}}==4">
     			<!--已完成状态-->

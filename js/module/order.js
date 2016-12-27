@@ -25,7 +25,11 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
-                            httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+ord_state)
+                        	var temp = ord_state
+                    		if($stateParams.ord_state==3){//3,4,5,6均归为待检测
+                    			temp="3,4,5,6"
+                    		}
+                            httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+temp)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                     $scope.order_show=data;
                                     $scope.is_select_id=ord_state
