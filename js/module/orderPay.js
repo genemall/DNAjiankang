@@ -26,10 +26,11 @@ angular.module('orderPay', ['ui.router'])
                     	//获取微信支付数据
                     	var orderProducts=new Array()
                     	for(var i=0;i<$scope.orderDetail_datas.length;i++){
-                    		orderProducts.push({'pro_id':$scope.orderDetail_datas[i].proId,"pro_count":$scope.orderDetail_datas[i].proCount})
+                    		orderProducts.push({'proId':$scope.orderDetail_datas[i].proId,"proCount":$scope.orderDetail_datas[i].proCount,
+                    							'proPrice':$scope.orderDetail_datas[i].proPrice})
                     	}
 						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,
-										'orderId':order_detail.id,"orderProducts":orderProducts}
+										'orderId':order_detail.id,"orderProducts":angular.toJson(orderProducts)}
 						$scope.pay_data={}
 						console.log(post_data)
                     	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
