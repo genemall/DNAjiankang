@@ -71,7 +71,7 @@ homeModule.config(['$stateProvider',
              			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
-                		if ($rootScope.userID == null){
+                		if (util.get("userId") == null){
 							window.location.href=$rootScope.baseURL+'weixin/oauth.do'
                 		}
 					}else{
