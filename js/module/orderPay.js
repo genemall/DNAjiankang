@@ -7,9 +7,15 @@ angular.module('orderPay', ['ui.router'])
                     url: '/orderPay/:id',
                     templateUrl: 'view/orderPay.html',
                     resolve: {
-                    	order_detail: function (httpService,util) {
-                    		  return util.get('orderPay')
-                   		}
+//                  	order_detail: function (httpService,util) {
+//                  		  return util.get('orderPay')
+//                 		}
+						order_detail: function (httpService,$rootScope,$stateParams,util) {
+                    	     return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId=2')
+                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                    return data;
+                                });
+                        },
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
                     	$scope.ordNum=order_detail.ordNum;
@@ -22,7 +28,7 @@ angular.module('orderPay', ['ui.router'])
                     	for(var i=0;i<$scope.orderDetail_datas.length;i++){
                     		orderProducts.push({'pro_id':$scope.orderDetail_datas[i].proId,"pro_count":$scope.orderDetail_datas[i].proCount})
                     	}
-						var post_data={'openId':util.get("openId"),'finalmoney':order_detail.ordPrice,
+						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,
 										'orderId':order_detail.id,"orderProducts":orderProducts}
 						$scope.pay_data={}
 						console.log(post_data)
