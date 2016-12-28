@@ -1,5 +1,5 @@
 
-angular.module('orderPay', ['ui.router'])
+angular.module('orderPay', ['ui.router','utilMd'])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
