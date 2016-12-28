@@ -42,10 +42,8 @@ angular.module('orderPay', ['ui.router'])
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
-                        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
-                             	.then(function (msg) {
-                             	loginService.putCookie("address",msg) 
-                            });  	
+                        	msg = httpService.post($rootScope.baseURL+'weixin/address.do',{})
+                            loginService.putCookie("address",msg) 
                         }
                         var msg = loginService.getCookie('address')
                         console.log(msg)
