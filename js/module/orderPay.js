@@ -8,7 +8,6 @@ angular.module('orderPay', ['ui.router'])
                     templateUrl: 'view/orderPay.html',
                     resolve: {
                     	order_detail: function (httpService,util) {
-							console.log(util.get('orderPay'))
                     		return util.get('orderPay')
                    		},
 //						order_detail: function (httpService,$rootScope,$stateParams,util) {

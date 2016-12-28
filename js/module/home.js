@@ -67,8 +67,7 @@ homeModule.config(['$stateProvider',
                         }
                     }
                     //放在最后，判断是否重定向
-                    if($stateParams.userId!=0||$stateParams.userId!="0"&&loginService.getCookie('curUser') == null){
-                    	console.log($stateParams.userId)
+                    if($stateParams.userId!=0||$stateParams.userId!="0"){
              			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
@@ -77,9 +76,8 @@ homeModule.config(['$stateProvider',
                 		}
 					}else{
 						var user = loginService.getCookie('curUser')
-						console.log(user)
-						util.set('userId',$stateParams.userId) 
-             			util.set('openId',$stateParams.openId) 
+						util.set('userId',user.userId) 
+             			util.set('openId',user.openId) 
 					}
                  }
 
