@@ -25,7 +25,7 @@ homeModule.config(['$stateProvider',
                     },
                 
                 },
-                 controller: function ($scope,$stateParams,$rootScope,$filter,classifyResolve,products,loginService,util) {
+                 controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
@@ -65,6 +65,10 @@ homeModule.config(['$stateProvider',
                         } else {
                             $scope.isSearchShow = false;
                         }
+                    }
+                    $scope.getProducts=function(id,claName){
+                    	util.set('claName',claName)
+                    	$location.path('/product/'+id)
                     }
                     //放在最后，判断是否重定向
                     if($stateParams.userId!=0||$stateParams.userId!="0"){

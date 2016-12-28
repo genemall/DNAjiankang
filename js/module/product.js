@@ -14,11 +14,15 @@ angular.module('product', ['ui.router'])
 	                            });
 	                    },
 	                },
-                    controller: function($scope,httpService,product_list,$rootScope){
+                    controller: function($scope,httpService,product_list,$rootScope,$stateParams,util){
                     	$scope.products_show=product_list[0].listProduct//每个标签对应的商品信息，默认是第一个标签
                     	//jquery 实现 滑动导航栏,有待改装成angularjs
                     	var arr = new Array()
                         for(var i=0;i<product_list.length;i++){
+                        	if(product_list[i].claName==null){
+                        		arr.push("<li> <a href='javascript:void(0)' >"+util.get("claName")+"</a></li>")
+                        		break
+                        	}
                             arr.push("<li> <a href='javascript:void(0)' id='"+product_list[i].id+"'>"+product_list[i].claName+"</a></li>")
                         }
                         arr.push("<li class='sideline'></li>")
@@ -51,9 +55,11 @@ angular.module('product', ['ui.router'])
 					        } else {
 					            fnl_l = fn_w - fnl_x;
 					        }
-					        $(".find_nav_list").animate({
-					            "left" : fnl_l
-					        }, 300);
+					        if(arr.length!=3){//只有两个就不滑动
+						        $(".find_nav_list").animate({
+						            "left" : fnl_l
+						        }, 300);
+					        }
 					        var c_nav=$(this).find("a").text();
 					    });
 					    var fl_w=$(".find_nav_list").width();
