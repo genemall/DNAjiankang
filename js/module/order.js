@@ -46,11 +46,9 @@ angular.module('order', ['ui.router','utilMd'])
                         			var post_data={'openId':util.get("openId"),'finalmoney':$scope.order_show[i].ordPrice,
 											'orderId':ordId}
 									console.log(post_data)
-			                    	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
-			                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-			                                util.set('pay_data',data)
-				                        	$location.path('/orderPay/')
-			                        });
+			                    	data=httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
+	                                util.set('pay_data',data)
+		                        	$location.path('/orderPay/')
                         			break
                         		}
                         	}

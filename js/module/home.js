@@ -67,12 +67,13 @@ homeModule.config(['$stateProvider',
                         }
                     }
                     //放在最后，判断是否重定向
-                    if($stateParams.userId!=0){
+                    if($stateParams.userId!=0||$stateParams.userId!="0"){
+                    	console.log($stateParams.userId)
              			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
                 		if (util.get("userId") == null){
-							window.location.href=$rootScope.baseURL+'weixin/oauth.do'
+							//window.location.href=$rootScope.baseURL+'weixin/oauth.do'
                 		}
 					}else{
 						var user = loginService.getCookie('curUser')
