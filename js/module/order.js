@@ -45,8 +45,10 @@ angular.module('order', ['ui.router','utilMd'])
                         			util.set('orderPay',$scope.order_show[i])
                         			var post_data={'openId':util.get("openId"),'finalmoney':$scope.order_show[i].ordPrice,
 											'orderId':ordId}
+                        			console.log(post_data)
 			                    	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 			                    	  .then(function (data) {
+			                    	  	console.log(data)
 		                                util.set('pay_data',data)
 		                        		$location.path('/orderPay/')
 			                        });
