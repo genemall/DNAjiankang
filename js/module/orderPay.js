@@ -7,15 +7,16 @@ angular.module('orderPay', ['ui.router'])
                     url: '/orderPay/:id',
                     templateUrl: 'view/orderPay.html',
                     resolve: {
-//                  	order_detail: function (httpService,util) {
-//                  		  return util.get('orderPay')
-//                 		}
-						order_detail: function (httpService,$rootScope,$stateParams,util) {
-                    	     return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId=2')
-                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                                    return data;
-                                });
-                        },
+                    	order_detail: function (httpService,util) {
+							console.log(util.get('orderPay'))
+                    		return util.get('orderPay')
+                   		},
+//						order_detail: function (httpService,$rootScope,$stateParams,util) {
+//                  	     return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId=2')
+//                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+//                                  return data;
+//                              });
+//                      },
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
                     	$scope.ordNum=order_detail.ordNum;
@@ -24,19 +25,20 @@ angular.module('orderPay', ['ui.router'])
                     	$scope.ordPrice=order_detail.ordPrice;
                     	
                     	//获取微信支付数据
-                    	var orderProducts=new Array()
-                    	for(var i=0;i<$scope.orderDetail_datas.length;i++){
-                    		orderProducts.push({'proId':$scope.orderDetail_datas[i].proId,"proCount":$scope.orderDetail_datas[i].proCount,
-                    							'proPrice':$scope.orderDetail_datas[i].proPrice})
-                    	}
-						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,
-										'orderId':order_detail.id,"orderProducts":angular.toJson(orderProducts)}
-						$scope.pay_data={}
-						console.log(post_data)
-                    	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
-                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                                $scope.pay_data=data
-                        });
+//                  	var orderProducts=new Array()
+//                  	for(var i=0;i<$scope.orderDetail_datas.length;i++){
+//                  		orderProducts.push({'proId':$scope.orderDetail_datas[i].proId,
+//                  							"proCount":$scope.orderDetail_datas[i].proCount,
+//                  							'proPrice':$scope.orderDetail_datas[i].proPrice})
+//                  	}
+//						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,
+//										'orderId':order_detail.id,"orderProducts":angular.toJson(orderProducts)}
+//						$scope.pay_data={}
+//						console.log(post_data)
+//                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
+//                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+//                              $scope.pay_data=data
+//                      });
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
@@ -87,8 +89,8 @@ angular.module('orderPay', ['ui.router'])
 					          });
                         }
                     	$scope.gotoPay=function(){
-                            console.log($scope.pay_data)
-                			 WeixinJSBridge.invoke('getBrandWCPayRequest',$scope.pay_data,function(res){
+                            console.log(util.get("pay_data"))
+                			 WeixinJSBridge.invoke('getBrandWCPayRequest',util.get("pay_data"),function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
 						            if(res.err_msg == "get_brand_wcpay_request:ok"){  
