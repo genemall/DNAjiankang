@@ -41,34 +41,37 @@ angular.module('orderPay', ['ui.router'])
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
-                        	msg = httpService.post($rootScope.baseURL+'weixin/address.do',{})
-                            loginService.putCookie("address",msg) 
+                        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
+                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                        		loginService.putCookie("address",data) 
+                             });
                         }
-                        var msg = loginService.getCookie('address')
-                        console.log(msg)
-                        wx.config(
-                        {
-				            debug: false,
-				            appId: msg.appid,
-				            timestamp: msg.timestamp,
-				            nonceStr: msg.noncestr,
-				            signature: msg.signature,
-				            jsApiList: [
-				              // 所有要调用的 API 都要加到这个列表中
-				                'checkJsApi',
-				                'openAddress',
-				              ]
-				          	});
-					        wx.checkJsApi({
-				    	      jsApiList: [
-				    	          'openAddress',
-				    	      ],
-				    	      success: function (res) {
-				    	          //alert(JSON.stringify(res));
-				    	      }
-						});   
+                   
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
+                        	msg = loginService.getCookie('address')
+                        	console.log(msg)
+                        	wx.config(
+	                        {
+					            debug: false,
+					            appId: msg.appid,
+					            timestamp: msg.timestamp,
+					            nonceStr: msg.noncestr,
+					            signature: msg.signature,
+					            jsApiList: [
+					              // 所有要调用的 API 都要加到这个列表中
+					                'checkJsApi',
+					                'openAddress',
+					              ]
+					          	});
+						        wx.checkJsApi({
+					    	      jsApiList: [
+					    	          'openAddress',
+					    	      ],
+					    	      success: function (res) {
+					    	          //alert(JSON.stringify(res));
+					    	      }
+							});  
                         	wx.openAddress({
 					            trigger: function (res) {
 					              //alert('用户开始拉出地址');
