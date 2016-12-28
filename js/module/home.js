@@ -68,7 +68,7 @@ homeModule.config(['$stateProvider',
                     }
                     //放在最后，判断是否重定向
                     if($stateParams.userId!=0||$stateParams.userId!="0"){
-             			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openID':$stateParams.openId})
+             			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openId':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
                 		if (util.get("userId") == null){
