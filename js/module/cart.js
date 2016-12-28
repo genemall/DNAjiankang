@@ -11,6 +11,7 @@ angular.module('cart', ['ui.router','cartMd'])
                     templateUrl: 'view/cart.html',
                     resolve: {
 	                	cart_list: function (httpService,$rootScope,util) {
+	                		console.log(util.get("userId"))
 	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+util.get("userId"))
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 	                             if(!data){
