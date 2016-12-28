@@ -29,19 +29,13 @@ dnaStore
         }
     )
     //配置系统初始需要的数据
-    .run(function ($rootScope, httpService, $state, $location,loginService) {
+    .run(function ($rootScope,httpService,util, $state, $location,loginService) {
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
-		
-		if(loginService.getCookie('curUser') != null){
-			var user = loginService.getCookie('curUser')
-			$rootScope.userID = user.userID
- 			$rootScope.openID = user.openID
-			//console.log(user.userID+"***"+user.openID)
-		}
+//		$scope.userId = util.get("userId")
 					
         //调用服务获取主页需要显示的焦点图
         httpService.get('json/tsconfig.json').then(function (data) {

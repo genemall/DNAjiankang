@@ -10,8 +10,8 @@ angular.module('cart', ['ui.router','cartMd'])
                     url: '/cart/:id',
                     templateUrl: 'view/cart.html',
                     resolve: {
-	                	cart_list: function (httpService,$rootScope,$stateParams) {
-	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+$stateParams.id)
+	                	cart_list: function (httpService,$rootScope,util) {
+	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+util.get("userId"))
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 	                             if(!data){
 	                                 return new Array();
