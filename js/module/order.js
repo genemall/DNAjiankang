@@ -39,23 +39,21 @@ angular.module('order', ['ui.router','utilMd'])
                         	$location.path('/orderDetail/'+ordId)
                         }
                         $scope.orderPay = function(ordId){
-							
                          	for(var i=0;i<$scope.order_show.length;i++){
                         		if($scope.order_show[i].id==ordId){
                         			//获取微信支付数据
+                        			util.set('orderPay',$scope.order_show[i])
                         			var post_data={'openId':util.get("openId"),'finalmoney':$scope.order_show[i].ordPrice,
 											'orderId':ordId}
 									console.log(post_data)
 			                    	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 			                             .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 			                                util.set('pay_data',data)
+				                        	$location.path('/orderPay/')
 			                        });
-                        			util.set('orderPay',$scope.order_show[i])
-                        			console.log(util.get('orderPay'))
                         			break
                         		}
                         	}
-                        	$location.path('/orderPay/')
                         }
                         $scope.isDetected = function(is_selected_id){
                         }

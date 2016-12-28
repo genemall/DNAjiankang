@@ -2,8 +2,8 @@
  * 工具类服务：返回一些公共的工具方法
  */
 
-angular.module("utilMd", [])
-    .factory("util", function () {
+angular.module("utilMd", ["swxLocalStorage"])
+    .factory("util", function ($localStorage) {
         //extend Array [+swap] 一个swap函数的实现
         Array.prototype.swap = Array.prototype.swap || function (new_index, old_index) {
                 if (new_index >= this.length) {
@@ -80,10 +80,10 @@ angular.module("utilMd", [])
                 return order_show
             },
             set:function(key,value){
-            	cache_dict[key]=value
+            	$localStorage.put(key,value)
             },
             get:function(key){
-            	return　cache_dict[key]
+            	return　$localStorage.get(key)
             },
         }
     })
