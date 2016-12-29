@@ -22,7 +22,8 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
-                    	//$scope.address={}
+                    	//或者存cookie设置100年
+                    	$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
@@ -63,8 +64,10 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
-					              $scope.address=JSON.stringify(res)
-					              alert($scope.address);
+					              address=JSON.stringify(res)
+					              $scope.address.userName=address.userName
+					              $scope.address.telNumber=address.telNumber
+					              $scope.address.addressInfo=address.provinceName+address.provinceName+address.detailInfo
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
