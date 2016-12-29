@@ -100,11 +100,10 @@ angular.module('cart', ['ui.router','cartMd'])
                             }
 							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
 											"orderProducts":angular.toJson(orderProducts)}
-							console.log(post_data)
 		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-		                              $scope.pay_data=data
 		                              console.log(data)
+		                              util.set("pay_data",data)
 		                      });
                         }
                     },
