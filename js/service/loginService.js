@@ -32,7 +32,11 @@ angular.module("loginMd", ["ngCookies","httpMd"])
                	$cookies.putObject(key,value);
             },
            	getCookie:function(key){
-            	return $cookies.getObject(key);
+            	var temp = $cookies.getObject(key);
+                if (temp !== null) {
+                    return temp;
+                }
+                return null;
             },
         }
     })
