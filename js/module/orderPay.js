@@ -23,7 +23,13 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//或者存cookie设置100年
-                    	$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+                    	if(loginService.getCookie('userName')==null){
+                    		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+                    	}else{
+                    		$scope.address={"userName":loginService.getCookie('userName'),
+                    						"telNumber":loginService.getCookie('telNumber'),
+                    						"addressInfo":loginService.getCookie('addressInfo')}
+                    	}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
@@ -65,9 +71,13 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
 					              address=JSON.stringify(res)
-					              $scope.address.userName=address.userName
-					              $scope.address.telNumber=address.telNumber
-					              $scope.address.addressInfo=address.provinceName+address.provinceName+address.detailInfo
+					              $scope.address.userName=address["userName"]
+					              $scope.address.telNumber=address["telNumber"]
+					              $scope.address.addressInfo=address["provinceName"]+address["cityName"]+address["detailInfo"]
+					              //永久存入cookie
+					              loginService.putCookieForever("userName",$scope.address.userName) 
+					              loginService.putCookieForever("telNumber",$scope.address.telNumber) 
+					              loginService.putCookieForever("addressInfo",$scope.address.addressInfo) 
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
