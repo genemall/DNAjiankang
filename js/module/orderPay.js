@@ -70,12 +70,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
-					              address=JSON.stringify(res)
-					              alert(res["userName"])
-					              alert(address["telNumber"])
-					              $scope.address.userName=address["userName"]
-					              $scope.address.telNumber=address["telNumber"]
-					              $scope.address.addressInfo=address["provinceName"]+address["cityName"]+address["detailInfo"]
+					              $scope.address.userName=res["userName"]
+					              $scope.address.telNumber=res["telNumber"]
+					              $scope.address.addressInfo=res["provinceName"]+res["cityName"]+res["detailInfo"]
 					              //永久存入cookie
 					              loginService.putCookieForever("userName",$scope.address.userName) 
 					              loginService.putCookieForever("telNumber",$scope.address.telNumber) 
