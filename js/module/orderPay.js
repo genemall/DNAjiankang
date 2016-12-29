@@ -22,16 +22,14 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
+                    	var user_address = loginService.getCookie('user_address')
                     	//或者存cookie设置100年
-                    	if(loginService.getCookie('userName')==null){
+                    	if(user_address==null){
                     		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
-                    		$scope.address={"userName":"丁石磊",
-                    						"telNumber":"15258230407",
-                    						"addressInfo":"上海市普通新区孙耀路111弄41户202室"}
                     	}else{
-                    		$scope.address={"userName":loginService.getCookie('userName'),
-                    						"telNumber":loginService.getCookie('telNumber'),
-                    						"addressInfo":loginService.getCookie('addressInfo')}
+                    		$scope.address={"userName":user_address.userName,
+                    						"telNumber":user_address.telNumber,
+                    						"addressInfo":user_address.addressInfo
                     	}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
@@ -77,9 +75,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					              $scope.address.telNumber=res["telNumber"]
 					              $scope.address.addressInfo=res["provinceName"]+res["cityName"]+res["detailInfo"]
 					              //永久存入cookie
-					              loginService.putCookieForever("userName",$scope.address.userName) 
-					              loginService.putCookieForever("telNumber",$scope.address.telNumber) 
-					              loginService.putCookieForever("addressInfo",$scope.address.addressInfo) 
+					              loginService.putCookieForever("user_address",$scope.address) 
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
