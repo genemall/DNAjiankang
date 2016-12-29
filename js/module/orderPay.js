@@ -25,6 +25,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	//或者存cookie设置100年
                     	if(loginService.getCookie('userName')==null){
                     		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+                    		$scope.address={"userName":"丁石磊",
+                    						"telNumber":"15258230407",
+                    						"addressInfo":"上海市普通新区孙耀路111弄41户202室"}
                     	}else{
                     		$scope.address={"userName":loginService.getCookie('userName'),
                     						"telNumber":loginService.getCookie('telNumber'),
