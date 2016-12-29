@@ -64,7 +64,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
 					              $scope.address=JSON.stringify(res)
-					              alert(JSON.stringify(res));
+					              alert($scope.address);
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');

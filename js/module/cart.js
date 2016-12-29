@@ -25,7 +25,7 @@ angular.module('cart', ['ui.router','cartMd'])
 	                        });
 	                    },
 	                },
-                    controller:function($scope,cart_list,httpService,$rootScope,util){
+                    controller:function($scope,cart_list,httpService,$rootScope,$location,util){
                     	//http://blog.csdn.net/liaodehong/article/details/52493779
                     	$scope.cart_datas=cart_list;
                     	$scope.$watch("cart_datas", function() {//监控数据变化
@@ -104,6 +104,7 @@ angular.module('cart', ['ui.router','cartMd'])
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 		                              console.log(data)
 		                              util.set("pay_data",data)
+		                              $location.path('/orderPay/')
 		                      });
                         }
                     },
