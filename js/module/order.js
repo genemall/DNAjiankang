@@ -26,7 +26,7 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
                         	var temp = ord_state
-                    		if($stateParams.ord_state==3){//3,4,5,6均归为待检测
+                    		if(ord_state==3){//3,4,5,6均归为待检测
                     			temp="3,4,5,6"
                     		}
                             httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+temp)

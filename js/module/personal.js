@@ -25,7 +25,9 @@ angular.module('personal', ['ui.router'])
                                  case "2":
                                     count_dict['unDeliver'] += 1
                                     break;
-                                 case "3":
+                                 case "7":
+                                 	break;
+                                 default:
                                     count_dict['unTake'] += 1
                                     break;
                              }

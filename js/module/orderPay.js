@@ -23,21 +23,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	
-                    	//获取微信支付数据
-//                  	var orderProducts=new Array()
-//                  	for(var i=0;i<$scope.orderDetail_datas.length;i++){
-//                  		orderProducts.push({'proId':$scope.orderDetail_datas[i].proId,
-//                  							"proCount":$scope.orderDetail_datas[i].proCount,
-//                  							'proPrice':$scope.orderDetail_datas[i].proPrice})
-//                  	}
-//						var post_data={'openId':'ofzXwvnbUQYrVMmYn8uxZuHbbX5g','finalmoney':order_detail.ordPrice,
-//										'orderId':order_detail.id,"orderProducts":angular.toJson(orderProducts)}
-//						$scope.pay_data={}
-//						console.log(post_data)
-//                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
-//                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-//                              $scope.pay_data=data
-//                      });
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置

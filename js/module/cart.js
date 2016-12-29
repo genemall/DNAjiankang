@@ -25,7 +25,7 @@ angular.module('cart', ['ui.router','cartMd'])
 	                        });
 	                    },
 	                },
-                    controller:function($scope,cart_list,httpService,$rootScope){
+                    controller:function($scope,cart_list,httpService,$rootScope,util){
                     	//http://blog.csdn.net/liaodehong/article/details/52493779
                     	$scope.cart_datas=cart_list;
                     	$scope.$watch("cart_datas", function() {//监控数据变化
@@ -90,6 +90,22 @@ angular.module('cart', ['ui.router','cartMd'])
                         }
                         $scope.createOrder=function(){
                             //此次按照check选中的商品生成http post请求，并$location跳转到 订单详情界面
+                            var orderProducts=new Array()
+                            for (var i = 0; i < $scope.cart_datas.length; i++) {
+                                if($scope.cart_datas[i].check){
+                                	orderProducts.push({'proId':$scope.cart_datas[i].proId,
+		                  							"proCount":$scope.cart_datas[i].proCount,
+	                  								'proPrice':$scope.cart_datas[i].product.proRateprice})
+                                }
+                            }
+							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
+											"orderProducts":angular.toJson(orderProducts)}
+							console.log(post_data)
+		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
+		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+		                              $scope.pay_data=data
+		                              console.log(data)
+		                      });
                         }
                     },
                     //配置导航，回到父层

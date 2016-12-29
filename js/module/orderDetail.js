@@ -17,10 +17,15 @@ angular.module('orderDetail', ['ui.router'])
                     controller: function($scope,order_detail){
                     	state_dict={1:'待付款',2:'待发货',3:'买家待收货',4:'买家待发货',5:'卖家待收货',6:'待检测',7:'已完成'}
                     	$scope.ord_state=state_dict[order_detail.ordState]
+                    	
                     	$scope.ordNum=order_detail.ordNum;
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
+                    	
+                    	$scope.userName=order_detail.userName;
+                    	$scope.userPhone=order_detail.userPhone;
+                    	$scope.userAddress=order_detail.userAddress;
 
                     },
                 })
