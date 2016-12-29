@@ -29,7 +29,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	}else{
                     		$scope.address={"userName":user_address.userName,
                     						"telNumber":user_address.telNumber,
-                    						"addressInfo":user_address.addressInfo
+                    						"addressInfo":user_address.addressInfo}
                     	}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
