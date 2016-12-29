@@ -71,6 +71,8 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
 					              address=JSON.stringify(res)
+					              alert(res["userName"])
+					              alert(address["telNumber"])
 					              $scope.address.userName=address["userName"]
 					              $scope.address.telNumber=address["telNumber"]
 					              $scope.address.addressInfo=address["provinceName"]+address["cityName"]+address["detailInfo"]
