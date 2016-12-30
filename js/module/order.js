@@ -39,6 +39,7 @@ angular.module('order', ['ui.router','utilMd'])
                         	$location.path('/orderDetail/'+ordId)
                         }
                         $scope.orderPay = function(ordId){
+                        	   $scope.loadingToastHide = 1;
                          	for(var i=0;i<$scope.order_show.length;i++){
                         		if($scope.order_show[i].id==ordId){
                         			//获取微信支付数据
@@ -50,6 +51,7 @@ angular.module('order', ['ui.router','utilMd'])
 			                    	  .then(function (data) {
 			                    	  	console.log(data)
 		                                util.set('pay_data',data)
+		                                $scope.loadingToastHide = 0;
 		                        		$location.path('/orderPay/')
 			                        });
                         			break
