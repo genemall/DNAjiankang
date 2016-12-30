@@ -89,6 +89,7 @@ angular.module('cart', ['ui.router','cartMd'])
                             }
                         }
                         $scope.createOrder=function(){
+                        	 $scope.loadingToastHide = 1
                             //此次按照check选中的商品生成http post请求，并$location跳转到 订单详情界面
                             var orderProducts=new Array()
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
@@ -104,6 +105,7 @@ angular.module('cart', ['ui.router','cartMd'])
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 		                              console.log(data)
 		                              util.set("pay_data",data)
+	                               	  $scope.loadingToastHide = 0
 		                              $location.path('/orderPay/')
 		                      });
                         }
