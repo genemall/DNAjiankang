@@ -93,42 +93,6 @@
 </div>
 </div>
 
-<div id="loadingToast" ng-if="loadingToastHide" >
-    <div class="weui-mask_transparent"></div>
-    <div class="weui-toast">
-        <i class="weui-loading weui-icon_toast"></i>
-        <!--<p class="weui-toast__content">数据加载中</p>-->
-    </div>
-</div>
-
-<div class="js_dialog" ng-if="isShowDialog" >
-        <div class="weui-mask"></div>
-        <div class="weui-dialog weui-skin_android">
-            <div class="weui-dialog__bd">
-            	物流名称
-	            <div class="weui-cells" style="margin-top: 0.6em;margin-bottom: 0.6em;">
-		            <div class="weui-cell">
-		                <div class="weui-cell__hd">
-		                    <input class="weui-input"  placeholder="请输入物流公司名称" >
-		                </div>
-		            </div>
-		        </div>
-		             物流单号
-	            <div class="weui-cells" style="margin-top: 0.6em;margin-bottom: 0.6em;">
-		            <div class="weui-cell" >
-		                <div class="weui-cell__hd">
-		                    <input class="weui-input"  placeholder="请输入物流单号" >
-		                </div>
-		            </div>
-		        </div>
-            </div>
-            <div class="weui-dialog__ft">
-                <a href="javascript:;" ng-click="btnCancel()"  class="weui-dialog__btn weui-dialog__btn_default">取消</a>
-                <a href="javascript:;" ng-click="btnOK()" class="weui-dialog__btn weui-dialog__btn_primary">提交</a>
-            </div>
-        </div>
-</div>
-
 <div class="js_dialog" ng-if="isShowOrderDialog" >
         <div class="weui-mask"></div>
         <div class="weui-dialog weui-skin_android">
@@ -141,3 +105,5 @@
             </div>
         </div>
 </div>
+
+<div ng-include="'./view/common/common.html'"></div>

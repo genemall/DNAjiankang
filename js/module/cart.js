@@ -56,13 +56,13 @@ angular.module('cart', ['ui.router','cartMd'])
     	                        	$scope.cart_datas[i].proCount=1;
     	                        	if (proCount>$scope.cart_datas[i].product.proSum){
     	                        	    $scope.dialog_content='商品的库存没那么多'
-    	                        	    $scope.isShowDialog=true
+    	                        	    $scope.isShowCartDialog=true
     	                        	}else if (proCount<1){
     	                        	    $scope.dialog_content='商品个数不能小于1'
-                                        $scope.isShowDialog=true
+                                        $scope.isShowCartDialog=true
     	                        	}else if (!proCount){
     	                        	    $scope.dialog_content='商品个数输入异常'
-                                        $scope.isShowDialog=true
+                                        $scope.isShowCartDialog=true
     	                        	}else{
                                         $scope.cart_datas[i].proCount = proCount;
     	                        	}
@@ -71,7 +71,7 @@ angular.module('cart', ['ui.router','cartMd'])
                            }
                         }
                         $scope.btnOk=function(){
-                            $scope.isShowDialog=false
+                            $scope.isShowCartDialog=false
                         }
                         $scope.checkAll=function(){
                             for(var i in $scope.cart_datas){

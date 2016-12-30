@@ -21,7 +21,7 @@ angular.module('order', ['ui.router','utilMd'])
                                 });;
                        		},
                		 },
-                    controller: function($scope,httpService,$rootScope,$stateParams,$location,order_show,util){
+                    controller: function($scope,httpService,$rootScope,$stateParams,$location,order_show,$interval,util){
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
@@ -55,9 +55,16 @@ angular.module('order', ['ui.router','utilMd'])
 			                    	httpService.post($rootScope.baseURL+'weixin/cancelpay.do',post_data)
 			                    	  .then(function (data) {
 			                    	  	console.log(data)
-		                                $scope.loadingToastHide = 0;
 		                                $scope.isShowOrderDialog = 0;
-			                    	  	$scope.order_show.splice(i,1);
+		                                $scope.loadingToastHide = 0;
+		                                if(data){
+			                    	  		$scope.order_show.splice(i,1);
+		                                }else{
+	                                	   	$scope.isShowToast = 1;
+									        $interval(function() {
+									            $scope.isShowToast = 0;
+									        }, 2000, 1);
+		                                }
 			                        });
                         			break
                         		}
@@ -65,7 +72,7 @@ angular.module('order', ['ui.router','utilMd'])
                         }
                         $scope.btnCancel = function(){
                         	$scope.isShowOrderDialog = 0;
-                        	$scope.isShowDialog = 0;
+                        	$scope.isShowCarryDialog = 0;
                         }
                         $scope.orderPay = function(ordId){
                         	   $scope.loadingToastHide = 1;
@@ -90,7 +97,7 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.isDetected = function(is_selected_id){
                         }
                     	$scope.sendDeliver=function(ord_id){
-                    		$scope.isShowDialog=1
+                    		$scope.isShowCarryDialog=1
                     	}
                     },
                     //配置导航
