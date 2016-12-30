@@ -106,4 +106,31 @@
         </div>
 </div>
 
+<div class="js_dialog" id="dialog2" ng-if="isShowDeliveryDialog">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd">
+        	<div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">物流名称:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    {{courierName}}
+                </div>
+            </div>
+            <div class="weui-cell ">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">物流单号:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    {{courierNum}}
+                </div>
+            </div>
+        </div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="btnCancel()">知道了</a>
+        </div>
+    </div>
+</div>
+
 <div ng-include="'./view/common/common.html'"></div>

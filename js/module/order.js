@@ -73,6 +73,7 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.btnCancel = function(){
                         	$scope.isShowOrderDialog = 0;
                         	$scope.isShowCarryDialog = 0;
+                        	$scope.isShowDeliveryDialog=0
                         }
                         $scope.orderPay = function(ordId){
                         	   $scope.loadingToastHide = 1;
@@ -94,10 +95,49 @@ angular.module('order', ['ui.router','utilMd'])
                         		}
                         	}
                         }
-                        $scope.isDetected = function(is_selected_id){
+                        $scope.recieveDeliver = function(ord_id){
+                        	$scope.isShowDeliveryDialog = 1;
+                        	for(var i=0;i<$scope.order_show.length;i++){
+                        		if($scope.order_show[i].id==ord_id){
+                        			$scope.courierName=$scope.order_show[i].courierName
+                        			$scope.courierNum=$scope.order_show[i].courierNum
+                        			break
+                        		}
+                        	}
                         }
                     	$scope.sendDeliver=function(ord_id){
                     		$scope.isShowCarryDialog=1
+                    		$scope.ord_id=ord_id
+                    		for(var i=0;i<$scope.order_show.length;i++){
+                        		if($scope.order_show[i].id==ord_id){
+		                    		$scope.userCourierName=$scope.order_show[i].userCourierName
+		                    		$scope.userCourierNum=$scope.order_show[i].userCourierNum
+		                    		break
+                        		}
+                       		 }
+                    	}
+                    	$scope.deliverBtnOK=function(userCourierName,userCourierNum){
+                    		if(userCourierName==null||userCourierNum==null||userCourierName==""||userCourierNum==""){
+                			 	$scope.isShowWarnToast = 1;
+						        $interval(function() {
+						            $scope.isShowWarnToast = 0;
+						        }, 1500, 1);
+                    			return;
+                    		}
+                    		$scope.isShowCarryDialog=0
+                    		var post_data={'userCourierNum':userCourierNum,
+                    						'userCourierName':userCourierName,
+											'orderId':$scope.ord_id}
+                    		httpService.post($rootScope.baseURL+'order/phoneInsertCourierinfo.do',post_data)
+	                    	  .then(function (data) {
+	                    	  	console.log(data)
+                                if(data){
+                    	  			$scope.isShowToast = 1;
+							        $interval(function() {
+							            $scope.isShowToast = 0;
+							        }, 1500, 1);
+                                }
+			                });
                     	}
                     },
                     //配置导航
