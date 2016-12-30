@@ -38,6 +38,35 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.orderDetail = function(ordId){
                         	$location.path('/orderDetail/'+ordId)
                         }
+                        
+                        $scope.orderCancel = function(ordId){
+                        	$scope.isShowOrderDialog = 1
+                        	$scope.dialog_content="确定取消此订单吗"
+                        	$scope.ord_id=ordId
+                         	
+                        }
+                        $scope.cancelBtnOK = function(ordId){
+                        	 $scope.loadingToastHide = 1;
+                        	for(var i=0;i<$scope.order_show.length;i++){
+                        		if($scope.order_show[i].id==ordId){
+                        			//获取微信支付数据
+                        			var post_data={'orderId':ordId}
+                        			console.log(post_data)
+			                    	httpService.post($rootScope.baseURL+'weixin/cancelpay.do',post_data)
+			                    	  .then(function (data) {
+			                    	  	console.log(data)
+		                                $scope.loadingToastHide = 0;
+		                                $scope.isShowOrderDialog = 0;
+			                    	  	$scope.order_show.splice(i,1);
+			                        });
+                        			break
+                        		}
+                        	}
+                        }
+                        $scope.btnCancel = function(){
+                        	$scope.isShowOrderDialog = 0;
+                        	$scope.isShowDialog = 0;
+                        }
                         $scope.orderPay = function(ordId){
                         	   $scope.loadingToastHide = 1;
                          	for(var i=0;i<$scope.order_show.length;i++){
@@ -60,6 +89,9 @@ angular.module('order', ['ui.router','utilMd'])
                         }
                         $scope.isDetected = function(is_selected_id){
                         }
+                    	$scope.sendDeliver=function(ord_id){
+                    		$scope.isShowDialog=1
+                    	}
                     },
                     //配置导航
                     ncyBreadcrumb:{
