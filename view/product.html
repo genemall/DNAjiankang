@@ -15,30 +15,31 @@
     </div>
 
   <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;" >
-        <div class="weui-panel__bd" style="" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
-       		<ul style="margin-bottom:15px ;">
-       			<li class="find_nav_cur"><a href="javascript:void(0)">{{row.claName}}</a></li>
+        <div class="weui-panel__bd" style="height: 140px;margin: 0px;padding: 0px;" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
+       		<ul style="margin-bottom:0px ;">
+       			<li class="find_nav_cur" ><a href="javascript:void(0)" >{{row.claName}}</a></li>
        		</ul>
            <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding: 0;">
            	
-               <div class="weui-media-box__hd" style="width: 40%;height: 110px;margin-right:15px ;margin-left: 15px;">
-                   <img class="weui-media-box__thumb" style="width: 100%;height: 110px;" ng-src="{{row.imagelist[0].url}}">
+               <div class="weui-media-box__hd" style="margin-top:15px;width: 40%;height: 120px;margin-right:15px ;margin-left: 5px;">
+                   <img class="weui-media-box__thumb" style="width: 100%;height: 100%;" ng-src="{{row.imagelist[0].url}}">
                </div>
 
                <div class="weui-media-box__bd" >
-               	   <span class="weui-form-preview__value" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin-top:15px ;">
-               		{{row.proName}}
-               	   </span>
-
-                   <p class="weui-media-box__desc" style="color: #080808;font-size: 10px;margin-top: 5px;">{{row.proArea}}</p>
-                   <p class="weui-media-box__desc" style="color: #080808;font-size: 10px;margin: 0;padding: 0;">包邮</p>
-                   <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin: 0;padding-top:5px ;">
+               	   <p class="weui-media-box__desc" style="color: #000000;font-family: '微软雅黑';font-size: 16px;margin-top:10px ;">
+               		{{row.proName}}儿童基因儿童基因儿童基因儿童基因儿童基因儿童基因
+               	   </p>
+                   <div style="margin-top:10px ;">
+                   <p class="weui-media-box__desc" style="color: #080808;font-size: 10px;margin-top: 5px;    margin: 0 0 5px;">{{row.proArea}}</p>
+                   <p class="weui-media-box__desc" style="color: white;font-size: 10px;margin-bottom: 5px;padding: 0;"><span style="background: orange;border-radius: 5px;">包邮</span></p>
+                   <p class="weui-media-box__desc" style="color: orange;font-size:16px;margin: 0;padding-top:5px ;">
                	      <span>¥</span><span>{{row.proRateprice}}</span>
                	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
                	   	      <span>¥</span>
                	   	      <span>{{row.productPrice}}</span>
                	      </span>
                    </p>
+                   </div>
                </div>
            </a>
         </div>
