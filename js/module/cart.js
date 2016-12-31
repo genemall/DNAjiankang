@@ -99,6 +99,8 @@ angular.module('cart', ['ui.router','cartMd'])
 	                  								'proPrice':$scope.cart_datas[i].product.proRateprice})
                                 }
                             }
+                            //赋值给 orderPay界面
+                            
 							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
 											"orderProducts":angular.toJson(orderProducts)}
 		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
