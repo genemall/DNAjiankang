@@ -21,7 +21,7 @@ angular.module('order', ['ui.router','utilMd'])
                                 });;
                        		},
                		 },
-                    controller: function($scope,httpService,$rootScope,$stateParams,$location,order_show,$interval,util){
+                    controller: function($scope,httpService,$rootScope,$stateParams,$state,$location,order_show,$interval,util){
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
@@ -90,7 +90,8 @@ angular.module('order', ['ui.router','utilMd'])
 		                                util.set('pay_data',data)
 		                                $scope.loadingToastHide = 0;
 		                        		//$location.path('/orderPay/')
-		                        		window.location.href='index.html#/orderPay/'
+		                        		//window.location.href='index.html#/orderPay/'
+		                        		$state.go('orderPay',{},{reload:true});  
 			                        });
                         			break
                         		}

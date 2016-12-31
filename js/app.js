@@ -45,6 +45,7 @@ dnaStore
 
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        	//console.log(toState)
             // if (toState.name=='cart'&& !toState.data.loginCheck) {
             //    event.preventDefault();//如果去掉此行则不会跳转到login页面 :最佳解决方案,使用event.preventDefault()可以阻止状态发生改变.
             //    $rootScope.$state.go("login");
@@ -59,13 +60,14 @@ dnaStore
              //可以跳转到login页面，到点击浏览器返回时又回到了cart状态，然后又进入login页面(导致无法返回)
              $rootScope.$state.go("login");
              }*/
-            $rootScope.previousState_name = fromState.name;
-            $rootScope.previousState_params = fromParams;
+//          $rootScope.previousState_name = fromState.name;
+//          $rootScope.previousState_params = fromParams;
+            //parent.location.reload(); 
         });
 
         //实现返回上一状态的函数 back button function   ng-click="back()"
         $rootScope.back = function () {
-            $state.go($rootScope.previousState_name, $rootScope.previousState_params);
+           // $state.go($rootScope.previousState_name, $rootScope.previousState_params);
         };
     })
 

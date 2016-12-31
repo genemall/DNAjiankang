@@ -5,7 +5,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
             $stateProvider
                 .state("orderPay", {
                     url: '/orderPay/:id',
+                    cache:false, 
                     templateUrl: 'view/orderPay.html',
+                    reload:true,
                     resolve: {
                     	order_detail: function (httpService,util) {
                     		return util.get('orderPay')
@@ -18,6 +20,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
+                    	console.log("fuck")
                     	$scope.ordNum=order_detail.ordNum;
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
