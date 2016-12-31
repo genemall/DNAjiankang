@@ -6,6 +6,12 @@ angular.module('personal', ['ui.router'])
                     url: '/personal/:id',
                     templateUrl: 'view/personal.html',
                     resolve: {
+						user_detail: function (httpService,$rootScope,util) {
+	                        return httpService.get($rootScope.baseURL+'user/phoneUserId.do?userId='+util.get("userId"))
+	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                return data;
+	                            });
+	                    },
 	                	order_list: function (httpService,$rootScope,util) {
 	                        return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByUserId.do?userId='+util.get("userId"))
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -13,8 +19,11 @@ angular.module('personal', ['ui.router'])
 	                            });
 	                    },
 	                },
-	                controller: function($scope,httpService,order_list,util,$rootScope,$stateParams){
+	                controller: function($scope,httpService,user_detail,order_list,util,$rootScope,$stateParams){
                         $scope.user_id=util.get("userId")
+                        $scope.headImgurl=user_detail.headImgurl
+                        $scope.nickname=user_detail.nickname
+                        
                         var count_dict = {'unPay':0,'unDeliver':0,'unTake':0} //初始化count字典
                          for(var i=0;i<order_list.length;i++){
                              switch(order_list[i].ordState)
