@@ -77,7 +77,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					              				"addressInfo":res["provinceName"]+res["cityName"]+res["detailInfo"]}
 					              //永久存入cookie
 					              loginService.putCookieForever("user_address",$scope.address) 
-					              window.location.reload();
+					              window.location.href='index.html#/orderPay/'
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
