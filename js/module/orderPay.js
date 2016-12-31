@@ -5,7 +5,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
             $stateProvider
                 .state("orderPay", {
                     url: '/orderPay/:id',
-                    cache:false, 
+                    cache:true, 
                     templateUrl: 'view/orderPay.html',
                     reload:true,
                     resolve: {
@@ -19,7 +19,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                              });
 //                      },
                		 },
-                    controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
+                    controller: function($scope,$rootScope,$location,loginService,order_detail,util,httpService){
                     	$scope.ordNum=order_detail.ordNum;
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
@@ -107,7 +107,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
 							})
                     	}
                 		if(util.get('from_order')!=null){
-			            	window.location.reload(); 
+			            	//window.location.reload(); 
+			            	//window.location.href='index.html#/orderPay/'
+			            	location.reload(true)
 			            	util.set('from_order',null)
 			            }
                     },
