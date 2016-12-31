@@ -7,7 +7,15 @@ pdModule.config(['$stateProvider',
             .state("productDetail", {
                 url: '/productDetail/:id',
                 templateUrl: 'view/productDetail.html',
-                controller: function($scope){
+                 resolve: {
+	                	product_details: function (httpService,$rootScope,$stateParams) {
+	                        return httpService.get($rootScope.baseURL+'product/selectOneProduct.do?ProductId='+$stateParams.id)
+	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+	                                return data;
+	                            });
+	                    },
+	            },
+                controller: function($scope,product_details){
                 	 $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
 			                     {img: "./resource/img/2.jpg",link:'#'},
 			                     {img: "./resource/img/3.jpg",link:'#'}];
