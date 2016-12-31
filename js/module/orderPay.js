@@ -10,6 +10,10 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     reload:true,
                     resolve: {
                     	order_detail: function (httpService,util) {
+                    		if(util.get('from_order')!=null){
+				            	location.reload(true)
+				            	util.set('from_order',null)
+			            	}
                     		return util.get('orderPay')
                    		},
 //						order_detail: function (httpService,$rootScope,$stateParams,util) {
@@ -106,12 +110,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						            }  
 							})
                     	}
-                		if(util.get('from_order')!=null){
-			            	//window.location.reload(); 
-			            	//window.location.href='index.html#/orderPay/'
-			            	location.reload(true)
-			            	util.set('from_order',null)
-			            }
                     },
                 })
         }
