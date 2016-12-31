@@ -77,6 +77,7 @@ pdModule.config(['$stateProvider',
     			    }
 			    /**购买数量加/减/输入数量代码开始**/
 			   
+		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
 			    		var post_data={'proId':$scope.productId,'userId':10,'procount':$scope.skunum}
 			    		//$scope.loadingToastHide = 1;
