@@ -12,6 +12,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				            	location.reload(true)
 				            	util.set('from_order',null)
 			            	}
+                    		console.log(util.get("orderPay"))
                     		return util.get('orderPay')
                    		},
 //						order_detail: function (httpService,$rootScope,$stateParams,util) {
@@ -22,8 +23,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,$location,loginService,order_detail,util,httpService){
-                    	$scope.ordNum=order_detail.ordNum;
-                    	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}

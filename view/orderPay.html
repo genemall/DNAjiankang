@@ -89,25 +89,24 @@
    
     <div class="weui-panel__bd">
         <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-            <div class="weui-media-box__hd">
-                  <img class="weui-media-box__thumb" src="resource/img/order/pro_order1.png" alt="product">
+            <div class="weui-media-box__hd" style="width: 30%;height: 90px;">
+                  <img class="weui-media-box__thumb" style="width: 100%;height: 90px;" ng-src="{{row.product.imagelist[0].url}}"  alt="product">
             </div>
             <div class="weui-media-box__bd">
-                <h4 class="weui-media-box__title">{{row.proName}}</h4>
+                <h4 class="weui-media-box__title">{{row.product.proName}}</h4>
                 <p class="weui-media-box__desc" style="color: orange;font-size:14px;">
                 	<span >¥</span><span>{{row.proPrice}}</span>
                 </p>
                 <p class="weui-media-box__desc" style="font-size:10px;text-decoration: line-through;">
                 	<span>原价</span>
                 	<span>¥</span>
-                	<span>3400.00</span></p>
+                	<span>{{row.product.productPrice}}</span></p>
             </div>
-            <span>×1</span>
+            <span>×{{row.proCount}}</span>
         </a>
         
     </div>   
 </div>
-
 <!--商品详情-->
 
 

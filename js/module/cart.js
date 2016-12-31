@@ -12,6 +12,7 @@ angular.module('cart', ['ui.router','cartMd'])
                     resolve: {
 	                	cart_list: function (httpService,$rootScope,util) {
 	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+util.get("userId"))
+//	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+1)
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 	                             if(!data){
 	                                 return new Array();
@@ -90,24 +91,45 @@ angular.module('cart', ['ui.router','cartMd'])
                         }
                         $scope.createOrder=function(){
                         	 $scope.loadingToastHide = 1
+                        	 
                             //此次按照check选中的商品生成http post请求，并$location跳转到 订单详情界面
+                            var orderDetail_datas = new Array()
                             var orderProducts=new Array()
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
-                                if($scope.cart_datas[i].check){
-                                	orderProducts.push({'proId':$scope.cart_datas[i].proId,
-		                  							"proCount":$scope.cart_datas[i].proCount,
-	                  								'proPrice':$scope.cart_datas[i].product.proRateprice})
+                            	var temp = $scope.cart_datas[i]
+                                if(temp.check){
+                                	orderProducts.push({
+                                		'proId':temp.proId,
+              							"proCount":temp.proCount,
+          								'proPrice':temp.product.proRateprice,
+                                	})
+                                	var img_url=""
+                                	if (temp.product.imagelist.length>0){
+                                		img_url = temp.product.imagelist[0].url
+                                	}
+                                	orderDetail_datas.push({
+                                		"proPrice":	temp.product.proRateprice,	
+                                		"proCount":temp.proCount,
+                                		"product":{
+	                                		"proName":temp.product.proName,
+	                                		"productPrice":temp.product.productPrice,
+	                                		"imagelist":[{"url":img_url}]
+                                		}
+                                	})
                                 }
                             }
                             //赋值给 orderPay界面
-                            
-							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
+                           // ofzXwvnbUQYrVMmYn8uxZuHbbX5g
+							var post_data={'openId':"ofzXwvnbUQYrVMmYn8uxZuHbbX5g",'finalmoney':$scope.cart_total,
 											"orderProducts":angular.toJson(orderProducts)}
 		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 		                              console.log(data)
 		                              util.set("pay_data",data)
+		                              util.set("orderPay",{"ordPrice":$scope.cart_total,
+		                              			"mapOrderProductList":orderDetail_datas})
 	                               	  $scope.loadingToastHide = 0
+	                               	  util.set('from_order',1)
 		                              $location.path('/orderPay/')
 		                      });
                         }
