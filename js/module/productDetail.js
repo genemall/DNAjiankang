@@ -78,11 +78,11 @@ pdModule.config(['$stateProvider',
 			    /**购买数量加/减/输入数量代码开始**/
 			   
 			    	$scope.addcart = function (){
-			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
+			    		var post_data={'proId':$scope.productId,'userId':10,'procount':$scope.skunum}
 			    		//$scope.loadingToastHide = 1;
 			    		httpService.post($rootScope.baseURL+'cart/phonecartadd.do',post_data)
 			                    	  .then(function (data) {
-			                    	  
+			           
 		                            //  $scope.loadingToastHide = 0;
 		                             if(data){
 		                             		$scope.mask = false;
