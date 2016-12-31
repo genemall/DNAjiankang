@@ -83,6 +83,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            fail: function (res) {
 					              //alert(JSON.stringify(res));
+					              console.log(res)
 					            }
 					          });
                         }
