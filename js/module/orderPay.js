@@ -5,9 +5,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
             $stateProvider
                 .state("orderPay", {
                     url: '/orderPay/:id',
-                    cache:true, 
                     templateUrl: 'view/orderPay.html',
-                    reload:true,
                     resolve: {
                     	order_detail: function (httpService,util) {
                     		if(util.get('from_order')!=null){
@@ -83,7 +81,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					              				"addressInfo":res["provinceName"]+res["cityName"]+res["detailInfo"]}
 					              //永久存入cookie
 					              loginService.putCookieForever("user_address",$scope.address) 
-					              window.location.href='index.html#/orderPay/'
+					              location.reload(true)
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
