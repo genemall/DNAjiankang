@@ -20,10 +20,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,loginService,order_detail,util,httpService){
-                    	 if(util.get('from_order')!=null){
-			            	window.location.reload(); 
-			            	util.set('from_order',null)
-			            }
                     	$scope.ordNum=order_detail.ordNum;
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
@@ -110,6 +106,10 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						            }  
 							})
                     	}
+                		if(util.get('from_order')!=null){
+			            	window.location.reload(); 
+			            	util.set('from_order',null)
+			            }
                     },
                 })
         }
