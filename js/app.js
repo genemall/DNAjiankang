@@ -62,7 +62,11 @@ dnaStore
              }*/
 //          $rootScope.previousState_name = fromState.name;
 //          $rootScope.previousState_params = fromParams;
-            //parent.location.reload(); 
+            console.log(fromState);
+            if(toState.name == "orderPay" &&util.get('from_order')!=null){
+            	window.location.reload(); 
+            	util.set('from_order',null)
+            }
         });
 
         //实现返回上一状态的函数 back button function   ng-click="back()"
