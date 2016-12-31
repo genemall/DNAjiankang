@@ -77,22 +77,21 @@ pdModule.config(['$stateProvider',
     			    }
 			    /**购买数量加/减/输入数量代码开始**/
 			   
-		    		console.log(util.get("userId"))
+//		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
-			    		var post_data={'proId':$scope.productId,'userId':10,'procount':$scope.skunum}
-			    		//$scope.loadingToastHide = 1;
+			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
+			    		console.log(post_data)
+			    		$scope.loadingToastHide = 1;
 			    		httpService.post($rootScope.baseURL+'cart/phonecartadd.do',post_data)
-			                    	  .then(function (data) {
-			           
-		                            //  $scope.loadingToastHide = 0;
-		                             if(data){
-		                             		$scope.mask = false;
-                    	  			$scope.isShowToast = 1;
-                    	  		
-							        $interval(function() {
-							            $scope.isShowToast = 0;
-							        }, 1500, 1);
-                                }
+		                    	  .then(function (data) {
+	                              $scope.loadingToastHide = 0;
+		                            if(data){
+			                            $scope.mask = false;
+	                    	  			$scope.isShowToast = 1;
+								        $interval(function() {
+								            $scope.isShowToast = 0;
+								        }, 1500, 1);
+                                	}
 			                 });
 			    	}
 			    	
