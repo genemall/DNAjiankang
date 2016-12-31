@@ -71,7 +71,7 @@ homeModule.config(['$stateProvider',
                     	$location.path('/product/'+id)
                     }
                     //放在最后，判断是否重定向
-                   /* if($stateParams.userId!=0||$stateParams.userId!="0"){
+                    if($stateParams.userId!=0||$stateParams.userId!="0"){
              			loginService.putCookie('curUser',{'userId':$stateParams.userId,'openId':$stateParams.openId})
              		}
                 	if(loginService.getCookie('curUser') == null){
@@ -82,7 +82,7 @@ homeModule.config(['$stateProvider',
 						var user = loginService.getCookie('curUser')
 						util.set('userId',user.userId) 
              			util.set('openId',user.openId) 
-					}*/
+					}
                  }
 
             })
