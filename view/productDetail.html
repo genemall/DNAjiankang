@@ -50,9 +50,9 @@
 				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;"></span>&nbsp{{product.proSum}}&nbsp件</span>
 					            </span>
 	                        <!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
-					            <span class="pull-right">
+					            <!--<span class="pull-right">
 				                <span ng-click="showModal();button_state_change()" style="margin-right: 15px;">. . .</span>
-					            </span>
+					            </span>-->
 				            </div>
 							<hr style="margin-top: 8px;margin-bottom: 8px;" />
 							<div>
@@ -63,16 +63,7 @@
 							<hr style="margin-top: 10px;margin-bottom: 10px;" />
                     <!--商品的详细介绍获取-->
 	                        <div id="productDetail"style="height: 100%;margin: 0;padding: 0;">
-	                        	<!--这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<div>
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品</div>
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的<div>
-	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提</div>
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
-	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
-
-	                        	<img src="http://img.zcool.cn/community/012c24584e1539a801219c77589194.jpg">-->
+	                        	
 	                        	
 	                        	
 	                        </div>
@@ -86,7 +77,7 @@
 	</div>
 </div>
 <!--加入购物车，点击购买-->
-<div class="goods_buy_box" ng-show="button_state">
+<div class="goods_buy_box" >
 	<!-- 购买按钮 -->
 	<ul style="position: fixed;">
 		<li><a class="buy_cart" ng-click="showModal();button_state_change()"> <span>加入购物车</span> </a></li>
@@ -99,6 +90,7 @@
 	<div class="poplayer_bg" ng-click="mask = false"></div>
 	<div class="poplayer_content">
 		<div class="poplayer_section">
+			
 			<div class="layer_type layer_style">
 				<!-- 样式风格 -->
 				<div class="layercont">
@@ -114,10 +106,10 @@
 							</div>
 							<div class="goods_p_text fl">
 								<div class="title">
-									<span>总价:<em class="price_color">￥<span ng-bind="skunum*1200"></span></em></span>
+									<span>总价:<em class="price_color">￥<span ng-bind="skunum*{{product.proRateprice}}"></span></em></span>
 								</div>
 								<div class="price">
-									<span>库存：<span>1101（获取库存数）</span> 件</span>
+									<span>库存：<span>{{product.proSum}}</span> 件</span>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -131,7 +123,7 @@
 						</div>
 						<!--根据每个产品获取一分中基因个数-->
 						<div class="items width_w_98">
-							<label class="kline btn_opt">4（获取个数）&nbsp;<span>个</span></label>
+							<label class="kline btn_opt">{{product.geneNum}}&nbsp;<span>个</span></label>
 						</div>
 						<!--份数增加减少处-->
 						<div id="sku_quantity" class="quantity detail_d_quantity  clearfix">
@@ -141,8 +133,8 @@
                               <span class="ui_number">
                               	<!--1101为获取的库存量-->
 			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>
-			                    <input  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum, 1101)" style="text-align: center;width: 50px;" ng-model="skunum">
-			                    <button type="button" class="increase" ng-click="addNum(skunum, 1101)">+</button>
+			                    <input  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum)" style="text-align: center;width: 50px;" ng-model="skunum">
+			                    <button type="button" class="increase" ng-click="addNum(skunum)">+</button>
                               </span>
 							</div>
 						</div>
@@ -150,23 +142,13 @@
 				<!--此时按钮有三个：1加入购物车，2...，3立即购买；1,2弹框弹出“确定”，3弹出“确认支付”-->
 					<div class="buy_own_confirm">
 					    <!--跳转到购物车页面-->
-						<a><span style="color: white;" ng-show="confirm_yes">确定</span></a>
+						<a><span style="color: white;" ng-show="confirm_yes" ng-click="addcart()">确定</span></a>
 						<!--跳转到订单结算页面-->
-						<a><span style="color: white;" ng-show="confirm_pay">确定支付</span></a>
+						<a><span style="color: white;" ng-show="confirm_pay" ng-click="topay()" >确定支付</span></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<!--最好显示弹窗-->
-<!--<div class="js_dialog" id="dialog11" ng-if="isShowDialog">
-    <div class="weui-mask"></div>
-    <div class="weui-dialog">
-        <div class="weui-dialog__bd">{{dialog_content_pro_detail}}</div>
-        <div class="weui-dialog__ft">
-            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="btnOk()">知道了</a>
-        </div>
-    </div>
-</div>-->
+<div ng-include="'./view/common/common.html'"></div>
