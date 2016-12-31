@@ -63,7 +63,7 @@ dnaStore
 //          $rootScope.previousState_name = fromState.name;
 //          $rootScope.previousState_params = fromParams;
             console.log(fromState);
-            if(toState.name == "orderPay" &&util.get('from_order')!=null){
+            if(util.get('from_order')!=null){
             	window.location.reload(); 
             	util.set('from_order',null)
             }
