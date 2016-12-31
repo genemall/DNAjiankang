@@ -30,40 +30,40 @@
 				<div class="weui-panel__bd top_line bottom_line" style="margin: 0;padding: 0;">
 					<a href="javascript:void(0);" class="weui-meldia-box weui-media-box_appmsg">
             			<div class="weui-media-box__bd">
-							<h4 class="weui-media-box__title" style="margin-left: 15px;">记忆天赋基因检测（获取产品名称）</h4>
+							<h4 class="weui-media-box__title" style="margin-left: 15px;">{{product.proName}}</h4>
 							<span class="weui-media-box__desc">
 			                <div class="detail_info_item clear item_bg padding_block .bottom_line">
 				                 <div class="detail_price_info pull_left">
 				                    <div class="now_price" style="margin-left: 10px;margin-top: 10px;color: #48a5f4;">
 				                            <!--<span class="font_size12">折扣价</span>-->
-								       <span > <span style="color: #f0721f;font-size: 14px;">￥</span><span id="newPrice" style="color: #f0721f;">1200（获取价格）</span></span>
+								       <span > <span style="color: #f0721f;font-size: 14px;">￥</span><span id="newPrice" style="color: #f0721f;">{{product.proRateprice}}.00</span></span>
 							        </div>
 							        <div class="farmer_price">
-								       <span class="font_size12" style="margin-left: 12px;">原价</span>
-								       <span><span class="font_size12">￥</span><span style="text-decoration:line-through">1500</span></span>
+								       <span class="font_size12" style="margin-left: 12px;margin-top: 8px;">原价</span>
+								       <span><span class="font_size12">￥</span><span style="text-decoration:line-through">{{product.productPrice}}</span></span>
 							        </div>
 					            </div>
 				            </div>
 				            <hr style="margin-top: 10px;margin-bottom: 10px;" />
 				            <div>
-					            <span class="pull-left">
-				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;"></span>&nbsp1101&nbsp件（获取库存）</span>
+					            <span class="pull-left" style="margin-left: 15px;">
+				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;"></span>&nbsp{{product.proSum}}&nbsp件</span>
 					            </span>
 	                        <!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
 					            <span class="pull-right">
-				                <span ng-click="showModal();button_state_change()">. . .</span>
+				                <span ng-click="showModal();button_state_change()" style="margin-right: 15px;">. . .</span>
 					            </span>
 				            </div>
-							<hr style="margin-top: 10px;margin-bottom: 10px;" />
+							<hr style="margin-top: 8px;margin-bottom: 8px;" />
 							<div>
-								<span class="pull-left">
+								<span class="pull-left" style="margin-left: 15px;">
 							        <span>详细介绍</span>
 								</span>
 							</div>
 							<hr style="margin-top: 10px;margin-bottom: 10px;" />
                     <!--商品的详细介绍获取-->
-	                        <div style="height: 100%;margin: 0;padding: 0;">
-	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
+	                        <div id="productDetail"style="height: 100%;margin: 0;padding: 0;">
+	                        	<!--这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
 	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
 	                        	商品详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提<div>
 	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品</div>
@@ -72,7 +72,8 @@
 	                        	这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的商品<div>
 	                        	详细这里是商家提供的商品详细这里是商家提供的商品详细这里是商家提供的</div>
 
-	                        	<img src="http://img.zcool.cn/community/012c24584e1539a801219c77589194.jpg">
+	                        	<img src="http://img.zcool.cn/community/012c24584e1539a801219c77589194.jpg">-->
+	                        	
 	                        	
 	                        </div>
 						</div>
@@ -87,7 +88,7 @@
 <!--加入购物车，点击购买-->
 <div class="goods_buy_box" ng-show="button_state">
 	<!-- 购买按钮 -->
-	<ul>
+	<ul style="position: fixed;">
 		<li><a class="buy_cart" ng-click="showModal();button_state_change()"> <span>加入购物车</span> </a></li>
 		<li><a class="buy_own" ng-click="showModal();button_state_change1()"> <span>立即购买</span> </a></li>
 	</ul>
