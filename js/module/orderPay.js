@@ -22,16 +22,17 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	$scope.order_date=order_detail.createTime;
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
-                    	var user_address = loginService.getCookie('user_address')
+                    	$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+                    	//var user_address = loginService.getCookie('user_address')
                     	//或者存cookie设置100年
-                    	if(user_address==null){
-                    		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
-                    	}else{
-                    		$scope.address={"userName":user_address.userName,
-                    						"telNumber":user_address.telNumber,
-                    						"addressInfo":user_address.addressInfo
-                    						}
-                    	}
+//                  	if(user_address==null){
+//                  		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+//                  	}else{
+//                  		$scope.address={"userName":user_address.userName,
+//                  						"telNumber":user_address.telNumber,
+//                  						"addressInfo":user_address.addressInfo
+//                  						}
+//                  	}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
                         	//获取 address 配置
@@ -72,11 +73,10 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
-					              $scope.address.userName=res["userName"]
-					              $scope.address.telNumber=res["telNumber"]
-					              $scope.address.addressInfo=res["provinceName"]+res["cityName"]+res["detailInfo"]
+					              $scope.address={"userName":res["userName"],"telNumber":res["telNumber"],
+					              				"addressInfo":res["provinceName"]+res["cityName"]+res["detailInfo"]}
 					              //永久存入cookie
-					              loginService.putCookieForever("user_address",$scope.address) 
+					              //loginService.putCookieForever("user_address",$scope.address) 
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
