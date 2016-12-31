@@ -34,6 +34,7 @@ dnaStore
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
 		$rootScope.baseURL="http://nbuxinxiren.cn/SpringGene1/"
+		$rootScope.clientURL="http://nbuxinxiren.cn/DNAjiankang/"
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 //		$scope.userId = util.get("userId")
 					

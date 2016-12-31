@@ -90,7 +90,7 @@ angular.module('order', ['ui.router','utilMd'])
 		                                util.set('pay_data',data)
 		                                $scope.loadingToastHide = 0;
 		                        		//$location.path('/orderPay/')
-		                        		window.location.href='index.html#/orderPay/'
+		                        		window.location.href=$rootScope.clientURL+'index.html#/orderPay/'
 			                        });
                         			break
                         		}
