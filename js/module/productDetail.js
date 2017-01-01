@@ -96,7 +96,7 @@ pdModule.config(['$stateProvider',
 			    	}
 			    	
 			    	$scope.topay = function (){
-			    		
+			    		$scope.confirm_pay = false;
 			    		$scope.loadingToastHide = 1
 			    		var orderDetail_datas = new Array()
 			    		var orderProducts=new Array();
