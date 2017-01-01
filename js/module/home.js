@@ -31,10 +31,10 @@ homeModule.config(['$stateProvider',
                         $scope.products=$filter("filter")(products,$scope.searchInput);
                     }, true);
                     //以下是幻灯片展示部分，可以不看
-                    $scope.images = [{"url": "./resource/img/a.jpg","link":'#'},
-			                     {"url": "./resource/img/b.jpg","link":'#'},
-			                     {"url": "./resource/img/c.jpg","link":'#'},
-			                     {"url": "./resource/img/d.jpg","link":'#'},
+                    $scope.images = [{"url": "./resource/img/a.png","link":'#'},
+			                     {"url": "./resource/img/b.png","link":'#'},
+			                     {"url": "./resource/img/c.png","link":'#'},
+			                     {"url": "./resource/img/d.png","link":'#'},
 			                     ];
 			        //以下是搜索部分，可不看
 			        $scope.focusing = ''; //获得焦点时增加样式weui_search_focusing
