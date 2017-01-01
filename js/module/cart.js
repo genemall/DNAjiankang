@@ -120,7 +120,7 @@ angular.module('cart', ['ui.router','cartMd'])
                             }
                             //赋值给 orderPay界面
                            // ofzXwvnbUQYrVMmYn8uxZuHbbX5g
-							var post_data={'openId':"ofzXwvnbUQYrVMmYn8uxZuHbbX5g",'finalmoney':$scope.cart_total,
+							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
 											"orderProducts":angular.toJson(orderProducts)}
 		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.

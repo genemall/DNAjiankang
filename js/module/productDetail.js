@@ -99,17 +99,17 @@ pdModule.config(['$stateProvider',
 			    		 $scope.loadingToastHide = 1
 			    		var orderProducts=new Array();
 			    		orderProducts.push({'proId':$scope.productId,
-		                  							"proCount":$scope.skunum,
-	                  								'proPrice': $scope.product.proRateprice})
+                  							"proCount":$scope.skunum,
+              								'proPrice': $scope.product.proRateprice})
 			    		var post_data={'openId':util.get("openId"),'finalmoney':$scope.skunum* $scope.product.proRateprice,
 			    		'orderProducts':orderProducts}
-			    			httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
-		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-		                              console.log(data)
-		                              util.set("pay_data",data)
-	                               	  $scope.loadingToastHide = 0
-		                              $location.path('/orderPay/')
-		                      });
+		    			httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
+	                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+	                              console.log(data)
+	                              util.set("pay_data",data)
+                               	  $scope.loadingToastHide = 0
+	                              $location.path('/orderPay/')
+	                      });
 			    	}
 			   },
             })
