@@ -102,7 +102,7 @@
 						<div class="goods_p_info line-bottom ">
 							<div class="goods_p_img thumb-img11 fl">
 								<!--获取该商品详情的商品小图-->
-								<img class="img11" alt="" src="./resource/img/order/pro_order1.png">
+								<img class="img11" alt="" ng-src="{{product.imagelist[0].url}}">
 							</div>
 							<div class="goods_p_text fl">
 								<div class="title">
@@ -133,7 +133,7 @@
                               <span class="ui_number">
                               	<!--1101为获取的库存量-->
 			                    <button type="button" class="decrease" ng-disabled="skunum <= 1" ng-click="skunum = skunum - 1">-</button>
-			                    <input  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum)" style="text-align: center;width: 50px;" ng-model="skunum">
+			                    <input style="text-align: center;width: 50px;"  class="num" name="quantity" min="1" max="95" type="text" autocomplete="off" ng-model="skunum" ng-focus="focusFun(skunum)" ng-blur="blurFun(skunum)" >
 			                    <button type="button" class="increase" ng-click="addNum(skunum)">+</button>
                               </span>
 							</div>
