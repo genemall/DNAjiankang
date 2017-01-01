@@ -105,6 +105,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
 			                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 			                        		//loginService.putCookie("address",data)
 //			                        		alert(data);
+											if(data){
+												$location.path('/personal/')
+											}
 			                             });
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
 						                //alert("用户取消支付!");  
