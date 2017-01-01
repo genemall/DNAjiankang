@@ -78,7 +78,7 @@ pdModule.config(['$stateProvider',
 			   
 //		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
-			    		
+			    		$scope.confirm_pay = false;
 			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
 			    		console.log(post_data)
 			    		$scope.loadingToastHide = 1;
@@ -96,6 +96,7 @@ pdModule.config(['$stateProvider',
 			    	}
 			    	
 			    	$scope.topay = function (){
+			    		
 			    		$scope.loadingToastHide = 1
 			    		var orderDetail_datas = new Array()
 			    		var orderProducts=new Array();
