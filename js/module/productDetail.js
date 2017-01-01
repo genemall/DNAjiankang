@@ -18,9 +18,10 @@ pdModule.config(['$stateProvider',
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
                 	$('#productDetail').html(product_details.proDetail);	
-                	$scope.images = [{"url": "./resource/img/5.jpg","link":'#'},
-			                     {"url": "./resource/img/2.jpg","link":'#'},
-			                     {"url": "./resource/img/3.jpg","link":'#'}];
+//              	$scope.images = [{"url": "./resource/img/5.jpg","link":'#'},
+//			                     {"url": "./resource/img/2.jpg","link":'#'},
+//			                     {"url": "./resource/img/3.jpg","link":'#'}];
+					$scope.images=product_details.imagelist
     			    $scope.mask=false;
     			    $scope.showModal = function () {
     			     $scope.mask = true;

@@ -44,7 +44,7 @@ angular.module('product', ['ui.router'])
 					        $(".sideline").stop(true);
 					        $(".sideline").animate({left:$(this).position().left-27},300);
 					        $(".sideline").width(nav_w);
-					        $(this).addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
+					        $(this).parent().addClass("find_nav_cur").siblings().removeClass("find_nav_cur");
 					        var fn_w = ($(".find_nav").width() - nav_w) / 2;
 					        var fnl_l;
 					        var fnl_x = parseInt($(this).position().left);

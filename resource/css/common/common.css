@@ -15,7 +15,7 @@ a:active{text-decoration:none;}
     margin: 0;
     padding: 0;
     height: 190px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px gray;
 }
 
 .swiper-container {

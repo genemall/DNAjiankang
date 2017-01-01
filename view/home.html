@@ -1,7 +1,7 @@
 <!--头部工具栏-->
 <div class="weui-panel weui-panel_access">
  <div class="myslides" ng-if="sliderShow">
- <ks-swiper-container loop="true" autoplay="1000" slides-per-view="1" pagination-is-active="true"  space-between="0" pagination-clickable="true">
+ <ks-swiper-container loop="true" autoplay="2000"  pagination-is-active="true"  space-between="0" pagination-clickable="true">
     <ks-swiper-slide ng-repeat="img in images">
         <img style="width: 100%;height: 100%;" ng-src="{{img.url}}">
     </ks-swiper-slide>
@@ -17,7 +17,7 @@
             </div>
             <label for="search_input" class="weui-search-bar__label" set-focus ng-if="searchText" ng-click="searchClickEvent()"  id="searchText">
                 <i class="weui-icon-search"></i>
-                <span>{{test}}</span>
+                <span>搜索</span>
             </label>
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" ng-click="searchCancel()">取消</a>
