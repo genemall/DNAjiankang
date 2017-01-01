@@ -79,6 +79,7 @@ pdModule.config(['$stateProvider',
 			   
 //		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
+			    		
 			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
 			    		console.log(post_data)
 			    		$scope.loadingToastHide = 1;
@@ -112,7 +113,7 @@ pdModule.config(['$stateProvider',
 	                                		"imagelist":$scope.product.imagelist
                                 		}
                                 	})
-			    		var finalmoney = $scope.skunum* $scope.product.proRateprice
+			    		var finalmoney = $scope.skunum * $scope.product.proRateprice
 			    		var post_data={'openId':util.get("openId"),'finalmoney':finalmoney,
 			    		'orderProducts':angular.toJson(orderProducts)}
 		    			httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
