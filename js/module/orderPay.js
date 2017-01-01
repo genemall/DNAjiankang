@@ -12,7 +12,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				            	location.reload(true)
 				            	util.set('from_order',null)
 			            	}
-                    		console.log(util.get("orderPay"))
                     		return util.get('orderPay')
                    		},
 //						order_detail: function (httpService,$rootScope,$stateParams,util) {
@@ -29,11 +28,12 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	var user_address = loginService.getCookie('user_address')
                     	//或者存cookie设置100年
                     	if(user_address==null){
-                    		$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
+                    		$scope.address={"userName":"请选择收获地址","userPhone":"","userAddress":""}
                     	}else{
                     		$scope.address={"userName":user_address.userName,
-                    						"telNumber":user_address.telNumber,
-                    						"addressInfo":user_address.addressInfo
+                    						"userPhone":user_address.userPhone,
+                    						"userAddress":user_address.userAddress,
+                    						"userPostal":user_address.userPostal
                     						}
                     	}
                         //根据cookie判断地址是否配置和加载
@@ -76,8 +76,8 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
-					              $scope.address={"userName":res["userName"],"telNumber":res["telNumber"],
-					              				"addressInfo":res["provinceName"]+res["cityName"]+res["detailInfo"]}
+					              $scope.address={"userName":res["userName"],"userPhone":res["telNumber"],"userPostal":res["addressPostalCode"],
+					              				"userAddress":res["provinceName"]+res["cityName"]+res["detailInfo"]}
 					              //永久存入cookie
 					              loginService.putCookieForever("user_address",$scope.address) 
 					              location.reload(true)
@@ -92,13 +92,20 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					          });
                         }
                     	$scope.gotoPay=function(){
-                            console.log(util.get("pay_data"))
-                			 WeixinJSBridge.invoke('getBrandWCPayRequest',util.get("pay_data"),function(res){
+                             var pay_data = util.get("pay_data")
+                			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
 						            if(res.err_msg == "get_brand_wcpay_request:ok"){  
-						            	console.log('ok')
-						                //alert("微信支付成功!");  
+						                //alert("微信支付成功!"); 
+						                var post_data=$scope.address
+						                post_data["orderId"]=pay_data.orderId
+						                alert(post_data)
+						                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+			                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+			                        		//loginService.putCookie("address",data)
+			                        		alert(data);
+			                             });
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
 						                //alert("用户取消支付!");  
 						            }else{  
