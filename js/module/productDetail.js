@@ -15,7 +15,7 @@ pdModule.config(['$stateProvider',
 	                            });
 	                    },
 	            },
-                controller: function($scope,product_details,util,httpService,$rootScope,$interval){
+                controller: function($scope,product_details,util,httpService,$rootScope,$location,$interval){
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
                 	$('#productDetail').html(product_details.proDetail);	

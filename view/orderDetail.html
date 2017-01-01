@@ -115,7 +115,7 @@
 <div class="weui-panel weui-panel_access" ng-repeat="row in orderDetail_datas">
    
     <div class="weui-panel__bd">
-        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+        <a href="#/productDetail/{{row.proId}}" class="weui-media-box weui-media-box_appmsg">
             <div class="weui-media-box__hd" style="width: 30%;height: 90px;">
                   <img class="weui-media-box__thumb" style="width: 100%;height: 90px;" ng-src="{{row.product.imagelist[0].url}}"  alt="product">
             </div>
