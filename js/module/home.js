@@ -2,8 +2,7 @@
  * home page
  */
 //angular.module('home', ['ui.router'])
-var homeModule = angular.module('home', ['ui.router']);
-sliderTest(homeModule,'slider');
+var homeModule = angular.module('home', ['ui.router','ksSwiper']);
 homeModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
@@ -32,9 +31,9 @@ homeModule.config(['$stateProvider',
                         $scope.products=$filter("filter")(products,$scope.searchInput);
                     }, true);
                     //以下是幻灯片展示部分，可以不看
-                    $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
-			                     {img: "./resource/img/2.jpg",link:'#'},
-			                     {img: "./resource/img/3.jpg",link:'#'}];
+                    $scope.images = [{"url": "./resource/img/5.jpg","link":'#'},
+			                     {"url": "./resource/img/2.jpg","link":'#'},
+			                     {"url": "./resource/img/3.jpg","link":'#'}];
 			        //以下是搜索部分，可不看
 			        $scope.focusing = ''; //获得焦点时增加样式weui_search_focusing
                     $scope.isSearchShow = false; //是否显示搜索框的下拉列表

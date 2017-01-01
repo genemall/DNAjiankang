@@ -1,6 +1,5 @@
 
-var pdModule=angular.module('productDetail', ['ui.router']);
-sliderTest(pdModule,'slider_pd');
+var pdModule=angular.module('productDetail', ['ui.router','ksSwiper']);
 pdModule.config(['$stateProvider',
     function ($stateProvider) {
         $stateProvider
@@ -19,9 +18,9 @@ pdModule.config(['$stateProvider',
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
                 	$('#productDetail').html(product_details.proDetail);	
-                	 $scope.data = [{img: "./resource/img/5.jpg",link:'#'},
-			                     {img: "./resource/img/2.jpg",link:'#'},
-			                     {img: "./resource/img/3.jpg",link:'#'}];
+                	$scope.images = [{"url": "./resource/img/5.jpg","link":'#'},
+			                     {"url": "./resource/img/2.jpg","link":'#'},
+			                     {"url": "./resource/img/3.jpg","link":'#'}];
     			    $scope.mask=false;
     			    $scope.showModal = function () {
     			     $scope.mask = true;

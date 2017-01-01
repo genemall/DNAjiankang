@@ -15,7 +15,7 @@ var dnaStore = angular.module('dnaStore',
         'productDetail',
         'orderPay',
         'report',
-        'reportDetail',
+        
 		
         'loginMd',
         'httpMd',
@@ -25,6 +25,7 @@ var dnaStore = angular.module('dnaStore',
         "myInfo",
         "question",
         "serviceProcess",
+        
     ]
 );
 dnaStore

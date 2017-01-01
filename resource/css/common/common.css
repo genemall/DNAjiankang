@@ -6,6 +6,32 @@ a:link{text-decoration:none;}
 a:visited{text-decoration:none; }
 a:hover{text-decoration:none;}
 a:active{text-decoration:none;}
+
+.myslides {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    border-bottom: 1px solid gray;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content:inherit;
+    align-items: center;
+}
+        
 /***** footer 页面底部 start*/
 /*footer  footer_service*/
 .footer_service{
