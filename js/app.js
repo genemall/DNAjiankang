@@ -20,6 +20,11 @@ var dnaStore = angular.module('dnaStore',
         'loginMd',
         'httpMd',
         'cartMd',
+        
+        "aboutUs",
+        "myInfo",
+        "question",
+        "serviceProcess",
     ]
 );
 dnaStore
