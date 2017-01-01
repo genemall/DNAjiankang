@@ -93,12 +93,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         }
                     	$scope.gotoPay=function(){
                             var pay_data = util.get("pay_data")
-			                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
-                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                        		//loginService.putCookie("address",data)
-                        		alert(data);
-                             });
-                             
+                            
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
