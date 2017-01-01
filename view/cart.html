@@ -48,20 +48,21 @@
 
 
 }
+
 </style>
 
 <div class="weui-cells weui-cells_checkbox" style="margin-bottom: 80px;">
 
-<label class="weui-cell weui-check__label" ng-repeat="row in cart_datas">
-    <div class="weui-cell__hd">
-        <input type="checkbox" class="weui-check" ng-model="row.check">
-        <i class="weui-icon-checked"></i>
+<label class="weui-cell weui-check__label" ng-repeat="row in cart_datas" >
+    <div class="weui-cell__hd" style="margin:-8px;">
+        <input type="checkbox"  class="weui-check" ng-model="row.check">
+        <i class="weui-icon-checked" style="margin-right:5px"></i>
     </div>
     <div class="weui-cell__bd">
        <div class="weui-panel__bd" style="">
        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="margin-top:0px;padding: 0;">
-       	      <div class="weui-media-box__hd" style="width: 30%;height: 100px;">
-                  <img class="weui-media-box__thumb" style="width: 100%;height: 100px;" ng-src="{{row.product.imagelist[0].url}}"  alt="product">
+       	      <div class="weui-media-box__hd" style="width: 50%;height: 120px;">
+                  <img class="weui-media-box__thumb" style="width: 100%;height: 120px;" ng-src="{{row.product.imagelist[0].url}}"  alt="product">
             </div>
 
             <div class="weui-media-box__bd" style="margin: 0;padding: 0;">
@@ -70,7 +71,7 @@
                	   </span>
 
 
-                   <p class="weui-media-box__desc" style="color: #f0721f;font-size:14px;margin-top: 25px;">
+                   <p class="weui-media-box__desc" style="color: orange;font-size:14px;margin-top: 25px;">
                	      <span>¥</span><span>{{row.product.proRateprice}}</span><span style="margin-left: 15px;">库存：{{row.product.proSum}}件</span><br />
                	      <span style="color: #aaaaaa;font-size:10px;text-decoration: line-through;">原价
                	   	      <span>¥</span>
@@ -78,10 +79,11 @@
                	      </span>
                    </p>
                    <div class="cart_item_num ">
-                       <div class="item_quantity_editer clearfix" style="width:58%;border:1px solid #f2f2f2;margin: 0;padding: 0;">
+                       <div class="item_quantity_editer clearfix" style="width:68%;border:1px solid #f2f2f2;margin: 0;padding: 0;">
 	                     <span  class="decrease_one" ng-click="update_cart_pro_count(row.proId,-1)" ng-class="{cursors:true}">&nbsp;&nbsp;-</span>
 	                     <input class="cart_pro_count_input" type="number" name="points" min="1" ng-change="change(row.proId,row.proCount)" ng-model='row.proCount'  >
-	                     <span class="increase_one" ng-click="update_cart_pro_count(row.proId,1)" ng-class="{cursors:true}">&nbsp;+</span>
+	                     <span class="increase_one" 
+	                     	ng-click="update_cart_pro_count(row.proId,1)" ng-class="{cursors:true}">&nbsp;+</span>
                        </div>
                    </div>
                </div>
