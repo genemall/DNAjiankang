@@ -142,7 +142,60 @@
     line-height: 18px;
     color: #fff;
 }
-
+.back_bar {
+	background-color:gainsboro;
+	width:100%;
+	height: 10px;
+	margin-top: 8px;
+}
+.pro_detail_btns {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width: 100%;
+	margin-top: 20px;
+}
+.company_info {
+	width:100%;
+	height:110px;
+	position: relative;
+}
+.company_pic {
+	width:60px;
+	height:60px;
+	margin:10px;
+	float:left;
+}
+.company_name {
+	float:left;
+	width: 200px;
+	height: 20px;
+	margin-top: 30px;
+	margin-left: 10px;
+	text-align: left;
+	line-height: 20px;
+	color: #000000;
+	font-size: 14px;
+}
+.p_detail {
+	float: left;border:1px solid gainsboro;
+	width: 50%;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #ec711f;
+}
+.see_pro {
+	float: left;
+	width: 50%;
+	border:1px solid gainsboro;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+.farmer_price {
+	margin-top: 5px;
+}
 
 //弹窗的样式
 .poplayer_box {

@@ -7,14 +7,14 @@
 	}
 </style>
 <!--返回，购物车返回-->
-<div class="detail_tool top_btn">
+<!--<div class="detail_tool top_btn">
 	<div class="back_btn icon_btn">
 		<a href="#/home"><i class="icon icon-back"></i></a>
 	</div>
 	<div class="cart_btn icon_btn">
 		<a href="#/cart"><i class="icon icon-cart"></i><em class="cart_tips">0</em></a>
 	</div>
-</div>
+</div>-->
 <!--商品明细-->
 <div class="pro_bd">
 	<div class="weui-tab">
@@ -30,7 +30,7 @@
 				<div class="weui-panel__bd top_line bottom_line" style="margin: 0;padding: 0;">
 					<a href="javascript:void(0);" class="weui-meldia-box weui-media-box_appmsg">
             			<div class="weui-media-box__bd">
-							<h4 class="weui-media-box__title" style="margin-left: 15px;">{{product.proName}}</h4>
+							<h4 class="weui-media-box__title" style="margin-left: 15px;font-size: 16px;margin-bottom: 0px;">{{product.proName}}</h4>
 							<span class="weui-media-box__desc">
 			                <div class="detail_info_item clear item_bg padding_block .bottom_line">
 				                 <div class="detail_price_info pull_left">
@@ -47,26 +47,27 @@
 				            <hr style="margin-top: 10px;margin-bottom: 10px;" />
 				            <div>
 					            <span class="pull-left" style="margin-left: 15px;">
-				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;"></span>&nbsp{{product.proSum}}&nbsp件</span>
+				                <span>库存&nbsp;&nbsp;&nbsp;<span style="color: #000000;">&nbsp{{product.proSum}}&nbsp&nbsp</span>件</span>
 					            </span>
 	                        <!--...或者改成图片 点击有弹框 弹出购买份数的加减-->
 					            <!--<span class="pull-right">
 				                <span ng-click="showModal();button_state_change()" style="margin-right: 15px;">. . .</span>
 					            </span>-->
 				            </div>
-							<hr style="margin-top: 8px;margin-bottom: 8px;" />
-							<div>
-								<span class="pull-left" style="margin-left: 15px;">
-							        <span>详细介绍</span>
-								</span>
-							</div>
-							<hr style="margin-top: 10px;margin-bottom: 10px;" />
+				            <div class="back_bar"></div>
+							<div class="company_info">
+								<div class="company_pic">
+									<img src="./resource/img/order/pro_order1.png"/>
+								</div>
+								<div class="company_name">帝恩艾健康服务中心</div>  
+							    <div class="pro_detail_btns">
+							    	<div class="p_detail">商品详情</div>
+							    	<div class="see_pro" onclick="window.open('index.html')">查看分类</div>
+							    </div>
+							   
+							</div>							
                     <!--商品的详细介绍获取-->
-	                        <div id="productDetail"style="height: 100%;margin: 0;padding: 0;">
-	                        	
-	                        	
-	                        	
-	                        </div>
+	                        <div id="productDetail"style="height: 100%;margin: 0;padding: 0;"></div>
 						</div>
 
 					</a>
