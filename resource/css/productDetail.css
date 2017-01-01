@@ -180,18 +180,18 @@
 .p_detail {
 	float: left;border:1px solid gainsboro;
 	width: 50%;
-	height: 30px;
+	height: 35px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 35px;
 	color: #ec711f;
 }
 .see_pro {
 	float: left;
 	width: 50%;
 	border:1px solid gainsboro;
-	height: 30px;
+	height: 35px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 35px;
 }
 .farmer_price {
 	margin-top: 5px;
