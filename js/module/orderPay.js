@@ -92,7 +92,18 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					          });
                         }
                     	$scope.gotoPay=function(){
-                             var pay_data = util.get("pay_data")
+                            var pay_data = util.get("pay_data")
+                            
+                            var post_data={"userName":"丁石磊","userPhone":"15256524587","userPostal":"112121",
+					              			"userAddress":"上海"}
+			                post_data["orderId"]="65"
+			                console.log(post_data)
+			                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                        		//loginService.putCookie("address",data)
+                        		alert(data);
+                             });
+                             
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
@@ -100,7 +111,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						                //alert("微信支付成功!"); 
 						                var post_data=$scope.address
 						                post_data["orderId"]=pay_data.orderId
-						                alert(post_data)
+						                alert(post_data.orderId)
 						                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
 			                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 			                        		//loginService.putCookie("address",data)
