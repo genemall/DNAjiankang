@@ -96,17 +96,30 @@ pdModule.config(['$stateProvider',
 			    	}
 			    	
 			    	$scope.topay = function (){
-			    		 $scope.loadingToastHide = 1
+			    		$scope.loadingToastHide = 1
+			    		var orderDetail_datas = new Array()
 			    		var orderProducts=new Array();
 			    		orderProducts.push({'proId':$scope.productId,
                   							"proCount":$scope.skunum,
               								'proPrice': $scope.product.proRateprice})
-			    		var post_data={'openId':util.get("openId"),'finalmoney':$scope.skunum* $scope.product.proRateprice,
-			    		'orderProducts':orderProducts}
+			    		
+			    		orderDetail_datas.push({
+                                		"proPrice":	$scope.product.proRateprice,	
+                                		"proCount":$scope.skunum,
+                                		"product":{
+	                                		"proName":$scope.product.proName,
+	                                		"productPrice":$scope.product.productPrice,
+	                                		"imagelist":$scope.product.imagelist
+                                		}
+                                	})
+			    		var finalmoney = $scope.skunum* $scope.product.proRateprice
+			    		var post_data={'openId':util.get("openId"),'finalmoney':finalmoney,
+			    		'orderProducts':angular.toJson(orderProducts)}
 		    			httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 	                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-	                              console.log(data)
 	                              util.set("pay_data",data)
+	                              util.set("orderPay",{"ordPrice":finalmoney,
+		                              			"mapOrderProductList":orderDetail_datas})
                                	  $scope.loadingToastHide = 0
 	                              $location.path('/orderPay/')
 	                      });

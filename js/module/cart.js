@@ -103,17 +103,13 @@ angular.module('cart', ['ui.router','cartMd'])
               							"proCount":temp.proCount,
           								'proPrice':temp.product.proRateprice,
                                 	})
-                                	var img_url=""
-                                	if (temp.product.imagelist.length>0){
-                                		img_url = temp.product.imagelist[0].url
-                                	}
                                 	orderDetail_datas.push({
                                 		"proPrice":	temp.product.proRateprice,	
                                 		"proCount":temp.proCount,
                                 		"product":{
 	                                		"proName":temp.product.proName,
 	                                		"productPrice":temp.product.productPrice,
-	                                		"imagelist":[{"url":img_url}]
+	                                		"imagelist":temp.product.imagelist
                                 		}
                                 	})
                                 }
