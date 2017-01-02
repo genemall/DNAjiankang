@@ -11,7 +11,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     		if(util.get('from_order')!=null){
 				            	location.reload(true)
 				            	util.set('from_order',null)
-				            	$(".personal").click()
 			            	}
                     		return util.get('orderPay')
                    		},
@@ -82,7 +81,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					              //永久存入cookie
 					              loginService.putCookieForever("user_address",$scope.address) 
 					              location.reload(true)
-					              $(".personal").click()
 					            },
 					            cancel: function (res) {
 					              //alert('用户取消拉出地址');
