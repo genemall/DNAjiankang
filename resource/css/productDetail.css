@@ -143,7 +143,7 @@
     color: #fff;
 }
 .back_bar {
-	background-color:gainsboro;
+	background-color:#f2f2f2;
 	width:100%;
 	height: 10px;
 	margin-top: 8px;
@@ -157,7 +157,7 @@
 }
 .company_info {
 	width:100%;
-	height:110px;
+	height:165px;
 	position: relative;
 }
 .company_pic{
@@ -175,28 +175,81 @@
 	text-align: left;
 	line-height: 20px;
 	color: #000000;
-	font-size: 14px;
+	font-size: 15px;
 }
-.p_detail {
-	float: left;border:1px solid gainsboro;
-	width: 50%;
+.company_btns {
+	width:100%;
+	height:30px;
+	margin-top: 80px;
+	margin-left:10px;
+}
+.com_aboutus_btn {
+	width: 45%;
 	height: 30px;
+	float: left;
 	text-align: center;
 	line-height: 30px;
+	border:1px solid #f2f2f2;
+}
+.com_servicelist_btn {
+	width: 45%;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	border:1px solid #f2f2f2;
+	margin-left: 16px;
+}
+.combtn {
+	width:25px;
+	height: 20px;
+}
+/*#company_btns_hover:hover{
+	color:#ec711f;
+}*/
+.p_detail {
+	float: left;
+	/*border:1px solid gainsboro;*/
+	/*border-right:1px solid #ec711f;*/
+	border-bottom:1px solid #ec711f; 
+	width: 50%;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
 	color: #ec711f;
 }
 .see_pro {
 	float: left;
 	width: 50%;
-	border:1px solid gainsboro;
-	height: 30px;
+	/*border:1px solid gainsboro;*/
+	border-left:1px solid gainsboro;
+	border-bottom:1px solid gainsboro;
+	height: 35px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 35px;
 }
 .farmer_price {
 	margin-top: 5px;
 }
-
+.buy_own_confirm_co {
+	color: white;
+	display:block;
+	width: 100%;
+	height: 49px;
+}
+.buy_own_confirm_pay {
+	color: white;
+	display:block;
+	width: 100%;
+	height: 49px;
+}
+.pro_main {
+	position:fixed;
+	top:0;
+	bottom:50px;
+	width:100%;
+	overflow:scroll;
+}
 //弹窗的样式
 .poplayer_box {
     position: absolute;
