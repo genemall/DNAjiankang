@@ -79,7 +79,7 @@ pdModule.config(['$stateProvider',
 			   
 //		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
-			    		$scope.confirm_pay = false;
+			    		$scope.mask=false;
 			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
 			    		console.log(post_data)
 			    		$scope.loadingToastHide = 1;
