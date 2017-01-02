@@ -3,7 +3,7 @@
  */
 
 angular.module("utilMd", ["swxLocalStorage"])
-    .factory("util", function ($localStorage) {
+    .factory("util", function ($localStorage,loginService) {
         //extend Array [+swap] 一个swap函数的实现
         Array.prototype.swap = Array.prototype.swap || function (new_index, old_index) {
                 if (new_index >= this.length) {
@@ -87,7 +87,7 @@ angular.module("utilMd", ["swxLocalStorage"])
                 if (temp != null || temp != "") {
                     return temp;
                 }
-                return null;
+                return loginService.get(key);
             },
         }
     })
