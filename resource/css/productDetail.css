@@ -143,7 +143,7 @@
     color: #fff;
 }
 .back_bar {
-	background-color:gainsboro;
+	background-color:#f2f2f2;
 	width:100%;
 	height: 10px;
 	margin-top: 8px;
@@ -157,7 +157,7 @@
 }
 .company_info {
 	width:100%;
-	height:110px;
+	height:165px;
 	position: relative;
 }
 .company_pic{
@@ -175,10 +175,13 @@
 	text-align: left;
 	line-height: 20px;
 	color: #000000;
-	font-size: 14px;
+	font-size: 15px;
 }
 .p_detail {
-	float: left;border:1px solid gainsboro;
+	float: left;
+	/*border:1px solid gainsboro;*/
+	/*border-right:1px solid #ec711f;*/
+	border-bottom:1px solid #ec711f; 
 	width: 50%;
 	height: 35px;
 	text-align: center;
@@ -188,7 +191,9 @@
 .see_pro {
 	float: left;
 	width: 50%;
-	border:1px solid gainsboro;
+	/*border:1px solid gainsboro;*/
+	border-left:1px solid gainsboro;
+	border-bottom:1px solid gainsboro;
 	height: 35px;
 	text-align: center;
 	line-height: 35px;
