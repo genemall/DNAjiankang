@@ -1,4 +1,11 @@
-
+<style >
+  
+	.weui-media-box:before{
+		border-top: 0px solid red;
+	}
+	
+	
+</style>
 <div class="weui-tab">
     <div class="weui-navbar" style="">
         <!--<div class="weui-navbar__item" ng-class="{'weui-bar__item_on':is_select_id==row.id}" style="padding:0;" >
@@ -14,12 +21,12 @@
 	</div>
     </div>
 
-  <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;" >
+  <div class="weui-tab__panel" style="padding-top: 36px;border-bottom: 2px solid #f2f2f2;background: white;" >
         <div class="weui-panel__bd" style="height: 140px;margin: 0px;padding: 0px;" ng-repeat='row in products_show'> <!--循环遍历出某个标签下的商品信息，里面做填充对应字段数据-->
        		<ul style="margin-bottom:0px ;">
        			<li class="find_nav_cur" ><a href="javascript:void(0)" >{{row.claName}}</a></li>
        		</ul>
-           <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding: 0;">
+           <a href="#/productDetail/{{row.id}}" class="weui-media-box weui-media-box_appmsg" style="padding:5px;border-bottom: 1px solid #f2f2f2;">
            	
                <div class="weui-media-box__hd" style="margin-top:15px;width: 40%;height: 120px;margin-right:15px ;margin-left: 5px;">
                    <img class="weui-media-box__thumb" style="width: 100%;height: 100%;" ng-src="{{row.imagelist[0].url}}">
