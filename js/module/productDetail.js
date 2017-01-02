@@ -123,6 +123,7 @@ pdModule.config(['$stateProvider',
 	                              util.set("orderPay",{"ordPrice":finalmoney,
 		                              			"mapOrderProductList":orderDetail_datas})
                                	  $scope.loadingToastHide = 0
+                               	  util.set('from_order',1)
 	                              $location.path('/orderPay/')
 	                      });
 			    	}
