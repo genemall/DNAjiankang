@@ -83,7 +83,7 @@ angular.module("utilMd", ["swxLocalStorage"])
             	$localStorage.put(key,value)
             },
             get:function(key){
-            	var temp = $localStorage.getObject(key);
+            	var temp = $localStorage.get(key);
                 if (temp != null) {
                     return temp;
                 }
