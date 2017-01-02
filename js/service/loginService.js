@@ -33,7 +33,7 @@ angular.module("loginMd", ["ngCookies","httpMd"])
             },
            	getCookie:function(key){
             	var temp = $cookies.getObject(key);
-                if (temp !== null) {
+                if (temp != null) {
                     return temp;
                 }
                 return null;
