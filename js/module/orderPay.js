@@ -91,9 +91,15 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            }
 					          });
                         }
+                        $scope.btnOk=function(){
+                            $scope.isShowDialog=false
+                        }
                     	$scope.gotoPay=function(){
+                            if($scope.address.userPhone==""){
+                            	$scope.isShowDialog=true
+                            	$scope.dialog_content=$scope.address.userName
+                            }
                             var pay_data = util.get("pay_data")
-                            
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);
