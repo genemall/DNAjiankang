@@ -98,6 +98,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                             if($scope.address.userPhone==""){
                             	$scope.isShowDialog=true
                             	$scope.dialog_content=$scope.address.userName
+                            	return
                             }
                             var pay_data = util.get("pay_data")
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
@@ -119,7 +120,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						                //alert("用户取消支付!");  
 						            }else{  
 						            	console.log(res.err_msg)
-						    
 						            }  
 							})
                     	}
