@@ -21,7 +21,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                              });
 //                      },
                		 },
-                    controller: function($scope,$rootScope,$location,loginService,order_detail,util,httpService){
+                    controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
@@ -108,14 +108,16 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						                //alert("微信支付成功!"); 
 						                var post_data=$scope.address
 						                post_data["orderId"]=pay_data.orderId
-						                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
-			                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-			                        		//loginService.putCookie("address",data)
-//			                        		alert(data);
-											if(data){
-												$location.path('/personal/')
-											}
-			                             });
+						                $scope.timer = $interval( function(){
+										    httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+					                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+													if(data){
+														$interval.cancel($scope.timer)
+														$location.path('/personal/')
+													}
+					                             });
+										  }, 3000,3);
+						                
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
 						                //alert("用户取消支付!");  
 						            }else{  
