@@ -23,7 +23,7 @@
         <a href="javascript:" class="weui-search-bar__cancel-btn" ng-click="searchCancel()">取消</a>
     </div>
     <div  class="weui-cells searchbar-result page__desc" style="position: absolute;width: 100%;z-index: 99;" ng-if="isSearchShow">
-        <a href='#/productDetail/{{pro.product_id}}' class="weui-cell weui-cell_access" ng-repeat='pro in products'>
+        <a href='#/productDetail/{{pro.id}}' class="weui-cell weui-cell_access" ng-repeat='pro in products'>
             <div class="weui-cell__bd weui-cell_primary">
                 <div>{{pro.proName}}</div>
             </div>
@@ -36,8 +36,8 @@
         <div class="weui-flex__item"   ng-repeat="col in classify.row" >  <!--第二次循环，找到具体的每一个子元素-->
         	<a  href="javascript:;" style="width:100%;height:100%;" ng-click="getProducts(col.id,col.claName)"> <!-- 标签链接到商品列表界面，id是用来传参-->
 	            <img ng-src="{{col.claContent}}" style="width:90%;height:143px;" >
-	            <span style="position: absolute; bottom: 2px; right: 2px; background: #CFCFCF;opacity:0.7;border-radius:5px;">
-	            	<font size="4">{{col.claName}}</font>
+	            <span style="position: absolute; bottom: 2px; right: 2px; background:#8FA1E4;opacity:0.4;border-radius:5px;">
+	            	<font opacity="1"; size="4"color="#000000">{{col.claName}}</font>
 	            </span>
             </a>
         </div>
