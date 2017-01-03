@@ -44,7 +44,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         		loginService.putCookie("address",data) 
                              });
                         }
-                   
+                   		wx.hideAllNonBaseMenuItem();
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
                         	msg = loginService.getCookie('address')
@@ -113,10 +113,11 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 													if(data){
 														$interval.cancel($scope.timer)
-														$location.path('/personal/')
+														//$location.path('/personal/')
+														$(".personal").click()
 													}
 					                             });
-										  }, 3000,3);
+										  }, 4000,3);
 						                
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
 						                //alert("用户取消支付!");  
