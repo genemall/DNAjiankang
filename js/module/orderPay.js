@@ -38,17 +38,8 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     						"userPostal":user_address.userPostal
                     						}
                     	}
-                        //根据cookie判断地址是否配置和加载
-                        if(loginService.getCookie('address')==null){
-                        	//获取 address 配置
-                        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
-                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                        		loginService.putCookie("address",data) 
-                             });
-                        }
-                        //执行获取用户地址
-                        $scope.getUserAddress=function(){
-                        	msg = loginService.getCookie('address')
+                    	$scope.wx_config=function(){
+                    		msg = loginService.getCookie('address')
                         	console.log(msg)
                         	wx.config(
 	                        {
@@ -70,7 +61,22 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					    	      success: function (res) {
 					    	          //alert(JSON.stringify(res));
 					    	      }
-							});  
+							}); 
+							wx.hideAllNonBaseMenuItem();
+                    	}
+                        //根据cookie判断地址是否配置和加载
+                        if(loginService.getCookie('address')==null){
+                        	//获取 address 配置
+                        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
+                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                        		loginService.putCookie("address",data) 
+                        		$scope.wx_config()
+                             });
+                        }else{
+                        	$scope.wx_config()
+                        }
+                        //执行获取用户地址
+                        $scope.getUserAddress=function(){
                         	wx.openAddress({
 					            trigger: function (res) {
 					              //alert('用户开始拉出地址');
