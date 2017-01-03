@@ -94,16 +94,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         $scope.btnOk=function(){
                             $scope.isShowDialog=false
                         }
-                        $scope.sendFinishPay=function(){
-                    	 	httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
-                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-								if(data){
-									$interval.cancel($scope.timer)
-									//$location.path('/personal/')
-									$(".personal").click()
-								}
-                             });
-                        }
                     	$scope.gotoPay=function(){
                             if($scope.address.userPhone==""){
                             	$scope.isShowDialog=true
@@ -118,9 +108,21 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						                //alert("微信支付成功!"); 
 						                var post_data=$scope.address
 						                post_data["orderId"]=pay_data.orderId
-						                $scope.sendFinishPay()
+						                //先执行，求优化方案
+						                httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+				                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+												if(data){
+													$(".personal").click()
+												}
+				                        });
 						                $scope.timer = $interval( function(){
-										    scope.sendFinishPay()
+										    httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+				                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+												if(data){
+													$interval.cancel($scope.timer)
+													$(".personal").click()
+												}
+				                        });
 										  }, 4000,3);
 						                
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
