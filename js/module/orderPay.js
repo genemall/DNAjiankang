@@ -11,6 +11,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     		if(util.get('from_order')!=null){
 				            	location.reload(true)
 				            	util.set('from_order',null)
+				            	wx.hideOptionMenu();
 			            	}
                     		return util.get('orderPay')
                    		},
@@ -22,6 +23,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
+//                  	wx.hideOptionMenu();
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
@@ -44,7 +46,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         		loginService.putCookie("address",data) 
                              });
                         }
-                   		WeixinJSBridge.call('hideOptionMenu');
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
                         	msg = loginService.getCookie('address')
