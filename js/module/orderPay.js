@@ -44,7 +44,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         		loginService.putCookie("address",data) 
                              });
                         }
-                   		wx.hideAllNonBaseMenuItem();
+                   		WeixinJSBridge.call('hideOptionMenu');
                         //执行获取用户地址
                         $scope.getUserAddress=function(){
                         	msg = loginService.getCookie('address')
@@ -94,6 +94,16 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         $scope.btnOk=function(){
                             $scope.isShowDialog=false
                         }
+                        $scope.sendFinishPay=function(){
+                    	 	httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
+                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+								if(data){
+									$interval.cancel($scope.timer)
+									//$location.path('/personal/')
+									$(".personal").click()
+								}
+                             });
+                        }
                     	$scope.gotoPay=function(){
                             if($scope.address.userPhone==""){
                             	$scope.isShowDialog=true
@@ -108,15 +118,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
 						                //alert("微信支付成功!"); 
 						                var post_data=$scope.address
 						                post_data["orderId"]=pay_data.orderId
+						                $scope.sendFinishPay()
 						                $scope.timer = $interval( function(){
-										    httpService.post($rootScope.baseURL+'weixin/finishpay.do',post_data)
-					                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-													if(data){
-														$interval.cancel($scope.timer)
-														//$location.path('/personal/')
-														$(".personal").click()
-													}
-					                             });
+										    scope.sendFinishPay()
 										  }, 4000,3);
 						                
 						            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
