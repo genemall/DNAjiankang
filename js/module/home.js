@@ -25,6 +25,7 @@ homeModule.config(['$stateProvider',
                 
                 },
                  controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
+                 	console.log(screen.width ,screen.height)
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
