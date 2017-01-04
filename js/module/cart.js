@@ -81,17 +81,33 @@ angular.module('cart', ['ui.router','cartMd'])
                         }
                         $scope.deleteSelect=function(){
                             //发送httpServer 的post请求
+//                          $scope.cart_datas.splice(i,1);
+//                          i--; //删除会破坏索引，-1是找下一位
+                            var tmp_datas = new Array()
+                            var ids = new Array()
                             for (var i = 0; i < $scope.cart_datas.length; i++) {
                                 if($scope.cart_datas[i].check){
-                                    httpService.get($rootScope.baseURL+'cart/phonecartdel.do?maproId='+$scope.cart_datas[i].proId)
-                                    $scope.cart_datas.splice(i,1);
-                                    i--; //删除会破坏索引，-1是找下一位
+                                	ids.push($scope.cart_datas[i].id)
+                                }else{
+                                	tmp_datas.push($scope.cart_datas[i])
                                 }
                             }
+                            if(ids.length==0){
+                            	$scope.dialog_content='请选择相应商品'
+                                $scope.isShowCartDialog=true
+                                return
+                            }
+                            $scope.loadingToastHide = 1
+                            httpService.get($rootScope.baseURL+'cart/phonecartdel.do?maproIds='+ids.join(","))
+                            .then(function (data) {
+                            	if(data){
+                            		$scope.loadingToastHide = 0
+                            		$scope.cart_datas=tmp_datas
+                            	}
+                            });
+                                    
                         }
                         $scope.createOrder=function(){
-                        	 $scope.loadingToastHide = 1
-                        	 
                             //此次按照check选中的商品生成http post请求，并$location跳转到 订单详情界面
                             var orderDetail_datas = new Array()
                             var orderProducts=new Array()
@@ -114,6 +130,12 @@ angular.module('cart', ['ui.router','cartMd'])
                                 	})
                                 }
                             }
+                            if(orderProducts.length==0){
+                            	$scope.dialog_content='请选择相应商品'
+                                $scope.isShowCartDialog=true
+                                return
+                            }
+                            $scope.loadingToastHide = 1
                             //赋值给 orderPay界面
                            // ofzXwvnbUQYrVMmYn8uxZuHbbX5g
 							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
