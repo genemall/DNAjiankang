@@ -12,8 +12,11 @@ angular.module('order', ['ui.router','utilMd'])
                     resolve: {
                     	order_show: function (httpService,$rootScope,$stateParams) {
                     		var temp = $stateParams.ord_state
-                    		if($stateParams.ord_state==3){//3,4,5,6均归为待检测
-                    			temp="3,4,5,6"
+                    		if($stateParams.ord_state==3){//3,4均归为待检测
+                    			temp="3,4"
+                    		}
+                    		if($stateParams.ord_state==4){//5为已完成
+                    			temp="5"
                     		}
                             return httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+temp)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -26,8 +29,11 @@ angular.module('order', ['ui.router','utilMd'])
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
                         	var temp = ord_state
-                    		if(ord_state==3){//3,4,5,6均归为待检测
-                    			temp="3,4,5,6"
+                    		if(ord_state==3){//3,4均归为待检测
+                    			temp="3,4"
+                    		}
+                    		if(ord_state==4){//5为已完成
+                    			temp="5"
                     		}
                             httpService.get($rootScope.baseURL+'/order/phoneGetOrdersByUserId.do?userId='+$stateParams.id+"&ordState="+temp)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
