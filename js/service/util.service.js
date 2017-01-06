@@ -87,7 +87,7 @@ angular.module("utilMd", ["swxLocalStorage"])
                 if (temp != null || temp != "") {
                     return temp;
                 }
-                return loginService.get(key);
+                return loginService.getCookie(key);
             },
         }
     })

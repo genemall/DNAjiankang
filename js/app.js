@@ -43,13 +43,14 @@ dnaStore
 		$rootScope.clientURL="http://nbuxinxiren.cn/DNAjiankang/"
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 //		$scope.userId = util.get("userId")
-					
-    	if(loginService.getCookie('userId') == null){
+		if(loginService.getCookie('userId') == null){
     		if (util.get("userId") == null ){
     			util.set("userId",0)//防止再执行,标示
+    			util.set('share_url',$location.url()) //来之分享页面
 				window.location.href=$rootScope.baseURL+'weixin/oauth.do'
     		}
 		}
+					
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         	//console.log(toState)
@@ -71,7 +72,6 @@ dnaStore
             $rootScope.previousState_params = fromParams;
            
         });
-
         //实现返回上一状态的函数 back button function   ng-click="back()"
         $rootScope.back = function () {
            // $state.go($rootScope.previousState_name, $rootScope.previousState_params);
