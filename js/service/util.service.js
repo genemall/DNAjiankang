@@ -89,5 +89,8 @@ angular.module("utilMd", ["swxLocalStorage"])
                 }
                 return loginService.getCookie(key);
             },
+           remove:function(key){
+           		$localStorage.removeItem(key)
+           },
         }
     })
