@@ -69,7 +69,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                         	//获取 address 配置
                         	httpService.post($rootScope.baseURL+'weixin/address.do',{})
                         	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-                        		loginService.putCookie("address",data) 
+                        		loginService.putCookieForever("address",data) 
                         		$scope.wx_config()
                              });
                         }else{
