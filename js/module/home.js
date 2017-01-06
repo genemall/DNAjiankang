@@ -10,6 +10,14 @@ homeModule.config(['$stateProvider',
                 url: '/home/:userId/:openId',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
+                	share_page:function(util,$location){
+                		var share_url = util.get("share_url")
+                		console.log(share_url)
+						if(share_url!=null &&share_url.indexOf("home")==-1){
+							util.set(share_url,null)
+							$location.path(share_url)
+						}
+                	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
                         return httpService.get($rootScope.baseURL+'classify/phoneclsall.do') //通过Service获取接口对应的json数据
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -26,11 +34,6 @@ homeModule.config(['$stateProvider',
                 },
                  controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
 //               	console.log(screen.width ,screen.height)
-					var share_url = util.get("share_url")
-					if(share_url!=null &&share_url.indexOf("home")==-1){
-						util.set(share_url,null)
-						$location.path(share_url)
-					}
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
                     $scope.$watch("searchInput", function() {//监控数据变化
