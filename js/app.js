@@ -44,11 +44,12 @@ dnaStore
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 //		$scope.userId = util.get("userId")
 					
-        //调用服务获取主页需要显示的焦点图
-        httpService.get('json/tsconfig.json').then(function (data) {
-            $rootScope.imgItems = data.focusImg;
-        });
-
+    	if(loginService.getCookie('userId') == null){
+    		if (util.get("userId") == null ){
+    			util.set("userId",0)//防止再执行,标示
+				window.location.href=$rootScope.baseURL+'weixin/oauth.do'
+    		}
+		}
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         	//console.log(toState)
