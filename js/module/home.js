@@ -29,7 +29,7 @@ homeModule.config(['$stateProvider',
 					var share_url = util.get("share_url")
 					if(share_url!=null &&share_url.indexOf("home")==-1){
 						util.set(share_url,null)
-						window.location.href=share_url
+						$location.path(share_url)
 					}
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环
