@@ -10,9 +10,14 @@ homeModule.config(['$stateProvider',
                 url: '/home/:userId/:openId',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
-                	share_page:function(util,$location){
+                	share_page:function(util,$location,$stateParams,loginService){
+                		if($stateParams.userId!=0||$stateParams.userId!="0"){
+				 			loginService.putCookieForever('userId',$stateParams.userId)
+				 			loginService.putCookieForever('openId',$stateParams.openId)
+				 			util.set('userId',$stateParams.userId) 
+		 					util.set('openId',$stateParams.openId) 
+			 			}
                 		var share_url = util.get("share_url")
-                		console.log(share_url)
 						if(share_url!=null &&share_url.indexOf("home")==-1){
 							util.set("share_url",null)
 							$location.path(share_url)
@@ -81,12 +86,6 @@ homeModule.config(['$stateProvider',
                     	$location.path('/product/'+id)
                     }
                     //放在最后，判断是否重定向
-                    if($stateParams.userId!=0||$stateParams.userId!="0"){
-			 			loginService.putCookieForever('userId',$stateParams.userId)
-			 			loginService.putCookieForever('openId',$stateParams.openId)
-			 			util.set('userId',$stateParams.userId) 
-	 					util.set('openId',$stateParams.openId) 
-			 		}
                  }
 
             })
