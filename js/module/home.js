@@ -14,7 +14,7 @@ homeModule.config(['$stateProvider',
                 		var share_url = util.get("share_url")
                 		console.log(share_url)
 						if(share_url!=null &&share_url.indexOf("home")==-1){
-							util.set(share_url,null)
+							util.remove("share_url")
 							$location.path(share_url)
 						}
                 	},
