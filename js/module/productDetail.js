@@ -14,7 +14,7 @@ pdModule.config(['$stateProvider',
 	                            });
 	                    },
 	            },
-                controller: function($scope,product_details,util,httpService,$rootScope,$location,$interval){
+                controller: function($scope,product_details,util,httpService,$rootScope,$state,$location,$interval){
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
                 	$('#productDetail').html(product_details.proDetail);	
@@ -48,7 +48,9 @@ pdModule.config(['$stateProvider',
     			      $scope.confirm_pay = false;
     			     };
     			     
-    			     
+    			    $scope.goBack=function(){
+    			    	$state.go($rootScope.previousState_name, $rootScope.previousState_params);
+    			    }
 //              
 			      /**购买数量加/减/输入数量代码开始**/
 			      //添加数量

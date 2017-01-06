@@ -66,8 +66,8 @@ dnaStore
              //可以跳转到login页面，到点击浏览器返回时又回到了cart状态，然后又进入login页面(导致无法返回)
              $rootScope.$state.go("login");
              }*/
-//          $rootScope.previousState_name = fromState.name;
-//          $rootScope.previousState_params = fromParams;
+            $rootScope.previousState_name = fromState.name;
+            $rootScope.previousState_params = fromParams;
            
         });
 
