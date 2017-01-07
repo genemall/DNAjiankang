@@ -6,7 +6,13 @@ angular.module('myInfo', ['ui.router'])
                 .state("myInfo", {
                     url: '/myInfo',
                     templateUrl: 'view/myInfo.html',
-                    controller: function($scope){
+                    controller: function($scope,loginService,util){
+                    	$scope.delectAll=function(){
+                    		loginService.putCookieForever("userId",null)
+                    		loginService.putCookieForever("openId",null)
+                    		util.set("userId",null)
+                    		util.set("openId",null)
+                    	}
                     },
                 })
         }
