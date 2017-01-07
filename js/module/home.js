@@ -22,7 +22,7 @@ homeModule.config(['$stateProvider',
 						if(share_url!=null &&share_url.indexOf("home")==-1){
 							util.set("share_url",null)
 //							$location.path(share_url)
-							window.location.href="/DNAjiankang/index.html#"+share_url
+							window.location.href="index.html#"+share_url
 						}
                 	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
