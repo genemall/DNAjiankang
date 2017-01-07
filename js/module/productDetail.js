@@ -126,7 +126,8 @@ pdModule.config(['$stateProvider',
 		                              			"mapOrderProductList":orderDetail_datas})
                                	  $scope.loadingToastHide = 0
                                	  util.set('from_order',1)
-	                              $location.path('/orderPay/')
+//	                              $location.path('/orderPay/')
+	                              window.location.href='index.html#/orderPay/'
 	                      });
 			    	}
 			   },

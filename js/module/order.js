@@ -96,8 +96,8 @@ angular.module('order', ['ui.router','utilMd'])
 		                                util.set('pay_data',data)
 		                                $scope.loadingToastHide = 0;
 		                        		util.set('from_order',1)
-		                        		$location.path('/orderPay/')
-		                        		//window.location.href='index.html#/orderPay/'
+		                        		//$location.path('/orderPay/')
+		                        		window.location.href='index.html#/orderPay/'
 		                        		//$state.go('orderPay',{},{reload:true});  
 			                        });
                         			break
