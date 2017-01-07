@@ -20,7 +20,7 @@ homeModule.config(['$stateProvider',
                 		var share_url = util.get("share_url")
 						if(share_url!=null &&share_url.indexOf("home")==-1){
 							util.set("share_url",null)
-							$location.path(share_url)
+							window.location.href=share_url
 						}
                 	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
