@@ -43,12 +43,10 @@ dnaStore
 		$rootScope.clientURL="http://nbuxinxiren.cn/DNAjiankang/"
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 //		$scope.userId = util.get("userId")
-		if(loginService.getCookie('userId') == null){
-    		if (util.get("userId") == null ){
-    			util.set("userId",0)//防止再执行,标示
-    			util.set('share_url',$location.url()) //来之分享页面
-				window.location.href=$rootScope.baseURL+'weixin/oauth.do'
-    		}
+		if (util.get("userId") == null ){
+			util.set("userId",0)//防止再执行,标示
+			util.set('share_url',$location.url().replace("?from=singlemessage","")) //来之分享页面
+			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
 					
         //判定状态改变事件

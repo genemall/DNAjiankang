@@ -12,8 +12,8 @@ homeModule.config(['$stateProvider',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
                 	share_page:function(util,$location,$stateParams,loginService){
                 		if($stateParams.userId!=0||$stateParams.userId!="0"){
-				 			loginService.putCookieForever('userId',$stateParams.userId)
-				 			loginService.putCookieForever('openId',$stateParams.openId)
+//				 			loginService.putCookieForever('userId',$stateParams.userId)
+//				 			loginService.putCookieForever('openId',$stateParams.openId)
 				 			util.set('userId',$stateParams.userId) 
 		 					util.set('openId',$stateParams.openId) 
 			 			}
