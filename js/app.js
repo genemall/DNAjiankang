@@ -45,7 +45,7 @@ dnaStore
 //		$scope.userId = util.get("userId")
 		if (util.get("userId") == null ){
 			util.set("userId",0)//防止再执行,标示
-			util.set('share_url',$rootScope.clientURL+"index.html#/"+$location.url()) //来之分享页面
+			util.set('share_url',$location.url()) //来之分享页面
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
 					
