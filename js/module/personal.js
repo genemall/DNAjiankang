@@ -34,7 +34,7 @@ angular.module('personal', ['ui.router'])
                                  case "2":
                                     count_dict['unDeliver'] += 1
                                     break;
-                                 case "7":
+                                 case "5":
                                  	break;
                                  default:
                                     count_dict['unTake'] += 1
@@ -42,6 +42,8 @@ angular.module('personal', ['ui.router'])
                              }
                          }
                          $scope.order_count =count_dict //双向绑定赋值前端
+                         
+                         $(".personal").click()
 	                    /*
                     	$scope.orders=order_list
                     	for item in order_list

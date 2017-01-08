@@ -23,9 +23,6 @@ homeModule.config(['$stateProvider',
 						if(share_url!=null &&share_url.indexOf("home")==-1){
 							util.set("share_url",null)
 //							$location.path(share_url)
-							if(share_url.indexOf("personal")!=-1){
-								$(".personal").click()
-							}  
 							window.location.href="index.html#"+share_url
 						}
                 	},

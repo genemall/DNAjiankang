@@ -151,6 +151,7 @@ angular.module('cart', ['ui.router','cartMd'])
 		                              $location.path('/orderPay/')
 		                      });
                         }
+                        $(".cart").click()
                     },
                     //配置导航，回到父层
                     ncyBreadcrumb:{
