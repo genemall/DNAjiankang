@@ -82,7 +82,7 @@ angular.module('order', ['ui.router','utilMd'])
                         	$scope.isShowDeliveryDialog=0
                         }
                         $scope.orderPay = function(ordId){
-                        	   $scope.loadingToastHide = 1;
+                        	$scope.loadingToastHide = 1;
                          	for(var i=0;i<$scope.order_show.length;i++){
                         		if($scope.order_show[i].id==ordId){
                         			//获取微信支付数据

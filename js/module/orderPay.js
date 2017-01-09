@@ -11,7 +11,6 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     		if(util.get('from_order')!=null){
 				            	location.reload(true)
 				            	util.set('from_order',null)
-				            	wx.hideOptionMenu();
 			            	}
                     		return util.get('orderPay')
                    		},
