@@ -29,12 +29,13 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     	var user_address = loginService.getCookie('user_address')
                     	//或者存cookie设置100年
                     	if(user_address==null){
-                    		$scope.address={"userName":"请选择收获地址","userPhone":"","userAddress":""}
+                    		$scope.address={"userName":"请选择收获地址","userPhone":"","userAddress":"","userPostal":"","userArea":""}
                     	}else{
                     		$scope.address={"userName":user_address.userName,
                     						"userPhone":user_address.userPhone,
                     						"userAddress":user_address.userAddress,
-                    						"userPostal":user_address.userPostal
+                    						"userPostal":user_address.userPostal,
+                    						"userArea":user_address.userArea
                     						}
                     	}
                     	$scope.wx_config=function(){
@@ -82,7 +83,10 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					            },
 					            success: function (res) {
 					              //alert('用户成功拉出地址');
-					              $scope.address={"userName":res["userName"],"userPhone":res["telNumber"],"userPostal":res["addressPostalCode"],
+					              $scope.address={"userName":res["userName"],
+					              				"userPhone":res["telNumber"],
+					              				"userPostal":res["addressPostalCode"],
+					              				"userArea":res["provinceName"]+res["cityName"],
 					              				"userAddress":res["provinceName"]+res["cityName"]+res["detailInfo"]}
 					              //永久存入cookie
 					              loginService.putCookieForever("user_address",$scope.address) 
