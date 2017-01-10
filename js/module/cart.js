@@ -128,6 +128,11 @@ angular.module('cart', ['ui.router','cartMd'])
 	                                		"imagelist":temp.product.imagelist
                                 		}
                                 	})
+                                	if(temp.proCount<temp.product.proSum){
+						    			$scope.dialog_content='部分商品库存不足，请检查后提交'
+			                            $scope.isShowCartDialog=true
+			                            return
+			    					}
                                 }
                             }
                             if(orderProducts.length==0){

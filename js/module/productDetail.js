@@ -77,6 +77,10 @@ pdModule.config(['$stateProvider',
     			        $scope.skunum = $scope.skunumVal;
     			      }
     			    }
+    			    
+    			    $scope.btnOk=function(){
+                            $scope.isShowProductDialog=false
+                    }
 			    /**购买数量加/减/输入数量代码开始**/
 			   
 //		    		console.log(util.get("userId"))
@@ -103,6 +107,11 @@ pdModule.config(['$stateProvider',
 			    		$scope.loadingToastHide = 1
 			    		var orderDetail_datas = new Array()
 			    		var orderProducts=new Array();
+			    		if($scope.skunum<$scope.product.proSum){
+			    			$scope.dialog_content='商品库存不足，请检查后提交'
+                            $scope.isShowProductDialog=true
+                            return
+			    		}
 			    		orderProducts.push({'proId':$scope.productId,
                   							"proCount":$scope.skunum,
               								'proPrice': $scope.product.proRateprice})
