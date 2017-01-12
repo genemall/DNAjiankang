@@ -48,54 +48,6 @@ dnaStore
 			util.set('share_url',$location.url()) //来之分享页面
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
-		$rootScope.wx_config=function(){
-    		msg = loginService.getCookie('address')
-    		console.log(msg)
-        	wx.config(
-            {
-	            debug: true,
-	            appId: msg.appid,
-	            timestamp: msg.timestamp,
-	            nonceStr: msg.noncestr,
-	            signature: msg.signature,
-	            jsApiList: [
-	              // 所有要调用的 API 都要加到这个列表中
-	                'checkJsApi',
-	                'openAddress',
-	                'hideAllNonBaseMenuItem',
-	                'onMenuShareAppMessage',
-	                'onMenuShareTimeline',
-	                'onMenuShareQQ'
-	              ]
-	          	});
-		        wx.checkJsApi({
-	    	      jsApiList: [
-	    	          'openAddress',
-	    	          'hideAllNonBaseMenuItem',
-	    	          'onMenuShareAppMessage',
-	    	          'onMenuShareTimeline',
-                	  'onMenuShareQQ'	
-	    	      ],
-	    	      success: function (res) {
-	    	          //alert(JSON.stringify(res));
-	    	      }
-			}); 
-			//wx.hideAllNonBaseMenuItem();
-    	}
-        //根据cookie判断地址是否配置和加载
-        if(loginService.getCookie('address')==null){
-        	loginService.putCookieForever("address",0) 
-        	//获取 address 配置
-        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$location.absUrl()})
-        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-        		loginService.putCookieForever("address",data) 
-        		$rootScope.wx_config()
-             });
-        }else{
-        	if(loginService.getCookie('address')!=0){
-	        	$rootScope.wx_config()
-        	}
-        }
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         	//console.log(toState)
