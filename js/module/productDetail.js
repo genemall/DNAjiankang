@@ -140,6 +140,8 @@ pdModule.config(['$stateProvider',
 	                              window.location.href='index.html#/orderPay/'
 	                      });
 			    		}
+			    	httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
+			    	
 			   },
             })
 

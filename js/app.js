@@ -48,7 +48,6 @@ dnaStore
 			util.set('share_url',$location.url()) //来之分享页面
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
-					
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         	//console.log(toState)
