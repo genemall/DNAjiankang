@@ -52,11 +52,13 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					              // 所有要调用的 API 都要加到这个列表中
 					                'checkJsApi',
 					                'openAddress',
+					                'onMenuShareAppMessage'
 					              ]
 					          	});
 						        wx.checkJsApi({
 					    	      jsApiList: [
 					    	          'openAddress',
+					    	          'onMenuShareAppMessage'
 					    	      ],
 					    	      success: function (res) {
 					    	          //alert(JSON.stringify(res));
