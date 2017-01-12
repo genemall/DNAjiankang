@@ -43,7 +43,55 @@ angular.module('personal', ['ui.router'])
 							    }
 							});
 						});
-						
+						//根据cookie判断地址是否配置和加载
+				        $scope.wx_config=function(){
+				    		msg = loginService.getCookie('address')
+				    		console.log(msg)
+				        	wx.config(
+				            {
+					            debug: true,
+					            appId: msg.appid,
+					            timestamp: msg.timestamp,
+					            nonceStr: msg.noncestr,
+					            signature: msg.signature,
+					            jsApiList: [
+					              // 所有要调用的 API 都要加到这个列表中
+					                'checkJsApi',
+					                'openAddress',
+//					                'hideAllNonBaseMenuItem',
+					                'onMenuShareAppMessage',
+//					                'onMenuShareTimeline',
+//					                'onMenuShareQQ'
+					              ]
+					          	});
+						        wx.checkJsApi({
+					    	      jsApiList: [
+					    	          'openAddress',
+//					    	          'hideAllNonBaseMenuItem',
+					    	          'onMenuShareAppMessage',
+//					    	          'onMenuShareTimeline',
+//				                	  'onMenuShareQQ'	
+					    	      ],
+					    	      success: function (res) {
+					    	          //alert(JSON.stringify(res));
+					    	      }
+							}); 
+							//wx.hideAllNonBaseMenuItem();
+				    	}
+				               //根据cookie判断地址是否配置和加载
+				        if(loginService.getCookie('address')==null){
+//				        	loginService.putCookieForever("address",0) 
+				        	//获取 address 配置
+				        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$location.absUrl()})
+				        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+				        		loginService.putCookieForever("address",data) 
+				        		$scope.wx_config()
+				             });
+				        }else{
+//				        	if(loginService.getCookie('address')!=0){
+					        	$scope.wx_config()
+//				        	}
+				        }
                         var count_dict = {'unPay':0,'unDeliver':0,'unTake':0} //初始化count字典
                          for(var i=0;i<order_list.length;i++){
                              switch(order_list[i].ordState)
