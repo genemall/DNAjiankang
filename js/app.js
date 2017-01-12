@@ -70,7 +70,7 @@ dnaStore
 		        wx.checkJsApi({
 	    	      jsApiList: [
 	    	          'openAddress',
-	    	          'hideAllNonBaseMenuItem'
+	    	          'hideAllNonBaseMenuItem',
 	    	          'onMenuShareAppMessage',
 	    	          'onMenuShareTimeline',
                 	  'onMenuShareQQ'	
