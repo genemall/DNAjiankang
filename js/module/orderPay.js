@@ -42,7 +42,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				    		msg = loginService.getCookie('address')
 				        	wx.config(
 				            {
-					            debug: true,
+					            debug: false,
 					            appId: msg.appid,
 					            timestamp: msg.timestamp,
 					            nonceStr: msg.noncestr,

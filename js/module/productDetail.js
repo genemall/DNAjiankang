@@ -110,7 +110,7 @@ pdModule.config(['$stateProvider',
 			    		msg = loginService.getCookie('product_wx')
 			        	wx.config(
 			            {
-				            debug: true,
+				            debug: false,
 				            appId: msg.appid,
 				            timestamp: msg.timestamp,
 				            nonceStr: msg.noncestr,
