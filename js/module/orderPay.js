@@ -22,9 +22,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
-                    	wx.ready(function(){
-							//wx.hideAllNonBaseMenuItem();
-						});
+                    	
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
@@ -45,7 +43,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				    		console.log(msg)
 				        	wx.config(
 				            {
-					            debug: false,
+					            debug: true,
 					            appId: msg.appid,
 					            timestamp: msg.timestamp,
 					            nonceStr: msg.noncestr,
@@ -55,7 +53,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					                'checkJsApi',
 					                'openAddress',
 //					                'hideAllNonBaseMenuItem',
-//					                'onMenuShareAppMessage',
+					                'onMenuShareAppMessage',
 //					                'onMenuShareTimeline',
 //					                'onMenuShareQQ'
 					              ]
@@ -64,7 +62,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					    	      jsApiList: [
 					    	          'openAddress',
 //					    	          'hideAllNonBaseMenuItem',
-//					    	          'onMenuShareAppMessage',
+					    	          'onMenuShareAppMessage',
 //					    	          'onMenuShareTimeline',
 //				                	  'onMenuShareQQ'	
 					    	      ],
@@ -74,6 +72,25 @@ angular.module('orderPay', ['ui.router','utilMd'])
 							}); 
 							//wx.hideAllNonBaseMenuItem();
 				    	}
+                    	wx.ready(function(){
+							//wx.hideAllNonBaseMenuItem();
+							wx.onMenuShareAppMessage(){
+						   	    title: "ceshi", // 分享标题
+							    desc: "ceshi de miao shu", // 分享描述
+							    link: 'http://nbuxinxiren.cn/DNAjiankang/index.html#/orderPay/', // 分享链接
+							    imgUrl: "http://myfirst1990.oss-cn-shanghai.aliyuncs.com/201701120147473977kids2.jpg", // 分享图标
+							    type: '', // 分享类型,music、video或link，不填默认为link
+							    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+							    success: function () { 
+							        // 用户确认分享后执行的回调函数
+							        alert("success")
+							    },
+							    cancel: function () { 
+							        // 用户取消分享后执行的回调函数
+							        alert("cancel")
+							    }
+							});
+						});
 				        //根据cookie判断地址是否配置和加载
 				        if(loginService.getCookie('address')==null){
 //				        	loginService.putCookieForever("address",0) 
