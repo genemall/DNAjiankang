@@ -33,6 +33,7 @@ homeModule.config(['$stateProvider',
                 
                 },
                  controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
+                 	
              		var share_url = util.get("share_url")
 					if(share_url!=null &&share_url.indexOf("home")==-1){
 						util.set("share_url",null)

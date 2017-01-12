@@ -22,7 +22,9 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
-                    	wx.hideAllNonBaseMenuItem();
+                    	wx.ready(function(){
+							wx.hideAllNonBaseMenuItem();
+						});
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
