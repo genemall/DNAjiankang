@@ -74,7 +74,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				    	}
                     	wx.ready(function(){
 							//wx.hideAllNonBaseMenuItem();
-							wx.onMenuShareAppMessage(){
+							wx.onMenuShareAppMessage({
 						   	    title: "ceshi", // 分享标题
 							    desc: "ceshi de miao shu", // 分享描述
 							    link: 'http://nbuxinxiren.cn/DNAjiankang/index.html#/orderPay/', // 分享链接
