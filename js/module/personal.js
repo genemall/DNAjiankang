@@ -19,7 +19,7 @@ angular.module('personal', ['ui.router'])
 	                            });
 	                    },
 	                },
-	                controller: function($scope,httpService,user_detail,loginService,order_list,util,$rootScope,$stateParams){
+	                controller: function($scope,httpService,user_detail,loginService,$location,order_list,util,$rootScope,$stateParams){
                         $scope.user_id=util.get("userId")
                         $scope.headImgurl=user_detail.headImgurl
                         $scope.nickname=user_detail.nickname
