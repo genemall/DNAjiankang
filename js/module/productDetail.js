@@ -102,7 +102,54 @@ pdModule.config(['$stateProvider',
                                 	}
 			                 });
 			    	}
-			    	
+			    	wx.ready(function(){
+						httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
+					});
+					//根据cookie判断地址是否配置和加载
+			        $scope.wx_config=function(){
+			    		msg = loginService.getCookie('product_wx')
+			        	wx.config(
+			            {
+				            debug: true,
+				            appId: msg.appid,
+				            timestamp: msg.timestamp,
+				            nonceStr: msg.noncestr,
+				            signature: msg.signature,
+				            jsApiList: [
+				              // 所有要调用的 API 都要加到这个列表中
+				                'checkJsApi',
+				                'openAddress',
+				                'hideAllNonBaseMenuItem',
+				                'onMenuShareAppMessage',
+				                'onMenuShareTimeline',
+				                'onMenuShareQQ'
+				              ]
+				          	});
+					        wx.checkJsApi({
+				    	      jsApiList: [
+				    	          'openAddress',
+				    	          'hideAllNonBaseMenuItem',
+				    	          'onMenuShareAppMessage',
+				    	          'onMenuShareTimeline',
+			                	  'onMenuShareQQ'	
+				    	      ],
+				    	      success: function (res) {
+				    	          //alert(JSON.stringify(res));
+				    	      }
+						}); 
+			    	}
+			               //根据cookie判断地址是否配置和加载
+			        if(loginService.getCookie('product_wx')==null){
+			        	//获取 address 配置
+			        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$location.absUrl()})
+			        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+			        		loginService.putCookieForever("product_wx",data) 
+			        		$scope.wx_config()
+			             });
+			        }else{
+				        	$scope.wx_config()
+			        }
+				        
 			    	$scope.topay = function (){
 			    		$scope.mask = false;
 			    		$scope.loadingToastHide = 1
@@ -140,7 +187,6 @@ pdModule.config(['$stateProvider',
 	                              window.location.href='index.html#/orderPay/'
 	                      });
 			    		}
-			    	httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
 			   },
             })
 
