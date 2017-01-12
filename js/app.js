@@ -86,10 +86,10 @@ dnaStore
         	httpService.post($rootScope.baseURL+'weixin/address.do',{})
         	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
         		loginService.putCookieForever("address",data) 
-        		$scope.wx_config()
+        		$rootScope.wx_config()
              });
         }else{
-        	$scope.wx_config()
+        	$rootScope.wx_config()
         }
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
