@@ -22,7 +22,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                      },
                		 },
                     controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
-//                  	wx.hideOptionMenu();
+                    	wx.hideAllNonBaseMenuItem();
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
                     	//$scope.address={"userName":"请选择收获地址","telNumber":"","addressInfo":""}
@@ -36,7 +36,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     						"userAddress":user_address.userAddress,
                     						"userPostal":user_address.userPostal,
                     						"userArea":user_address.userArea
-                    						}
+                    		}
                     	}
                     	
                         //执行获取用户地址
