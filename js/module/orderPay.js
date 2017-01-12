@@ -62,7 +62,8 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					    	          //alert(JSON.stringify(res));
 					    	      }
 							}); 
-							wx.hideAllNonBaseMenuItem();
+							httpService.share_link("product_details.proName","product_details.proHead","product_details.imagelist[0].url")
+							//wx.hideAllNonBaseMenuItem();
                     	}
                         //根据cookie判断地址是否配置和加载
                         if(loginService.getCookie('address')==null){
