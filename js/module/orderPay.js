@@ -45,7 +45,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 				    		console.log(msg)
 				        	wx.config(
 				            {
-					            debug: true,
+					            debug: false,
 					            appId: msg.appid,
 					            timestamp: msg.timestamp,
 					            nonceStr: msg.noncestr,
