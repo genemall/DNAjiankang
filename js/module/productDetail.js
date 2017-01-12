@@ -14,7 +14,7 @@ pdModule.config(['$stateProvider',
 	                            });
 	                    },
 	            },
-                controller: function($scope,product_details,util,httpService,$rootScope,$state,$location,$interval){
+                controller: function($scope,product_details,util,httpService,loginService,$rootScope,$state,$location,$interval){
                 
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
@@ -140,22 +140,46 @@ pdModule.config(['$stateProvider',
 	                              window.location.href='index.html#/orderPay/'
 	                      });
 			    		}
-//			    		httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
-			wx.onMenuShareAppMessage({
-			   	    title: product_details.proName, // 分享标题
-				    desc: product_details.proHead, // 分享描述
-				    link: '', // 分享链接
-				    imgUrl: product_details.imagelist[0].url, // 分享图标
-				    type: '', // 分享类型,music、video或link，不填默认为link
-				    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-				    success: function () { 
-				        // 用户确认分享后执行的回调函数
-				        alert("fuck")
-				    },
-				    cancel: function () { 
-				        // 用户取消分享后执行的回调函数
-				    }
-				});
+			    	
+			    	     $scope.wx_config=function(){
+                    		msg = loginService.getCookie('address')
+                        	console.log(msg)
+                        	wx.config(
+	                        {
+					            debug: false,
+					            appId: msg.appid,
+					            timestamp: msg.timestamp,
+					            nonceStr: msg.noncestr,
+					            signature: msg.signature,
+					            jsApiList: [
+					              // 所有要调用的 API 都要加到这个列表中
+					                'checkJsApi',
+					                'openAddress',
+					                'onMenuShareAppMessage'
+					              ]
+					          	});
+						        wx.checkJsApi({
+					    	      jsApiList: [
+					    	          'openAddress',
+					    	          'onMenuShareAppMessage'
+					    	      ],
+					    	      success: function (res) {
+					    	          //alert(JSON.stringify(res));
+					    	      }
+							}); 
+							httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
+                    	}
+                        //根据cookie判断地址是否配置和加载
+                        if(loginService.getCookie('address')==null){
+                        	//获取 address 配置
+                        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
+                        	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                        		loginService.putCookieForever("address",data) 
+                        		$scope.wx_config()
+                             });
+                        }else{
+                        	$scope.wx_config()
+                        }
 			   },
             })
 
