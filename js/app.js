@@ -50,9 +50,10 @@ dnaStore
 		}
 		$rootScope.wx_config=function(){
     		msg = loginService.getCookie('address')
+    		console.log(msg)
         	wx.config(
             {
-	            debug: false,
+	            debug: true,
 	            appId: msg.appid,
 	            timestamp: msg.timestamp,
 	            nonceStr: msg.noncestr,
