@@ -17,14 +17,6 @@ homeModule.config(['$stateProvider',
 				 			util.set('userId',$stateParams.userId) 
 		 					util.set('openId',$stateParams.openId) 
 			 			}
-                		var share_url = util.get("share_url")
-                		console.log(share_url)
-				
-						if(share_url!=null &&share_url.indexOf("home")==-1){
-							util.set("share_url",null)
-//							$location.path(share_url)
-							window.location.href="index.html#"+share_url
-						}
                 	},
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
                         return httpService.get($rootScope.baseURL+'classify/phoneclsall.do') //通过Service获取接口对应的json数据
@@ -41,6 +33,12 @@ homeModule.config(['$stateProvider',
                 
                 },
                  controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
+             		var share_url = util.get("share_url")
+					if(share_url!=null &&share_url.indexOf("home")==-1){
+						util.set("share_url",null)
+//							$location.path(share_url)
+						window.location.href="index.html#"+share_url
+					}
 //               	console.log(screen.width ,screen.height)
                     $scope.sliderShow=true
                     $scope.classifies=classifyResolve //双向绑定 数据和前段的标签，此处为 商品分类的循环

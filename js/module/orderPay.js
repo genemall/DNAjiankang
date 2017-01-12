@@ -65,14 +65,15 @@ angular.module('orderPay', ['ui.router','utilMd'])
 					    	      }
 							}); 
 							  	wx.onMenuShareAppMessage({
-							   	    title: "_title", // 分享标题
-								    desc: "_desc", // 分享描述
-								    link: '', // 分享链接
-								    imgUrl: "_image", // 分享图标
+							   	    title: "shangcheng", // 分享标题
+								    desc: "sfgsdhfasfjj", // 分享描述
+								    link: 'http://www.huceo.com/post/368.html', // 分享链接
+								    imgUrl: "http://www.huceo.com/zb_users/upload/2015/12/201512151450189288119520.jpg", // 分享图标
 								    type: '', // 分享类型,music、video或link，不填默认为link
 								    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 								    success: function () { 
 								        // 用户确认分享后执行的回调函数
+								        alert("ok")
 								    },
 								    cancel: function () { 
 								        // 用户取消分享后执行的回调函数
