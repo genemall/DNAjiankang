@@ -84,14 +84,17 @@ dnaStore
     	}
         //根据cookie判断地址是否配置和加载
         if(loginService.getCookie('address')==null){
+        	loginService.putCookieForever("address",0) 
         	//获取 address 配置
-        	httpService.post($rootScope.baseURL+'weixin/address.do',{})
+        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$location.absUrl()})
         	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
         		loginService.putCookieForever("address",data) 
         		$rootScope.wx_config()
              });
         }else{
-        	$rootScope.wx_config()
+        	if(loginService.getCookie('address')!=0){
+	        	$rootScope.wx_config()
+        	}
         }
         //判定状态改变事件
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
