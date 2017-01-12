@@ -140,7 +140,22 @@ pdModule.config(['$stateProvider',
 	                              window.location.href='index.html#/orderPay/'
 	                      });
 			    		}
-			    		httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
+//			    		httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
+			wx.onMenuShareAppMessage({
+			   	    title: product_details.proName, // 分享标题
+				    desc: product_details.proHead, // 分享描述
+				    link: '', // 分享链接
+				    imgUrl: product_details.imagelist[0].url, // 分享图标
+				    type: '', // 分享类型,music、video或link，不填默认为link
+				    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				    success: function () { 
+				        // 用户确认分享后执行的回调函数
+				        alert("fuck")
+				    },
+				    cancel: function () { 
+				        // 用户取消分享后执行的回调函数
+				    }
+				});
 			   },
             })
 
