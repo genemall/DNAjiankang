@@ -15,6 +15,7 @@ pdModule.config(['$stateProvider',
 	                    },
 	            },
                 controller: function($scope,product_details,util,httpService,$rootScope,$state,$location,$interval){
+                
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
                 	$('#productDetail').html(product_details.proDetail);	
@@ -138,7 +139,8 @@ pdModule.config(['$stateProvider',
 //	                              $location.path('/orderPay/')
 	                              window.location.href='index.html#/orderPay/'
 	                      });
-			    	}
+			    		}
+			    		httpService.share_link(product_details.proName,product_details.proHead,product_details.imagelist[0].url)
 			   },
             })
 
