@@ -86,7 +86,7 @@ dnaStore
         if(loginService.getCookie('address')==null){
 			loginService.putCookieForever("address",0) 
         	//获取 address 配置
-        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$location.absUrl()})
+        	httpService.post($rootScope.baseURL+'weixin/address.do',{'url':$rootScope.clientURL})
         	.then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
         		loginService.putCookieForever("address",data) 
         		$rootScope.wx_config()
