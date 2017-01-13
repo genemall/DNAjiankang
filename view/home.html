@@ -3,7 +3,7 @@
  <div class="myslides" ng-if="sliderShow">
  <ks-swiper-container loop="true" autoplay="2000"  pagination-is-active="true"  space-between="0" pagination-clickable="true">
     <ks-swiper-slide ng-repeat="img in images">
-    	<a  href="http://{{img.href}}">
+    	<a  href="{{img.href}}">
         	<img style="width: 100%;height: 100%;" ng-src="{{img.image}}">
         </a>
     </ks-swiper-slide>
