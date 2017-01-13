@@ -157,7 +157,7 @@
 }
 .company_info {
 	width:100%;
-	height:165px;
+	height:40px;
 	position: relative;
 }
 .company_pic{
@@ -249,6 +249,15 @@
 	bottom:50px;
 	width:100%;
 	overflow:scroll;
+}
+.pf {
+	margin: 0;
+}
+.pf_first {
+	margin: 0 28%;
+}
+.pf_second {
+	margin:0 30%;
 }
 //弹窗的样式
 .poplayer_box {
