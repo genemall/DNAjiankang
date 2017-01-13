@@ -18,6 +18,12 @@ homeModule.config(['$stateProvider',
 		 					util.set('openId',$stateParams.openId) 
 			 			}
                 	},
+                	image_list: function (httpService,$rootScope) { //定义预加载的函数
+                        return httpService.get($rootScope.baseURL+'home/phoneHomePage.do') //通过Service获取接口对应的json数据
+                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
+                                return data; //对返回的数据进行处理
+                            });;
+                    },
                 	classifyResolve: function (httpService,$rootScope) { //定义预加载的函数
                         return httpService.get($rootScope.baseURL+'classify/phoneclsall.do') //通过Service获取接口对应的json数据
                          .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
@@ -32,7 +38,7 @@ homeModule.config(['$stateProvider',
                     },
                 
                 },
-                 controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,loginService,util) {
+                 controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,image_list,loginService,util) {
                  	
              		var share_url = util.get("share_url")
 					if(share_url!=null &&share_url.indexOf("home")==-1){
@@ -47,11 +53,7 @@ homeModule.config(['$stateProvider',
                         $scope.products=$filter("filter")(products,$scope.searchInput);
                     }, true);
                     //以下是幻灯片展示部分，可以不看
-                    $scope.images = [{"url": "./resource/img/a.png","link":'#'},
-			                     {"url": "./resource/img/b.png","link":'#'},
-			                     {"url": "./resource/img/c.png","link":'#'},
-			                     {"url": "./resource/img/d.png","link":'#'},
-			                     ];
+                    $scope.images =image_list;
 			        //以下是搜索部分，可不看
 			        $scope.focusing = ''; //获得焦点时增加样式weui_search_focusing
                     $scope.isSearchShow = false; //是否显示搜索框的下拉列表
