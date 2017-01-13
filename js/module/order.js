@@ -25,6 +25,7 @@ angular.module('order', ['ui.router','utilMd'])
                        		},
                		 },
                     controller: function($scope,httpService,$rootScope,$stateParams,$state,$location,order_show,$interval,util){
+                    	$scope.user_id = $stateParams.id
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=order_show
                         $scope.getOrdersData = function(ord_state){
