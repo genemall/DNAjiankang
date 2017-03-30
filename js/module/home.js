@@ -10,12 +10,12 @@ homeModule.config(['$stateProvider',
                 url: '/home/:userId/:openId',
                 templateUrl: 'view/home.html',
                 resolve: { //预加载的功能，在页面渲染出现之前，提前加载这些数据，并在controller中引用
-                	share_page:function(util,$location,$stateParams,loginService){
+                	share_page:function($location,$stateParams,loginService){
                 		if($stateParams.userId!=0||$stateParams.userId!="0"){
 //				 			loginService.putCookieForever('userId',$stateParams.userId)
 //				 			loginService.putCookieForever('openId',$stateParams.openId)
-				 			util.set('userId',$stateParams.userId) 
-		 					util.set('openId',$stateParams.openId) 
+				 			loginService.putCookieForever('userId',$stateParams.userId) 
+		 					loginService.putCookieForever('openId',$stateParams.openId) 
 			 			}
                 	},
                 	image_list: function (httpService,$rootScope) { //定义预加载的函数
@@ -38,11 +38,11 @@ homeModule.config(['$stateProvider',
                     },
                 
                 },
-                 controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,image_list,loginService,util) {
+                 controller: function ($scope,$stateParams,$location,$rootScope,$filter,classifyResolve,products,image_list,loginService) {
                  	
-             		var share_url = util.get("share_url")
+             		var share_url = loginService.getCookie("share_url")
 					if(share_url!=null &&share_url.indexOf("home")==-1){
-						util.set("share_url",null)
+						loginService.putCookieForever("share_url",null)
 //							$location.path(share_url)
 						window.location.href="index.html#"+share_url
 					}
@@ -86,7 +86,7 @@ homeModule.config(['$stateProvider',
                         }
                     }
                     $scope.getProducts=function(id,claName){
-                    	util.set('claName',claName)
+                    	loginService.putCookieForever('claName',claName)
                     	$location.path('/product/'+id)
                     }
                     //放在最后，判断是否重定向

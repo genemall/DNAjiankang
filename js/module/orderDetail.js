@@ -7,7 +7,7 @@ angular.module('orderDetail', ['ui.router'])
                     url: '/orderDetail/:id',
                     templateUrl: 'view/orderDetail.html',
                     resolve: {
-                    	order_detail: function (httpService,$rootScope,$stateParams,util) {
+                    	order_detail: function (httpService,$rootScope,$stateParams) {
                     	     return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId='+$stateParams.id)
                              .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                     return data;

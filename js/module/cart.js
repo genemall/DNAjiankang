@@ -10,8 +10,8 @@ angular.module('cart', ['ui.router','cartMd'])
                     url: '/cart/:id',
                     templateUrl: 'view/cart.html',
                     resolve: {
-	                	cart_list: function (httpService,$rootScope,util) {
-	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+util.get("userId"))
+	                	cart_list: function (httpService,$rootScope,loginService) {
+	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+loginService.getCookie("userId"))
 //	                        return httpService.get($rootScope.baseURL+'cart/phonecartsel.do?userId='+1)
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 	                             if(!data){
@@ -26,7 +26,7 @@ angular.module('cart', ['ui.router','cartMd'])
 	                        });
 	                    },
 	                },
-                    controller:function($scope,cart_list,httpService,$rootScope,$location,util){
+                    controller:function($scope,cart_list,httpService,$rootScope,$location,loginService){
                     	//http://blog.csdn.net/liaodehong/article/details/52493779
                     	$scope.cart_datas=cart_list;
                     	$scope.$watch("cart_datas", function() {//监控数据变化
@@ -143,16 +143,16 @@ angular.module('cart', ['ui.router','cartMd'])
                             $scope.loadingToastHide = 1
                             //赋值给 orderPay界面
                            // ofzXwvnbUQYrVMmYn8uxZuHbbX5g
-							var post_data={'openId':util.get("openId"),'finalmoney':$scope.cart_total,
+							var post_data={'openId':loginService.getCookie("openId"),'finalmoney':$scope.cart_total,
 											"orderProducts":angular.toJson(orderProducts)}
 		                  	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 		                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
 		                              console.log(data)
-		                              util.set("pay_data",data)
-		                              util.set("orderPay",{"ordPrice":$scope.cart_total,
+		                              loginService.putCookieForever("pay_data",data)
+		                              loginService.putCookieForever("orderPay",{"ordPrice":$scope.cart_total,
 		                              			"mapOrderProductList":orderDetail_datas})
 	                               	  $scope.loadingToastHide = 0
-	                               	  util.set('from_order',1)
+	                               	  loginService.putCookieForever('from_order',1)
 		                              $location.path('/orderPay/')
 		                      });
                         }

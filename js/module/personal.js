@@ -6,21 +6,21 @@ angular.module('personal', ['ui.router'])
                     url: '/personal/:id',
                     templateUrl: 'view/personal.html',
                     resolve: {
-						user_detail: function (httpService,$rootScope,util) {
-	                        return httpService.get($rootScope.baseURL+'user/phoneUserId.do?userId='+util.get("userId"))
+						user_detail: function (httpService,$rootScope,loginService) {
+	                        return httpService.get($rootScope.baseURL+'user/phoneUserId.do?userId='+loginService.getCookie("userId"))
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 return data;
 	                            });
 	                    },
-	                	order_list: function (httpService,$rootScope,util) {
-	                        return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByUserId.do?userId='+util.get("userId"))
+	                	order_list: function (httpService,$rootScope,loginService) {
+	                        return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByUserId.do?userId='+loginService.getCookie("userId"))
 	                         .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
                                 return data;
 	                            });
 	                    },
 	                },
-	                controller: function($scope,httpService,user_detail,order_list,util,$rootScope,$stateParams){
-                        $scope.user_id=util.get("userId")
+	                controller: function($scope,httpService,user_detail,order_list,loginService,$rootScope,$stateParams){
+                        $scope.user_id=loginService.getCookie("userId")
                         $scope.headImgurl=user_detail.headImgurl
                         $scope.nickname=user_detail.nickname
                         

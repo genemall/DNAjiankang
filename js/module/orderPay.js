@@ -7,12 +7,12 @@ angular.module('orderPay', ['ui.router','utilMd'])
                     url: '/orderPay/:id',
                     templateUrl: 'view/orderPay.html',
                     resolve: {
-                    	order_detail: function (httpService,util) {
-                    		if(util.get('from_order')!=null){
+                    	order_detail: function (httpService,loginService) {
+                    		if(loginService.getCookie('from_order')!=null){
 				            	location.reload(true)
-				            	util.set('from_order',null)
+				            	loginService.putCookieForever('from_order',null)
 			            	}
-                    		return util.get('orderPay')
+                    		return loginService.getCookie('orderPay')
                    		},
 //						order_detail: function (httpService,$rootScope,$stateParams,util) {
 //                  	     return httpService.get($rootScope.baseURL+'order/phoneGetOrdersByOrderId.do?orderId=2')
@@ -21,7 +21,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
 //                              });
 //                      },
                		 },
-                    controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,util,httpService){
+                    controller: function($scope,$rootScope,$interval,$location,loginService,order_detail,httpService){
                     	
                     	$scope.orderDetail_datas=order_detail.mapOrderProductList;
                     	$scope.ordPrice=order_detail.ordPrice;
@@ -114,7 +114,7 @@ angular.module('orderPay', ['ui.router','utilMd'])
                             	$scope.dialog_content=$scope.address.userName
                             	return
                             }
-                            var pay_data = util.get("pay_data")
+                            var pay_data = loginService.getCookie("pay_data")
                 			 WeixinJSBridge.invoke('getBrandWCPayRequest',pay_data,function(res){
 									WeixinJSBridge.log(res.err_msg);
 					// 				alert(res.err_code + res.err_desc + res.err_msg);

@@ -35,7 +35,7 @@ dnaStore
         }
     )
     //配置系统初始需要的数据
-    .run(function ($rootScope,httpService,util, $state, $location,loginService) {
+    .run(function ($rootScope,httpService, $state, $location,loginService) {
         //用户登录信息绑定在跟作用域下，因为各个状态路由可能都需要涉及登录信息
         //$rootScope.user = loginService.isLogin();
         $rootScope.user = 'shileiding'
@@ -43,9 +43,9 @@ dnaStore
 		$rootScope.clientURL="http://nbuxinxiren.cn/DNAjiankang/"
 		//$rootScope.baseURL="http://192.168.0.101:8080/SpringGene1/"
 //		$scope.userId = util.get("userId")
-		if (util.get("userId") == null ){
-			util.set("userId",0)//防止再执行,标示
-			util.set('share_url',$location.url()) //来之分享页面
+		if (loginService.getCookie("userId") == null ){
+			loginService.putCookieForever("userId",0)//防止再执行,标示
+			loginService.putCookieForever('share_url',$location.url()) //来之分享页面
 			window.location.href=$rootScope.baseURL+'weixin/oauth.do'
 		}
         //判定状态改变事件

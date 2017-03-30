@@ -24,7 +24,7 @@ angular.module('order', ['ui.router','utilMd'])
                                 });;
                        		},
                		 },
-                    controller: function($scope,httpService,$rootScope,$stateParams,$state,$location,order_show,$interval,util){
+                    controller: function($scope,httpService,$rootScope,$stateParams,$state,$location,order_show,$interval,loginService){
                     	$scope.user_id = $stateParams.id
                         $scope.is_select_id=$stateParams.ord_state
                         $scope.order_show=order_show
@@ -87,16 +87,16 @@ angular.module('order', ['ui.router','utilMd'])
                          	for(var i=0;i<$scope.order_show.length;i++){
                         		if($scope.order_show[i].id==ordId){
                         			//获取微信支付数据
-                        			util.set('orderPay',$scope.order_show[i])
-                        			var post_data={'openId':util.get("openId"),'finalmoney':$scope.order_show[i].ordPrice,
+                        			loginService.putCookieForever('orderPay',$scope.order_show[i])
+                        			var post_data={'openId':loginService.getCookie("openId"),'finalmoney':$scope.order_show[i].ordPrice,
 											'orderId':ordId}
                         			console.log(post_data)
 			                    	httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 			                    	  .then(function (data) {
 			                    	  	console.log(data)
-		                                util.set('pay_data',data)
+		                                loginService.putCookieForever('pay_data',data)
 		                                $scope.loadingToastHide = 0;
-		                        		util.set('from_order',1)
+		                        		loginService.putCookieForever('from_order',1)
 		                        		//$location.path('/orderPay/')
 		                        		window.location.href='index.html#/orderPay/'
 		                        		//$state.go('orderPay',{},{reload:true});  

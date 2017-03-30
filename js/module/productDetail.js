@@ -14,7 +14,7 @@ pdModule.config(['$stateProvider',
 	                            });
 	                    },
 	            },
-                controller: function($scope,product_details,util,httpService,loginService,$rootScope,$state,$location,$interval){
+                controller: function($scope,product_details,httpService,loginService,$rootScope,$state,$location,$interval){
                 
                 	$scope.productId=product_details.id;
                 	 $scope.product=product_details;
@@ -87,7 +87,7 @@ pdModule.config(['$stateProvider',
 //		    		console.log(util.get("userId"))
 			    	$scope.addcart = function (){
 			    		$scope.mask=false;
-			    		var post_data={'proId':$scope.productId,'userId':util.get("userId"),'procount':$scope.skunum}
+			    		var post_data={'proId':$scope.productId,'userId':loginService.getCookie("userId"),'procount':$scope.skunum}
 			    		console.log(post_data)
 			    		$scope.loadingToastHide = 1;
 			    		httpService.post($rootScope.baseURL+'cart/phonecartadd.do',post_data)
@@ -174,15 +174,15 @@ pdModule.config(['$stateProvider',
                                 		}
                                 	})
 			    		var finalmoney = $scope.skunum * $scope.product.proRateprice
-			    		var post_data={'openId':util.get("openId"),'finalmoney':finalmoney,
+			    		var post_data={'openId':loginService.getCookie("openId"),'finalmoney':finalmoney,
 			    		'orderProducts':angular.toJson(orderProducts)}
 		    			httpService.post($rootScope.baseURL+'weixin/topay.do',post_data)
 	                           .then(function (data) {//.then()函数里的返回值解析.这适用于对返回值做一些处理后再返回.
-	                              util.set("pay_data",data)
-	                              util.set("orderPay",{"ordPrice":finalmoney,
+	                              loginService.putCookieForever("pay_data",data)
+	                              loginService.putCookieForever("orderPay",{"ordPrice":finalmoney,
 		                              			"mapOrderProductList":orderDetail_datas})
                                	  $scope.loadingToastHide = 0
-                               	  util.set('from_order',1)
+                               	  loginService.putCookieForever('from_order',1)
 //	                              $location.path('/orderPay/')
 	                              window.location.href='index.html#/orderPay/'
 	                      });

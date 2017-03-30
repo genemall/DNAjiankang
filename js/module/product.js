@@ -14,13 +14,13 @@ angular.module('product', ['ui.router'])
 	                            });
 	                    },
 	                },
-                    controller: function($scope,httpService,product_list,$rootScope,$stateParams,util){
+                    controller: function($scope,httpService,product_list,$rootScope,$stateParams,loginService){
                     	$scope.products_show=product_list[0].listProduct//每个标签对应的商品信息，默认是第一个标签
                     	//jquery 实现 滑动导航栏,有待改装成angularjs
                     	var arr = new Array()
                         for(var i=0;i<product_list.length;i++){
                         	if(product_list[i].claName==null){
-                        		arr.push("<li> <a href='javascript:void(0)' >"+util.get("claName")+"</a></li>")
+                        		arr.push("<li> <a href='javascript:void(0)' >"+loginService.getCookie("claName")+"</a></li>")
                         		break
                         	}
                             arr.push("<li> <a href='javascript:void(0)' id='"+product_list[i].id+"'>"+product_list[i].claName+"</a></li>")
